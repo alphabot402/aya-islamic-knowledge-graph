@@ -23,7 +23,7 @@ function Stars({ count = 5000, radius = 1.5, color = "#1ac7b1", size = 0.002, sp
   const ref = useRef<THREE.Points>(null)
 
   const sphere = useMemo(() => {
-    const positions = random.inSphere(new Float32Array(count * 3), { radius })
+    const positions = random.inSphere(new Float32Array(count * 3), { radius }) as Float32Array
     return positions
   }, [count, radius])
 
@@ -54,7 +54,7 @@ function NebulaCloud() {
   const ref = useRef<THREE.Points>(null)
 
   const cloud = useMemo(() => {
-    const positions = random.inSphere(new Float32Array(2000 * 3), { radius: 1.2 })
+    const positions = random.inSphere(new Float32Array(2000 * 3), { radius: 1.2 }) as Float32Array
     return positions
   }, [])
 
