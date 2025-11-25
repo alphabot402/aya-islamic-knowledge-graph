@@ -25,6 +25,7 @@ import { useNodeSelection } from '@/hooks/useNodeSelection'
 import { CanvasErrorBoundary } from './CanvasErrorBoundary'
 import Scene from './Scene'
 import Header from './ui/Header'
+import Legend from './ui/Legend'
 import PillarFilter from './ui/PillarFilter'
 import ZoomControls from './ui/ZoomControls'
 import BottomInstructions from './ui/BottomInstructions'
@@ -123,6 +124,9 @@ export default function QuranGraph() {
 
       {/* Header - Main explanation (top 25%) */}
       {!isLoading && !error && <Header />}
+
+      {/* Legend - Color guide for Surah vs Hadith */}
+      {!isLoading && !error && <Legend />}
 
       {/* Pillar Filter Buttons */}
       <PillarFilter

@@ -64,7 +64,31 @@ function HadithNode({
 
   return (
     <group position={node.position}>
-      {/* Main sphere */}
+      {/* Outer constellation glow - far golden aura */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.35, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.2 : isHovered ? 0.15 : 0.1}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Middle constellation glow - golden atmosphere */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.2, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.38 : isHovered ? 0.3 : 0.2}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main sphere - golden stellar core */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -75,9 +99,33 @@ function HadithNode({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.2 : isHovered ? 1.0 : 0.8}
+          emissiveIntensity={isSelected ? 2.2 : isHovered ? 1.7 : 1.4}
           metalness={0.95}
           roughness={0.05}
+        />
+      </mesh>
+
+      {/* Inner rim glow - golden edge highlight */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.08, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.55 : isHovered ? 0.45 : 0.3}
+          side={THREE.FrontSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Bright golden corona */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.15, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.35 : isHovered ? 0.25 : 0.15}
+          side={THREE.FrontSide}
+          blending={THREE.AdditiveBlending}
         />
       </mesh>
 

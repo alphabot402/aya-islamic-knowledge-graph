@@ -89,18 +89,31 @@ function SurahNode({
 
   return (
     <group position={node.position}>
-      {/* Planetary glow outline - outer atmosphere */}
+      {/* Outer constellation glow - far atmosphere */}
       <mesh>
-        <sphereGeometry args={[nodeMetrics.baseSize * 1.15, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.35, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.25 : isHovered ? 0.2 : 0.12}
+          opacity={isSelected ? 0.18 : isHovered ? 0.14 : 0.08}
           side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Main sphere - planet body */}
+      {/* Middle constellation glow - atmosphere layer */}
+      <mesh>
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.2, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.35 : isHovered ? 0.28 : 0.18}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main sphere - stellar core with enhanced glow */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -111,19 +124,31 @@ function SurahNode({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.2 : isHovered ? 0.9 : 0.7}
-          metalness={0.7}
-          roughness={0.2}
+          emissiveIntensity={isSelected ? 2.0 : isHovered ? 1.5 : 1.2}
+          metalness={0.8}
+          roughness={0.15}
         />
       </mesh>
 
-      {/* Rim glow - edge highlight */}
+      {/* Inner rim glow - intense edge highlight */}
       <mesh>
-        <sphereGeometry args={[nodeMetrics.baseSize * 1.05, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.08, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.4 : isHovered ? 0.3 : 0.15}
+          opacity={isSelected ? 0.5 : isHovered ? 0.4 : 0.25}
+          side={THREE.FrontSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Bright stellar corona */}
+      <mesh>
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.15, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.3 : isHovered ? 0.22 : 0.12}
           side={THREE.FrontSide}
           blending={THREE.AdditiveBlending}
         />
