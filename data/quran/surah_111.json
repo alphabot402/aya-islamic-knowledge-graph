@@ -1,0 +1,57 @@
+{
+  "surah_number": 111,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "تَبَّتْ يَدَآ أَبِى لَهَبٍۢ وَتَبَّ",
+      "text_simple": "تَبَّتْ يَدَآ أَبِى لَهَبٍۢ وَتَبَّ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ",
+      "text_simple": "مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "سَيَصْلَىٰ نَارًۭا ذَاتَ لَهَبٍۢ",
+      "text_simple": "سَيَصْلَىٰ نَارًۭا ذَاتَ لَهَبٍۢ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 4,
+      "text_uthmani": "وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ",
+      "text_simple": "وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 5,
+      "text_uthmani": "فِى جِيدِهَا حَبْلٌۭ مِّن مَّسَدٍۭ",
+      "text_simple": "فِى جِيدِهَا حَبْلٌۭ مِّن مَّسَدٍۭ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}

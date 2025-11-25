@@ -1,0 +1,22 @@
+{
+  "name": "aya-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["app"],
+  "scripts": {
+    "dev": "npm run dev --workspace=app",
+    "build": "npm run build --workspace=app",
+    "migrate": "ts-node scripts/migration/run-migration.ts",
+    "migrate:clear": "ts-node scripts/migration/run-migration.ts --clear",
+    "migrate:quran": "ts-node scripts/migration/migrate-quran.ts",
+    "migrate:hadith": "ts-node scripts/migration/migrate-hadith.ts",
+    "migrate:edges": "ts-node scripts/migration/migrate-edges.ts",
+    "validate:migration": "ts-node scripts/migration/validate-migration.ts"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

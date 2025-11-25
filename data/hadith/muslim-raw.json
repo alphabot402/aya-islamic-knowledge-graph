@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "collection": "Sahih Muslim",
+    "status": "pending_manual_download",
+    "note": "This is a placeholder. Muslim collection needs to be downloaded manually.",
+    "instructions": [
+      "1. Visit https://github.com/sunnah-com/hadith-data",
+      "2. Find sahih-muslim.json or equivalent",
+      "3. Replace this file with the actual data"
+    ]
+  },
+  "hadiths": []
+}

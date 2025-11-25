@@ -1,0 +1,37 @@
+{
+  "surah_number": 110,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ",
+      "text_simple": "إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًۭا",
+      "text_simple": "وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًۭا",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا",
+      "text_simple": "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ ۚ إِنَّهُۥ كَانَ تَوَّابًۢا",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}

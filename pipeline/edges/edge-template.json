@@ -1,0 +1,45 @@
+{
+  "id": "edge_salah_001",
+  "pillar": "Salah",
+  "verse_ref": {
+    "surah": 2,
+    "ayah": 43,
+    "reference": "2:43"
+  },
+  "hadith_ref": {
+    "collection": "Sahih al-Bukhari",
+    "hadith_number": 500,
+    "book_english": "Book of Prayer",
+    "book_arabic": "كتاب الصلاة"
+  },
+  "linkage": {
+    "tier": 1,
+    "linkage_type": "Explicit_Citation",
+    "legal_function": ["Bayan"],
+    "weight": 0.95
+  },
+  "verification": {
+    "sources": [
+      {
+        "type": "hadith_collection",
+        "reference": "Sahih al-Bukhari, Book 8, Hadith 500"
+      },
+      {
+        "type": "tafsir",
+        "reference": "Ibn Kathir on 2:43"
+      }
+    ],
+    "status": "manually_verified"
+  },
+  "quran_verse": {
+    "text_arabic": "وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ وَارْكَعُوا مَعَ الرَّاكِعِينَ",
+    "text_english": "And establish prayer and give zakah and bow with those who bow [in worship and obedience]."
+  },
+  "hadith": {
+    "primary_narrator": "Abu Hurairah",
+    "text_arabic_snippet": "الصلاة عماد الدين",
+    "text_english_summary": "Prayer is the pillar of religion",
+    "authentication": "Sahih"
+  },
+  "notes": "This hadith directly explains the practical implementation of the Quranic command to establish prayer. Ibn Kathir explicitly mentions this connection in his tafsir."
+}

@@ -1,0 +1,67 @@
+{
+  "surah_number": 109,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "قُلْ يَـٰٓأَيُّهَا ٱلْكَـٰفِرُونَ",
+      "text_simple": "قُلْ يَـٰٓأَيُّهَا ٱلْكَـٰفِرُونَ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "لَآ أَعْبُدُ مَا تَعْبُدُونَ",
+      "text_simple": "لَآ أَعْبُدُ مَا تَعْبُدُونَ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ",
+      "text_simple": "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 4,
+      "text_uthmani": "وَلَآ أَنَا۠ عَابِدٌۭ مَّا عَبَدتُّمْ",
+      "text_simple": "وَلَآ أَنَا۠ عَابِدٌۭ مَّا عَبَدتُّمْ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 5,
+      "text_uthmani": "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ",
+      "text_simple": "وَلَآ أَنتُمْ عَـٰبِدُونَ مَآ أَعْبُدُ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 6,
+      "text_uthmani": "لَكُمْ دِينُكُمْ وَلِىَ دِينِ",
+      "text_simple": "لَكُمْ دِينُكُمْ وَلِىَ دِينِ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}

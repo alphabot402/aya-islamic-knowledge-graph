@@ -1,0 +1,3415 @@
+{
+  "metadata": {
+    "version": "3.1",
+    "lastUpdated": "2025-11-25",
+    "totalConnections": 101,
+    "verificationStandard": "Manual verification against classical Islamic scholarship + Auto-discovery validation",
+    "description": "Authenticated connections between Quran verses and hadiths from Sahih al-Bukhari (Enhanced with auto-discovery data)",
+    "autoDiscoveryStats": {
+      "autoDiscoveredEdges": 27,
+      "newEdgesAdded": 26,
+      "duplicatesSkipped": 1,
+      "existingEdgesEnhanced": 1,
+      "pendingManualVerification": 26
+    }
+  },
+  "edges": [
+    {
+      "id": "edge-001",
+      "verse": {
+        "surah": 1,
+        "reference": "1:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 1,
+        "hadithId": 1,
+        "idInBook": 1
+      },
+      "connectionType": "contextual",
+      "relationship": "Intentions and beginning with Allah's name",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Revelation"
+        ]
+      },
+      "strength": "moderate",
+      "tags": [
+        "intention",
+        "niyyah",
+        "bismillah"
+      ]
+    },
+    {
+      "id": "edge-002",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 30,
+        "hadithId": 1900,
+        "idInBook": 1900
+      },
+      "connectionType": "direct",
+      "relationship": "Fasting obligation explained",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Fasting",
+          "Ibn Kathir Tafsir"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "fasting",
+        "sawm",
+        "ramadan"
+      ]
+    },
+    {
+      "id": "edge-003",
+      "verse": {
+        "surah": 2,
+        "reference": "2:255",
+        "ayah": 255
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 97,
+        "hadithId": 5010,
+        "idInBook": 5010
+      },
+      "connectionType": "excellence",
+      "relationship": "Ayat al-Kursi excellence",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Virtues of Quran"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "ayat-al-kursi",
+        "excellence"
+      ]
+    },
+    {
+      "id": "edge-004",
+      "verse": {
+        "surah": 1,
+        "reference": "1:5",
+        "ayah": 5
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 8,
+        "hadithId": 350,
+        "idInBook": 350
+      },
+      "connectionType": "direct",
+      "relationship": "Worship and prayer direction",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Prayer"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "worship",
+        "prayer",
+        "salah"
+      ]
+    },
+    {
+      "id": "edge-005",
+      "verse": {
+        "surah": 2,
+        "reference": "2:43",
+        "ayah": 43
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 10,
+        "hadithId": 500,
+        "idInBook": 500
+      },
+      "connectionType": "direct",
+      "relationship": "Establish prayer command",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Adhan"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "salah",
+        "establish"
+      ]
+    },
+    {
+      "id": "edge-006",
+      "verse": {
+        "surah": 2,
+        "reference": "2:110",
+        "ayah": 110
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 24,
+        "hadithId": 1400,
+        "idInBook": 1400
+      },
+      "connectionType": "direct",
+      "relationship": "Prayer and charity together",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Zakat"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "charity",
+        "zakat"
+      ]
+    },
+    {
+      "id": "edge-007",
+      "verse": {
+        "surah": 2,
+        "reference": "2:177",
+        "ayah": 177
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 8,
+        "idInBook": 8
+      },
+      "connectionType": "thematic",
+      "relationship": "True righteousness defined",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Belief"
+        ]
+      },
+      "strength": "moderate",
+      "tags": [
+        "righteousness",
+        "belief",
+        "iman"
+      ]
+    },
+    {
+      "id": "edge-008",
+      "verse": {
+        "surah": 2,
+        "reference": "2:196",
+        "ayah": 196
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 25,
+        "hadithId": 1500,
+        "idInBook": 1500
+      },
+      "connectionType": "direct",
+      "relationship": "Hajj and Umrah obligations",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Hajj"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "hajj",
+        "umrah",
+        "pilgrimage"
+      ]
+    },
+    {
+      "id": "edge-009",
+      "verse": {
+        "surah": 3,
+        "reference": "3:97",
+        "ayah": 97
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 25,
+        "hadithId": 1520,
+        "idInBook": 1520
+      },
+      "connectionType": "direct",
+      "relationship": "Pilgrimage to the House obligation",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Hajj"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "hajj",
+        "kaaba",
+        "pilgrimage"
+      ]
+    },
+    {
+      "id": "edge-010",
+      "verse": {
+        "surah": 4,
+        "reference": "4:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 3330,
+        "idInBook": 3330
+      },
+      "connectionType": "thematic",
+      "relationship": "Rights and family relations",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Marriage"
+        ]
+      },
+      "strength": "moderate",
+      "tags": [
+        "family",
+        "rights",
+        "relations"
+      ]
+    },
+    {
+      "id": "edge-011",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 37,
+        "hadithId": 2100,
+        "idInBook": 2100
+      },
+      "connectionType": "direct",
+      "relationship": "Fulfilling contracts and obligations",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Sales"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "contracts",
+        "obligations",
+        "agreements"
+      ]
+    },
+    {
+      "id": "edge-012",
+      "verse": {
+        "surah": 6,
+        "reference": "6:162",
+        "ayah": 162
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 55,
+        "idInBook": 55
+      },
+      "connectionType": "direct",
+      "relationship": "Devotion to Allah alone",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Belief"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "tawhid",
+        "devotion",
+        "monotheism"
+      ]
+    },
+    {
+      "id": "edge-013",
+      "verse": {
+        "surah": 9,
+        "reference": "9:103",
+        "ayah": 103
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 24,
+        "hadithId": 1395,
+        "idInBook": 1395
+      },
+      "connectionType": "direct",
+      "relationship": "Purification through charity",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Zakat"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "charity",
+        "purification",
+        "zakat"
+      ]
+    },
+    {
+      "id": "edge-014",
+      "verse": {
+        "surah": 17,
+        "reference": "17:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 8,
+        "hadithId": 349,
+        "idInBook": 349
+      },
+      "connectionType": "direct",
+      "relationship": "Night Journey and prayer obligation",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Prayer",
+          "Ibn Kathir Tafsir"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "isra",
+        "miraj",
+        "prayer",
+        "night-journey"
+      ]
+    },
+    {
+      "id": "edge-015",
+      "verse": {
+        "surah": 22,
+        "reference": "22:27",
+        "ayah": 27
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 25,
+        "hadithId": 1534,
+        "idInBook": 1534
+      },
+      "connectionType": "direct",
+      "relationship": "Call to pilgrimage",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Hajj"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "hajj",
+        "pilgrimage",
+        "call"
+      ]
+    },
+    {
+      "id": "edge-016",
+      "verse": {
+        "surah": 24,
+        "reference": "24:56",
+        "ayah": 56
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 10,
+        "hadithId": 528,
+        "idInBook": 528
+      },
+      "connectionType": "direct",
+      "relationship": "Establish prayer and give charity command",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Adhan"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "charity",
+        "obedience"
+      ]
+    },
+    {
+      "id": "edge-017",
+      "verse": {
+        "surah": 33,
+        "reference": "33:56",
+        "ayah": 56
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 10,
+        "hadithId": 614,
+        "idInBook": 614
+      },
+      "connectionType": "direct",
+      "relationship": "Sending blessings upon the Prophet",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Adhan"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prophet",
+        "blessings",
+        "salawat"
+      ]
+    },
+    {
+      "id": "edge-018",
+      "verse": {
+        "surah": 49,
+        "reference": "49:13",
+        "ayah": 13
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 13,
+        "idInBook": 13
+      },
+      "connectionType": "direct",
+      "relationship": "Equality and taqwa as distinction",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Belief"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "equality",
+        "taqwa",
+        "righteousness"
+      ]
+    },
+    {
+      "id": "edge-019",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 11,
+        "hadithId": 876,
+        "idInBook": 876
+      },
+      "connectionType": "direct",
+      "relationship": "Friday prayer obligation",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Friday Prayer"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "friday",
+        "jumuah",
+        "prayer"
+      ]
+    },
+    {
+      "id": "edge-020",
+      "verse": {
+        "surah": 73,
+        "reference": "73:20",
+        "ayah": 20
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 19,
+        "hadithId": 1120,
+        "idInBook": 1120
+      },
+      "connectionType": "direct",
+      "relationship": "Night prayer and Quran recitation",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Tahajjud"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "night-prayer",
+        "tahajjud",
+        "quran"
+      ]
+    },
+    {
+      "id": "edge-021",
+      "verse": {
+        "surah": 96,
+        "reference": "96:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 1,
+        "hadithId": 3,
+        "idInBook": 3
+      },
+      "connectionType": "direct",
+      "relationship": "First revelation",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Revelation"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "revelation",
+        "first",
+        "read",
+        "iqra"
+      ],
+      "autoDiscovery": {
+        "discovered": true,
+        "method": "auto-curator-v2-precision",
+        "confidence": "very_high",
+        "evidence": "Contains known verse: Al-Alaq 96:1",
+        "discoveredDate": "2025-11-25T03:12:20.129Z"
+      }
+    },
+    {
+      "id": "edge-022",
+      "verse": {
+        "surah": 97,
+        "reference": "97:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 32,
+        "hadithId": 2014,
+        "idInBook": 2014
+      },
+      "connectionType": "excellence",
+      "relationship": "Night of Power excellence in Ramadan",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Fasting"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "laylat-al-qadr",
+        "ramadan",
+        "excellence"
+      ]
+    },
+    {
+      "id": "edge-023",
+      "verse": {
+        "surah": 107,
+        "reference": "107:4",
+        "ayah": 4
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 10,
+        "hadithId": 595,
+        "idInBook": 595
+      },
+      "connectionType": "direct",
+      "relationship": "Woe to those heedless of prayer",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Adhan"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "warning",
+        "neglect"
+      ]
+    },
+    {
+      "id": "edge-024",
+      "verse": {
+        "surah": 108,
+        "reference": "108:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 11,
+        "hadithId": 955,
+        "idInBook": 955
+      },
+      "connectionType": "direct",
+      "relationship": "Prayer and sacrifice command",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Book of Eid"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "sacrifice",
+        "eid"
+      ]
+    },
+    {
+      "id": "edge-025",
+      "verse": {
+        "surah": 112,
+        "reference": "112:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 97,
+        "hadithId": 5015,
+        "idInBook": 5015
+      },
+      "connectionType": "excellence",
+      "relationship": "Surah Al-Ikhlas equals one-third of Quran",
+      "scholarlyVerification": {
+        "verified": true,
+        "verifiedBy": "Manual review",
+        "verificationDate": "2024-11-24",
+        "sources": [
+          "Sahih al-Bukhari - Virtues of Quran"
+        ]
+      },
+      "strength": "strong",
+      "tags": [
+        "ikhlas",
+        "tawhid",
+        "excellence"
+      ]
+    },
+    {
+      "id": "edge-026",
+      "verse": {
+        "surah": 75,
+        "reference": "75:16",
+        "ayah": 16
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 1,
+        "hadithId": 5,
+        "idInBook": 5
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 75:16",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Revelation"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Qiyamah 75:16"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "revelation",
+        "wahi"
+      ]
+    },
+    {
+      "id": "edge-027",
+      "verse": {
+        "surah": 3,
+        "reference": "3:64",
+        "ayah": 64
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 1,
+        "hadithId": 7,
+        "idInBook": 7
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 3:64",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Revelation"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ali Imran 3:64"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "revelation",
+        "wahi",
+        "ali-imran"
+      ]
+    },
+    {
+      "id": "edge-028",
+      "verse": {
+        "surah": 6,
+        "reference": "6:83",
+        "ayah": 83
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 32,
+        "idInBook": 32
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 6:83",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Belief"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (6:83)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "belief",
+        "iman"
+      ]
+    },
+    {
+      "id": "edge-029",
+      "verse": {
+        "surah": 2,
+        "reference": "2:143",
+        "ayah": 143
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 40,
+        "idInBook": 40
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 2:143",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Belief"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (2:143)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "belief",
+        "iman",
+        "al-baqarah"
+      ]
+    },
+    {
+      "id": "edge-030",
+      "verse": {
+        "surah": 5,
+        "reference": "5:3",
+        "ayah": 3
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 2,
+        "hadithId": 45,
+        "idInBook": 45
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 5:3",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Belief"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (5:3)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "belief",
+        "iman"
+      ]
+    },
+    {
+      "id": "edge-031",
+      "verse": {
+        "surah": 2,
+        "reference": "2:159",
+        "ayah": 159
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 4,
+        "hadithId": 160,
+        "idInBook": 160
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 2:159",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (2:159)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "al-baqarah"
+      ]
+    },
+    {
+      "id": "edge-032",
+      "verse": {
+        "surah": 2,
+        "reference": "2:144",
+        "ayah": 144
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 8,
+        "hadithId": 394,
+        "idInBook": 394
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 2:144",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Prayer"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (2:144)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "salah",
+        "al-baqarah"
+      ]
+    },
+    {
+      "id": "edge-033",
+      "verse": {
+        "surah": 2,
+        "reference": "2:142",
+        "ayah": 142
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 8,
+        "hadithId": 394,
+        "idInBook": 394
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 2:142",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Prayer"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (2:142)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "prayer",
+        "salah",
+        "al-baqarah"
+      ]
+    },
+    {
+      "id": "edge-034",
+      "verse": {
+        "surah": 17,
+        "reference": "17:78",
+        "ayah": 78
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 10,
+        "hadithId": 633,
+        "idInBook": 633
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 17:78",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Adhan"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (17:78)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "adhan",
+        "call-to-prayer"
+      ]
+    },
+    {
+      "id": "edge-035",
+      "verse": {
+        "surah": 3,
+        "reference": "3:64",
+        "ayah": 64
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 56,
+        "hadithId": 2822,
+        "idInBook": 2822
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 3:64",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ali Imran 3:64"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "ali-imran"
+      ]
+    },
+    {
+      "id": "edge-036",
+      "verse": {
+        "surah": 4,
+        "reference": "4:69",
+        "ayah": 69
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 64,
+        "hadithId": 4245,
+        "idInBook": 4245
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 4:69",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (4:69)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-037",
+      "verse": {
+        "surah": 3,
+        "reference": "3:64",
+        "ayah": 64
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4347,
+        "idInBook": 4347
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 3:64",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ali Imran 3:64"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "tafsir",
+        "interpretation",
+        "ali-imran"
+      ]
+    },
+    {
+      "id": "edge-038",
+      "verse": {
+        "surah": 18,
+        "reference": "18:81",
+        "ayah": 81
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4520,
+        "idInBook": 4520
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 18:81",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (18:81)"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "tafsir",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "edge-039",
+      "verse": {
+        "surah": 74,
+        "reference": "74:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4717,
+        "idInBook": 4717
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 74:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:1"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "tafsir",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "edge-040",
+      "verse": {
+        "surah": 75,
+        "reference": "75:16",
+        "ayah": 16
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4719,
+        "idInBook": 4719
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 75:16",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Qiyamah 75:16"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "tafsir",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "edge-041",
+      "verse": {
+        "surah": 75,
+        "reference": "75:16",
+        "ayah": 16
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4720,
+        "idInBook": 4720
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 75:16",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Qiyamah 75:16"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "tafsir",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "edge-042",
+      "verse": {
+        "surah": 75,
+        "reference": "75:16",
+        "ayah": 16
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4721,
+        "idInBook": 4721
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 75:16",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari",
+          "Sahih al-Bukhari - Book of Tafsir"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Qiyamah 75:16"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "tafsir",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "edge-043",
+      "verse": {
+        "surah": 112,
+        "reference": "112:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 66,
+        "hadithId": 4810,
+        "idInBook": 4810
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 112:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Ikhlas 112:1"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "al-ikhlas",
+        "tawhid"
+      ]
+    },
+    {
+      "id": "edge-044",
+      "verse": {
+        "surah": 113,
+        "reference": "113:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 66,
+        "hadithId": 4810,
+        "idInBook": 4810
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 113:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Falaq 113:1"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote"
+      ]
+    },
+    {
+      "id": "edge-045",
+      "verse": {
+        "surah": 114,
+        "reference": "114:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 66,
+        "hadithId": 4810,
+        "idInBook": 4810
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 114:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: An-Nas 114:1"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote"
+      ]
+    },
+    {
+      "id": "edge-046",
+      "verse": {
+        "surah": 75,
+        "reference": "75:16",
+        "ayah": 16
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 66,
+        "hadithId": 4839,
+        "idInBook": 4839
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 75:16",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Qiyamah 75:16"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote"
+      ]
+    },
+    {
+      "id": "edge-047",
+      "verse": {
+        "surah": 4,
+        "reference": "4:23",
+        "ayah": 23
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4901,
+        "idInBook": 4901
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 4:23",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (4:23)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-048",
+      "verse": {
+        "surah": 4,
+        "reference": "4:24",
+        "ayah": 24
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4901,
+        "idInBook": 4901
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 4:24",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (4:24)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-049",
+      "verse": {
+        "surah": 102,
+        "reference": "102:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 81,
+        "hadithId": 6201,
+        "idInBook": 6201
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith contains direct reference to verse 102:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Direct notation: (102:1)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-050",
+      "verse": {
+        "surah": 112,
+        "reference": "112:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 97,
+        "hadithId": 7094,
+        "idInBook": 7094
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 112:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Ikhlas 112:1"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "al-ikhlas",
+        "tawhid"
+      ]
+    },
+    {
+      "id": "edge-051",
+      "verse": {
+        "surah": 3,
+        "reference": "3:64",
+        "ayah": 64
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 97,
+        "hadithId": 7255,
+        "idInBook": 7255
+      },
+      "connectionType": "direct",
+      "relationship": "Hadith explicitly quotes or cites verse 3:64",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery pending manual review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v2-precision",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ali Imran 3:64"
+        }
+      },
+      "strength": "strong",
+      "tags": [
+        "explicit-citation",
+        "direct-quote",
+        "ali-imran"
+      ]
+    },
+    {
+      "id": "edge-052",
+      "verse": {
+        "surah": 74,
+        "reference": "74:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 1,
+        "hadithId": 4,
+        "idInBook": 4
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Muddaththir 74:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-053",
+      "verse": {
+        "surah": 2,
+        "reference": "2:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 11,
+        "hadithId": 870,
+        "idInBook": 870
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-054",
+      "verse": {
+        "surah": 2,
+        "reference": "2:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 17,
+        "hadithId": 1037,
+        "idInBook": 1037
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-055",
+      "verse": {
+        "surah": 55,
+        "reference": "55:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 54,
+        "hadithId": 2620,
+        "idInBook": 2620
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Ar-Rahman 55:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ar-Rahman 55:1"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-056",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 55,
+        "hadithId": 2668,
+        "idInBook": 2668
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:183",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:183"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-057",
+      "verse": {
+        "surah": 2,
+        "reference": "2:282",
+        "ayah": 282
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 55,
+        "hadithId": 2668,
+        "idInBook": 2668
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:282",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:282"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-058",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 55,
+        "hadithId": 2668,
+        "idInBook": 2668
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-059",
+      "verse": {
+        "surah": 5,
+        "reference": "5:6",
+        "ayah": 6
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 55,
+        "hadithId": 2668,
+        "idInBook": 2668
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-060",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 55,
+        "hadithId": 2668,
+        "idInBook": 2668
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Jumu'ah 62:9",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Jumu'ah 62:9"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-061",
+      "verse": {
+        "surah": 55,
+        "reference": "55:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 56,
+        "hadithId": 2822,
+        "idInBook": 2822
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Ar-Rahman 55:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ar-Rahman 55:1"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-062",
+      "verse": {
+        "surah": 74,
+        "reference": "74:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 59,
+        "hadithId": 3105,
+        "idInBook": 3105
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Muddaththir 74:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-063",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 61,
+        "hadithId": 3472,
+        "idInBook": 3472
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-064",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 64,
+        "hadithId": 4111,
+        "idInBook": 4111
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-065",
+      "verse": {
+        "surah": 5,
+        "reference": "5:3",
+        "ayah": 3
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 64,
+        "hadithId": 4213,
+        "idInBook": 4213
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Maidah 5:3",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Maidah 5:3"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-066",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 64,
+        "hadithId": 4236,
+        "idInBook": 4236
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-067",
+      "verse": {
+        "surah": 55,
+        "reference": "55:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4347,
+        "idInBook": 4347
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Ar-Rahman 55:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ar-Rahman 55:1"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-068",
+      "verse": {
+        "surah": 5,
+        "reference": "5:3",
+        "ayah": 3
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4400,
+        "idInBook": 4400
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Maidah 5:3",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Maidah 5:3"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-069",
+      "verse": {
+        "surah": 2,
+        "reference": "2:21",
+        "ayah": 21
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4434,
+        "idInBook": 4434
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:21",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:21"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-070",
+      "verse": {
+        "surah": 4,
+        "reference": "4:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4434,
+        "idInBook": 4434
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nisa 4:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nisa 4:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-071",
+      "verse": {
+        "surah": 49,
+        "reference": "49:13",
+        "ayah": 13
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4434,
+        "idInBook": 4434
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Hujurat 49:13",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Hujurat 49:13"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-072",
+      "verse": {
+        "surah": 1,
+        "reference": "1:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Fatihah 1:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Fatihah 1:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-073",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:183",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:183"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-074",
+      "verse": {
+        "surah": 2,
+        "reference": "2:282",
+        "ayah": 282
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:282",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:282"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-075",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-076",
+      "verse": {
+        "surah": 5,
+        "reference": "5:6",
+        "ayah": 6
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-077",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4441,
+        "idInBook": 4441
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Jumu'ah 62:9",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Jumu'ah 62:9"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-078",
+      "verse": {
+        "surah": 2,
+        "reference": "2:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4568,
+        "idInBook": 4568
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Baqarah 2:1 (Alif Lam Mim)"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-079",
+      "verse": {
+        "surah": 74,
+        "reference": "74:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4714,
+        "idInBook": 4714
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Muddaththir 74:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-080",
+      "verse": {
+        "surah": 74,
+        "reference": "74:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4718,
+        "idInBook": 4718
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Muddaththir 74:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-081",
+      "verse": {
+        "surah": 74,
+        "reference": "74:2",
+        "ayah": 2
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4748,
+        "idInBook": 4748
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Muddaththir 74:2",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Muddaththir 74:2"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-082",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4761,
+        "idInBook": 4761
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-083",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4763,
+        "idInBook": 4763
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-084",
+      "verse": {
+        "surah": 110,
+        "reference": "110:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 65,
+        "hadithId": 4764,
+        "idInBook": 4764
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: An-Nasr 110:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: An-Nasr 110:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-085",
+      "verse": {
+        "surah": 55,
+        "reference": "55:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 66,
+        "hadithId": 4841,
+        "idInBook": 4841
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Ar-Rahman 55:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Ar-Rahman 55:1"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    },
+    {
+      "id": "edge-086",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4871,
+        "idInBook": 4871
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:183",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:183"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-087",
+      "verse": {
+        "surah": 2,
+        "reference": "2:282",
+        "ayah": 282
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4871,
+        "idInBook": 4871
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:282",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:282"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-088",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4871,
+        "idInBook": 4871
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-089",
+      "verse": {
+        "surah": 5,
+        "reference": "5:6",
+        "ayah": 6
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4871,
+        "idInBook": 4871
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-090",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 67,
+        "hadithId": 4871,
+        "idInBook": 4871
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Jumu'ah 62:9",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Jumu'ah 62:9"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-091",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 79,
+        "hadithId": 6004,
+        "idInBook": 6004
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:183",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:183"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-092",
+      "verse": {
+        "surah": 2,
+        "reference": "2:282",
+        "ayah": 282
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 79,
+        "hadithId": 6004,
+        "idInBook": 6004
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:282",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:282"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-093",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 79,
+        "hadithId": 6004,
+        "idInBook": 6004
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-094",
+      "verse": {
+        "surah": 5,
+        "reference": "5:6",
+        "ayah": 6
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 79,
+        "hadithId": 6004,
+        "idInBook": 6004
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-095",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 79,
+        "hadithId": 6004,
+        "idInBook": 6004
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Jumu'ah 62:9",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Jumu'ah 62:9"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-096",
+      "verse": {
+        "surah": 2,
+        "reference": "2:183",
+        "ayah": 183
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 89,
+        "hadithId": 6691,
+        "idInBook": 6691
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:183",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:183"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-097",
+      "verse": {
+        "surah": 2,
+        "reference": "2:282",
+        "ayah": 282
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 89,
+        "hadithId": 6691,
+        "idInBook": 6691
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Baqarah 2:282",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Baqarah 2:282"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-098",
+      "verse": {
+        "surah": 5,
+        "reference": "5:1",
+        "ayah": 1
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 89,
+        "hadithId": 6691,
+        "idInBook": 6691
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:1",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:1"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-099",
+      "verse": {
+        "surah": 5,
+        "reference": "5:6",
+        "ayah": 6
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 89,
+        "hadithId": 6691,
+        "idInBook": 6691
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Maidah 5:6 (Wudu verse)"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-100",
+      "verse": {
+        "surah": 62,
+        "reference": "62:9",
+        "ayah": 9
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 89,
+        "hadithId": 6691,
+        "idInBook": 6691
+      },
+      "connectionType": "direct",
+      "relationship": "Contains partial verse text: Al-Jumu'ah 62:9",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "high",
+          "evidence": "Contains partial verse text: Al-Jumu'ah 62:9"
+        }
+      },
+      "strength": "moderate",
+      "tags": []
+    },
+    {
+      "id": "edge-101",
+      "verse": {
+        "surah": 5,
+        "reference": "5:3",
+        "ayah": 3
+      },
+      "hadith": {
+        "collection": "Sahih al-Bukhari",
+        "bookId": 1,
+        "chapterId": 96,
+        "hadithId": 6993,
+        "idInBook": 6993
+      },
+      "connectionType": "direct",
+      "relationship": "Contains known verse: Al-Maidah 5:3",
+      "scholarlyVerification": {
+        "verified": false,
+        "verifiedBy": "Auto-discovery v3 pending review",
+        "verificationDate": "2025-11-25",
+        "sources": [
+          "Sahih al-Bukhari"
+        ],
+        "autoDiscovery": {
+          "discovered": true,
+          "method": "auto-curator-v3-enhanced",
+          "confidence": "very_high",
+          "evidence": "Contains known verse: Al-Maidah 5:3"
+        }
+      },
+      "strength": "strong",
+      "tags": []
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-celestial-void text-gray-100;
+  }
+  
+  .text-arabic {
+    @apply font-arabic text-right leading-loose text-2xl;
+  }
+}
+
+@layer components {
+  .badge-tier-1 {
+    @apply bg-gold-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-tier-2 {
+    @apply bg-teal-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-tier-3 {
+    @apply bg-gray-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-sahih {
+    @apply bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-hasan {
+    @apply bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .badge-daif {
+    @apply bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  
+  .card {
+    @apply bg-celestial-deep border border-celestial-medium rounded-lg p-6 shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:border-teal-500 hover:shadow-teal-500/20;
+  }
+}

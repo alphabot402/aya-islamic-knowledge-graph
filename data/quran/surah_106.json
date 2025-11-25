@@ -1,0 +1,47 @@
+{
+  "surah_number": 106,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "لِإِيلَـٰفِ قُرَيْشٍ",
+      "text_simple": "لِإِيلَـٰفِ قُرَيْشٍ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "إِۦلَـٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ",
+      "text_simple": "إِۦلَـٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "فَلْيَعْبُدُوا۟ رَبَّ هَـٰذَا ٱلْبَيْتِ",
+      "text_simple": "فَلْيَعْبُدُوا۟ رَبَّ هَـٰذَا ٱلْبَيْتِ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 4,
+      "text_uthmani": "ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍۢ وَءَامَنَهُم مِّنْ خَوْفٍۭ",
+      "text_simple": "ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍۢ وَءَامَنَهُم مِّنْ خَوْفٍۭ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}

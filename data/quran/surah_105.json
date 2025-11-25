@@ -1,0 +1,57 @@
+{
+  "surah_number": 105,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ",
+      "text_simple": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَـٰبِ ٱلْفِيلِ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍۢ",
+      "text_simple": "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍۢ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      "text_simple": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 4,
+      "text_uthmani": "تَرْمِيهِم بِحِجَارَةٍۢ مِّن سِجِّيلٍۢ",
+      "text_simple": "تَرْمِيهِم بِحِجَارَةٍۢ مِّن سِجِّيلٍۢ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 5,
+      "text_uthmani": "فَجَعَلَهُمْ كَعَصْفٍۢ مَّأْكُولٍۭ",
+      "text_simple": "فَجَعَلَهُمْ كَعَصْفٍۢ مَّأْكُولٍۭ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}
