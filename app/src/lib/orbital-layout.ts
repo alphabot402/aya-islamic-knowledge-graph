@@ -18,15 +18,26 @@ import { type Pillar } from '@/hooks/useGraphData.orbital'
 // CIRCULAR ROW CONFIGURATION
 // ============================================================================
 
-// Optimized radii for balanced spacing (target: 8-12 units per node)
-// Distribution: Shahada(19), Salah(20), Zakat(18), Sawm(12), Hajj(8)
+// Organized pillar zones with surah + hadith rings
+// Each pillar has: Surah ring, then Hadith ring +5 units outside
+// Clear spacing between different pillar zones
 export const PILLAR_ORBITS: Record<Pillar, { radius: number; yOffset: number }> = {
-  shahada: { radius: 28, yOffset: 0 },     // 19 nodes → 9.3 units/node
-  salah: { radius: 32, yOffset: 0 },       // 20 nodes → 10.1 units/node
-  zakat: { radius: 38, yOffset: 0 },       // 18 nodes → 13.3 units/node
-  sawm: { radius: 46, yOffset: 0 },        // 12 nodes → 24.1 units/node
-  hajj: { radius: 56, yOffset: 0 },        // 8 nodes → 44.0 units/node
-  general: { radius: 38, yOffset: 0 }      // Mapped to middle ring (will be filtered out)
+  shahada: { radius: 25, yOffset: 0 },     // Surah ring - innermost
+  salah: { radius: 35, yOffset: 0 },       // Surah ring
+  zakat: { radius: 45, yOffset: 0 },       // Surah ring
+  sawm: { radius: 55, yOffset: 0 },        // Surah ring
+  hajj: { radius: 65, yOffset: 0 },        // Surah ring - outermost
+  general: { radius: 45, yOffset: 0 }      // Mapped to middle (filtered out)
+}
+
+// Hadith rings - positioned +5 units outside their pillar's surah ring
+export const HADITH_ORBITS: Record<Pillar, number> = {
+  shahada: 30,  // +5 outside Shahada surahs (25)
+  salah: 40,    // +5 outside Salah surahs (35)
+  zakat: 50,    // +5 outside Zakat surahs (45)
+  sawm: 60,     // +5 outside Sawm surahs (55)
+  hajj: 70,     // +5 outside Hajj surahs (65)
+  general: 50   // Mapped to middle (filtered out)
 }
 
 // ============================================================================

@@ -21,7 +21,8 @@ import {
   calculateSurahPosition,
   calculateHadithMoonPosition,
   calculateMultiConnectionHadithPosition,
-  groupSurahsByPillar
+  groupSurahsByPillar,
+  HADITH_ORBITS
 } from '@/lib/orbital-layout'
 
 // Type imports
@@ -493,7 +494,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
             hadithsByPillar.get(pillar)!.push(h)
           })
 
-          // Position hadiths close to their connected surahs (orbiting around them)
+          // Position hadiths on organized rings - each pillar has its own hadith circle
           hadithNodes = connectedHadiths.map((h: Hadith, globalIndex: number) => {
             const connectedSurahs = hadithConnections.get(h.idInBook) || []
             const connectionIds = connectedSurahs.map(s => `surah-${s}`)
@@ -503,49 +504,20 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
               ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
               : 'general'
 
-            let rawPosition: [number, number, number]
+            // Get hadith ring radius for this pillar
+            const hadithRadius = HADITH_ORBITS[pillar as Pillar] || 50
 
-            if (connectedSurahs.length > 0) {
-              // Get position of first connected surah
-              const firstSurahNum = connectedSurahs[0]
-              const surahPos = surahPositions.get(firstSurahNum)
+            // Get all hadiths in this pillar for even distribution
+            const hadithsInThisPillar = hadithsByPillar.get(pillar) || []
+            const indexInPillar = hadithsInThisPillar.findIndex(hh => hh.idInBook === h.idInBook)
 
-              if (surahPos) {
-                // Orbit around the surah at a small local radius
-                const hadithsForThisSurah = connectedHadiths.filter(hh => {
-                  const conns = hadithConnections.get(hh.idInBook) || []
-                  return conns.includes(firstSurahNum)
-                })
-                const indexAroundSurah = hadithsForThisSurah.findIndex(hh => hh.idInBook === h.idInBook)
-                const totalAroundSurah = hadithsForThisSurah.length
+            // Distribute evenly around the hadith ring
+            const angle = (indexInPillar / hadithsInThisPillar.length) * Math.PI * 2
+            const x = Math.cos(angle) * hadithRadius
+            const z = Math.sin(angle) * hadithRadius
+            const y = 0 // Flat circular row
 
-                // Local orbit radius (3.5 units from surah)
-                const localOrbitRadius = 3.5
-                const angle = (indexAroundSurah / totalAroundSurah) * Math.PI * 2
-                const localX = Math.cos(angle) * localOrbitRadius
-                const localZ = Math.sin(angle) * localOrbitRadius
-
-                rawPosition = [
-                  surahPos[0] + localX,
-                  surahPos[1],
-                  surahPos[2] + localZ
-                ]
-              } else {
-                // Fallback: place on pillar ring if surah position not found
-                const hadithsInThisPillar = hadithsByPillar.get(pillar) || []
-                const indexInPillar = hadithsInThisPillar.findIndex(hh => hh.idInBook === h.idInBook)
-                const pillarRadius = PILLAR_ORBITS[pillar as Pillar]?.radius || 38
-                const angle = (indexInPillar / hadithsInThisPillar.length) * Math.PI * 2
-                rawPosition = [
-                  Math.cos(angle) * pillarRadius,
-                  0,
-                  Math.sin(angle) * pillarRadius
-                ]
-              }
-            } else {
-              // No connections: place on general ring
-              rawPosition = [0, 0, 0]
-            }
+            const rawPosition: [number, number, number] = [x, y, z]
 
             const position = validatePosition(
               rawPosition[0],

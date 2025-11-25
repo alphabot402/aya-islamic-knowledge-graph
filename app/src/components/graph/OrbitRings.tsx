@@ -83,45 +83,25 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 export default function OrbitRings() {
   return (
     <group>
-      {/* Shahada Ring - Innermost orbit (Optimized spacing) - Purple */}
-      <OrbitRing
-        radius={28}
-        label="Shahada"
-        color="#9333ea" // Purple - foundation
-        rotationSpeed={0.4}
-      />
+      {/* SHAHADA - Purple */}
+      <OrbitRing radius={25} label="Shahada-Surah" color="#9333ea" rotationSpeed={0.4} />
+      <OrbitRing radius={30} label="Shahada-Hadith" color="#a855f7" rotationSpeed={0.38} />
 
-      {/* Salah Ring - Second orbit - Deep Blue */}
-      <OrbitRing
-        radius={32}
-        label="Salah"
-        color="#3b82f6" // Bright Blue - celestial
-        rotationSpeed={0.35}
-      />
+      {/* SALAH - Blue */}
+      <OrbitRing radius={35} label="Salah-Surah" color="#3b82f6" rotationSpeed={0.35} />
+      <OrbitRing radius={40} label="Salah-Hadith" color="#60a5fa" rotationSpeed={0.33} />
 
-      {/* Zakat Ring - Third orbit - Emerald Teal */}
-      <OrbitRing
-        radius={38}
-        label="Zakat"
-        color="#14b8a6" // Teal - charity
-        rotationSpeed={0.3}
-      />
+      {/* ZAKAT - Teal */}
+      <OrbitRing radius={45} label="Zakat-Surah" color="#14b8a6" rotationSpeed={0.3} />
+      <OrbitRing radius={50} label="Zakat-Hadith" color="#2dd4bf" rotationSpeed={0.28} />
 
-      {/* Sawm Ring - Fourth orbit - Deep Violet */}
-      <OrbitRing
-        radius={46}
-        label="Sawm"
-        color="#8b5cf6" // Violet - fasting
-        rotationSpeed={0.25}
-      />
+      {/* SAWM - Violet */}
+      <OrbitRing radius={55} label="Sawm-Surah" color="#8b5cf6" rotationSpeed={0.25} />
+      <OrbitRing radius={60} label="Sawm-Hadith" color="#a78bfa" rotationSpeed={0.23} />
 
-      {/* Hajj Ring - Outermost orbit - Rich Gold */}
-      <OrbitRing
-        radius={56}
-        label="Hajj"
-        color="#f59e0b" // Amber Gold - pilgrimage
-        rotationSpeed={0.2}
-      />
+      {/* HAJJ - Gold */}
+      <OrbitRing radius={65} label="Hajj-Surah" color="#f59e0b" rotationSpeed={0.2} />
+      <OrbitRing radius={70} label="Hajj-Hadith" color="#fbbf24" rotationSpeed={0.18} />
 
       {/* Small central marker sphere - subtle reference point */}
       <mesh position={[0, 0, 0]}>
