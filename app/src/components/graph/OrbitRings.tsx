@@ -18,7 +18,7 @@ interface OrbitRingProps {
 }
 
 function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
-  const ringRef = useRef<THREE.Mesh>(null)
+  const ringRef = useRef<THREE.Group>(null)
 
   // Animate rotation around Y-axis
   useFrame((state, delta) => {
@@ -28,21 +28,70 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
   })
 
   return (
-    <mesh
-      ref={ringRef}
-      rotation={[Math.PI / 2, 0, 0]} // Lay flat on XZ plane
-    >
-      <torusGeometry args={[radius, 0.15, 16, 100]} />
-      <meshStandardMaterial
-        color={color}
-        metalness={0.9}
-        roughness={0.2}
-        emissive={color}
-        emissiveIntensity={0.3}
-        transparent
-        opacity={0.6}
-      />
-    </mesh>
+    <group ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
+      {/* Outer glow atmosphere - far halo */}
+      <mesh>
+        <torusGeometry args={[radius, 0.8, 24, 100]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.12}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Middle atmosphere layer */}
+      <mesh>
+        <torusGeometry args={[radius, 0.6, 24, 100]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.2}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main thick ring - Saturn-like planetary ring */}
+      <mesh>
+        <torusGeometry args={[radius, 0.45, 24, 100]} />
+        <meshStandardMaterial
+          color={color}
+          metalness={0.85}
+          roughness={0.25}
+          emissive={color}
+          emissiveIntensity={0.8}
+          transparent
+          opacity={0.75}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+
+      {/* Inner bright core */}
+      <mesh>
+        <torusGeometry args={[radius, 0.35, 24, 100]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.4}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Bright stellar edge highlight */}
+      <mesh>
+        <torusGeometry args={[radius, 0.25, 24, 100]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={0.5}
+          side={THREE.DoubleSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+    </group>
   )
 }
 
@@ -57,7 +106,7 @@ export default function OrbitRings() {
       <OrbitRing
         radius={30}
         label="Salah"
-        color="#14b8a6" // Teal
+        color="#2563eb" // Blue - matches PILLAR_INFO
         rotationSpeed={0.3}
       />
 
@@ -65,7 +114,7 @@ export default function OrbitRings() {
       <OrbitRing
         radius={50}
         label="Zakat"
-        color="#f59e0b" // Amber/Gold
+        color="#059669" // Green - matches PILLAR_INFO
         rotationSpeed={0.2}
       />
 
@@ -73,7 +122,7 @@ export default function OrbitRings() {
       <OrbitRing
         radius={70}
         label="Sawm"
-        color="#8b5cf6" // Violet
+        color="#dc2626" // Red - matches PILLAR_INFO
         rotationSpeed={0.15}
       />
 
@@ -81,7 +130,7 @@ export default function OrbitRings() {
       <OrbitRing
         radius={90}
         label="Hajj"
-        color="#ec4899" // Pink
+        color="#b91c1c" // Dark Red - matches PILLAR_INFO
         rotationSpeed={0.1}
       />
 
@@ -89,7 +138,7 @@ export default function OrbitRings() {
       <OrbitRing
         radius={60}
         label="General"
-        color="#6b7280" // Gray
+        color="#475569" // Gray - matches PILLAR_INFO
         rotationSpeed={0.08}
       />
 
