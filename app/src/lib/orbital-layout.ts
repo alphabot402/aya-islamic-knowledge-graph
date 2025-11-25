@@ -1,30 +1,30 @@
 /**
  * Orbital Layout Engine
- * Implements the "Celestial Orrery" / "Islamic Astrolabe" positioning system
+ * Implements circular row pattern for organized node placement
  *
- * Layout Concept:
+ * Layout Concept - Perfect Circular Rows:
  * - Center (0,0,0): Shahada surahs in vertical column
- * - Orbit 1 (R=30): Salah surahs
- * - Orbit 2 (R=50): Zakat surahs
- * - Orbit 3 (R=70): Sawm surahs
- * - Orbit 4 (R=90): Hajj surahs
- * - Separate plane: General surahs
- * - Hadiths: "Moons" orbiting their connected surahs
+ * - Row 1 (R=30): Salah surahs
+ * - Row 2 (R=42): Zakat surahs
+ * - Row 3 (R=54): General surahs (slightly elevated)
+ * - Row 4 (R=66): Sawm surahs
+ * - Row 5 (R=78): Hajj surahs
+ * - Hadiths: Small circular orbits around connected surahs (flat, same Y level)
  */
 
 import { type Pillar } from '@/hooks/useGraphData.orbital'
 
 // ============================================================================
-// ORBITAL CONFIGURATION
+// CIRCULAR ROW CONFIGURATION
 // ============================================================================
 
 export const PILLAR_ORBITS: Record<Pillar, { radius: number; yOffset: number }> = {
   shahada: { radius: 0, yOffset: 0 },      // Center vertical column
-  salah: { radius: 30, yOffset: 0 },       // Inner ring
-  zakat: { radius: 50, yOffset: 0 },       // Second ring
-  sawm: { radius: 70, yOffset: 0 },        // Third ring
-  hajj: { radius: 90, yOffset: 0 },        // Outer ring
-  general: { radius: 60, yOffset: 15 }     // Separate elevated plane
+  salah: { radius: 30, yOffset: 0 },       // Row 1 - Inner circle
+  zakat: { radius: 42, yOffset: 0 },       // Row 2
+  sawm: { radius: 66, yOffset: 0 },        // Row 4
+  hajj: { radius: 78, yOffset: 0 },        // Row 5 - Outer circle
+  general: { radius: 54, yOffset: 8 }      // Row 3 - Slightly elevated for distinction
 }
 
 // ============================================================================
@@ -80,29 +80,27 @@ function calculateShahadaColumnPosition(
 
 /**
  * General surahs: Elevated plane with own orbital pattern
- * Distinct from the Five Pillars
+ * Distinct from the Five Pillars - flat circular row
  */
 function calculateGeneralPlanePosition(
   index: number,
   total: number
 ): [number, number, number] {
-  const radius = 60
-  const yOffset = 15 // Elevated above other orbits
+  const radius = 54
+  const yOffset = 8 // Slightly elevated above other orbits
 
-  // Distribute evenly around the circle
+  // Distribute evenly around the circle in perfect row
   const angle = (index / total) * Math.PI * 2
   const x = Math.cos(angle) * radius
   const z = Math.sin(angle) * radius
 
-  // Add slight wave pattern
-  const waveHeight = Math.sin(index * 0.5) * 3
-
-  return [x, yOffset + waveHeight, z]
+  // Flat circular row (no wave pattern)
+  return [x, yOffset, z]
 }
 
 /**
  * Standard orbital positioning for pillar rings
- * Distributes nodes evenly around the orbital ring
+ * Distributes nodes evenly around the orbital ring in a perfect circle
  */
 function calculateOrbitalPosition(
   radius: number,
@@ -113,45 +111,43 @@ function calculateOrbitalPosition(
   // Distribute evenly around the circle
   const angle = (index / total) * Math.PI * 2
 
-  // XZ plane positioning
+  // XZ plane positioning - perfect circular row
   const x = Math.cos(angle) * radius
   const z = Math.sin(angle) * radius
 
-  // Slight vertical variation for visual interest
-  const verticalVariation = Math.sin(index * 0.3) * 2
-  const y = yOffset + verticalVariation
+  // Keep y consistent for flat circular rows
+  const y = yOffset
 
   return [x, y, z]
 }
 
 /**
  * Calculate position for a Hadith "moon" orbiting a Surah
+ * Now uses flat circular positioning for clearer row pattern
  * @param surahPosition - The position of the surah this hadith connects to
  * @param indexAroundSurah - Index of this hadith among all hadiths connected to this surah
  * @param totalAroundSurah - Total hadiths connected to this surah
- * @param orbitRadius - Local orbit radius (default 4)
+ * @param orbitRadius - Local orbit radius (default 2.5)
  */
 export function calculateHadithMoonPosition(
   surahPosition: [number, number, number],
   indexAroundSurah: number,
   totalAroundSurah: number,
-  orbitRadius: number = 4
+  orbitRadius: number = 2.5
 ): [number, number, number] {
   const [sx, sy, sz] = surahPosition
 
-  // Distribute hadiths evenly around the surah
+  // Distribute hadiths evenly around the surah in a perfect circle
   const angle = (indexAroundSurah / totalAroundSurah) * Math.PI * 2
 
-  // Local orbit around surah
+  // Local orbit around surah - flat circular pattern
   const localX = Math.cos(angle) * orbitRadius
   const localZ = Math.sin(angle) * orbitRadius
 
-  // Slight vertical offset for each hadith
-  const verticalOffset = Math.sin(indexAroundSurah * 0.8) * 1.5
-
+  // Keep same Y level as surah for flat circular rows
   return [
     sx + localX,
-    sy + verticalOffset,
+    sy,
     sz + localZ
   ]
 }
