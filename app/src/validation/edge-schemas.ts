@@ -106,7 +106,7 @@ export const ConnectionTypeMetadataSchema = z.object({
 export const LegalAnalysisSchema = z.object({
   legal_function: LegalFunctionSchema,
   ruling_type: z.string().optional(),
-  madhab_positions: z.record(z.string()).optional(),
+  madhab_positions: z.record(z.string(), z.string()).optional(),
   areas_of_fiqh: z.array(z.string()).optional()
 })
 
