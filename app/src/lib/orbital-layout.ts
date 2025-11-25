@@ -19,12 +19,12 @@ import { type Pillar } from '@/hooks/useGraphData.orbital'
 // ============================================================================
 
 export const PILLAR_ORBITS: Record<Pillar, { radius: number; yOffset: number }> = {
-  shahada: { radius: 0, yOffset: 0 },      // Center vertical column
-  salah: { radius: 30, yOffset: 0 },       // Row 1 - Inner circle
-  zakat: { radius: 42, yOffset: 0 },       // Row 2
-  sawm: { radius: 66, yOffset: 0 },        // Row 4
-  hajj: { radius: 78, yOffset: 0 },        // Row 5 - Outer circle
-  general: { radius: 54, yOffset: 8 }      // Row 3 - Slightly elevated for distinction
+  shahada: { radius: 15, yOffset: 0 },     // Innermost circle - aligned with rest
+  salah: { radius: 30, yOffset: 0 },       // Row 2 - Inner circle
+  zakat: { radius: 42, yOffset: 0 },       // Row 3
+  sawm: { radius: 66, yOffset: 0 },        // Row 5
+  hajj: { radius: 78, yOffset: 0 },        // Row 6 - Outer circle
+  general: { radius: 54, yOffset: 8 }      // Row 4 - Slightly elevated for distinction
 }
 
 // ============================================================================
@@ -44,17 +44,12 @@ export function calculateSurahPosition(
 ): [number, number, number] {
   const orbit = PILLAR_ORBITS[pillar]
 
-  // Special case: Shahada surahs in vertical column at center
-  if (pillar === 'shahada') {
-    return calculateShahadaColumnPosition(indexInPillar, totalInPillar)
-  }
-
   // Special case: General surahs on elevated plane
   if (pillar === 'general') {
     return calculateGeneralPlanePosition(indexInPillar, totalInPillar)
   }
 
-  // Standard orbital positioning
+  // All pillars use standard circular positioning (including Shahada)
   return calculateOrbitalPosition(orbit.radius, indexInPillar, totalInPillar, orbit.yOffset)
 }
 

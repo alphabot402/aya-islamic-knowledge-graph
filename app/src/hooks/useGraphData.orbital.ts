@@ -495,7 +495,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
           // Hadith ring radii - between pillar rings for organized distribution
           const hadithRingRadii: Record<string, number> = {
-            shahada: 20,  // Between center and Salah
+            shahada: 22,  // Between Shahada (15) and Salah (30)
             salah: 36,    // Between Salah (30) and Zakat (42)
             zakat: 48,    // Between Zakat (42) and General (54)
             general: 60,  // Between General (54) and Sawm (66)

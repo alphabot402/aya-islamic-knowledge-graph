@@ -83,7 +83,15 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 export default function OrbitRings() {
   return (
     <group>
-      {/* Salah Ring - Innermost orbit (Radius 30) - Deep Blue */}
+      {/* Shahada Ring - Innermost orbit (Radius 15) - Purple */}
+      <OrbitRing
+        radius={15}
+        label="Shahada"
+        color="#9333ea" // Purple - foundation
+        rotationSpeed={0.4}
+      />
+
+      {/* Salah Ring - Second orbit (Radius 30) - Deep Blue */}
       <OrbitRing
         radius={30}
         label="Salah"
@@ -123,27 +131,15 @@ export default function OrbitRings() {
         rotationSpeed={0.1}
       />
 
-      {/* Central axis for Shahada (visual guide) */}
+      {/* Small central marker sphere - subtle reference point */}
       <mesh position={[0, 0, 0]}>
-        <cylinderGeometry args={[0.5, 0.5, 40, 32]} />
-        <meshStandardMaterial
-          color="#d4af37" // Golden
-          metalness={0.95}
-          roughness={0.1}
-          emissive="#d4af37"
-          emissiveIntensity={0.5}
-        />
-      </mesh>
-
-      {/* Celestial sphere at center */}
-      <mesh position={[0, 0, 0]}>
-        <sphereGeometry args={[2, 32, 32]} />
+        <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial
           color="#fbbf24" // Bright gold
-          metalness={0.9}
-          roughness={0.1}
+          metalness={0.8}
+          roughness={0.2}
           emissive="#fbbf24"
-          emissiveIntensity={0.8}
+          emissiveIntensity={0.5}
         />
       </mesh>
     </group>
