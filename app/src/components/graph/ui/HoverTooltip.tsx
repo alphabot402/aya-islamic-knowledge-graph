@@ -52,11 +52,17 @@ export default function HoverTooltip({ node }: HoverTooltipProps) {
           </>
         ) : (
           <>
-            <div className="text-amber-400 font-semibold text-xs mb-1">
-              Hadith {node.hadith.idInBook}
+            <div className="text-amber-400 font-semibold text-sm mb-1">
+              Sahih al-Bukhari
             </div>
-            <div className="text-gray-100 text-sm line-clamp-3">
-              {node.hadith.english.text}
+            <div className="text-gray-300 text-xs mb-2">
+              Book {node.hadith.bookId} • Hadith #{node.hadith.idInBook}
+            </div>
+            <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
+              {node.pillar.charAt(0).toUpperCase() + node.pillar.slice(1)}
+            </div>
+            <div className="text-xs text-gray-400">
+              Connected to {node.connections.length} surah{node.connections.length !== 1 ? 's' : ''}
             </div>
           </>
         )}

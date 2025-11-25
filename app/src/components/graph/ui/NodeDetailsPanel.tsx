@@ -89,48 +89,70 @@ export default function NodeDetailsPanel({
       </div>
 
       {node.type === 'surah' ? (
-        <div className="border-t border-purple-500/20 pt-3 space-y-2">
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-400">Total Verses</span>
-            <span className="text-gray-200">{node.verseCount}</span>
-          </div>
-          {surahInfo && (
+        <>
+          <div className="border-t border-purple-500/20 pt-3 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-gray-400">Revelation</span>
-              <span className={surahInfo.revelationType === 'Meccan' ? 'text-teal-400' : 'text-amber-400'}>
-                {surahInfo.revelationType}
+              <span className="text-gray-400">Total Verses</span>
+              <span className="text-gray-200">{node.verseCount}</span>
+            </div>
+            {surahInfo && (
+              <div className="flex justify-between text-sm">
+                <span className="text-gray-400">Revelation</span>
+                <span className={surahInfo.revelationType === 'Meccan' ? 'text-teal-400' : 'text-amber-400'}>
+                  {surahInfo.revelationType}
+                </span>
+              </div>
+            )}
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-400">Pillar Category</span>
+              <span style={{ color: PILLAR_INFO[node.pillar].color }}>
+                {PILLAR_INFO[node.pillar].name}
               </span>
             </div>
-          )}
-          <div className="flex justify-between text-sm">
-            <span className="text-gray-400">Pillar Category</span>
-            <span style={{ color: PILLAR_INFO[node.pillar].color }}>
-              {PILLAR_INFO[node.pillar].name}
-            </span>
           </div>
-        </div>
+
+          {/* External Link Button */}
+          <div className="border-t border-purple-500/20 pt-3 mt-3">
+            <a
+              href={`https://quran.com/${node.surahNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] text-blue-200 hover:text-blue-100 font-medium text-sm"
+            >
+              <span>📖</span>
+              <span>Read on Quran.com</span>
+              <span className="text-xs opacity-70">↗</span>
+            </a>
+          </div>
+        </>
       ) : (
         <>
-          <div className="border-t border-amber-500/20 pt-3">
-            <div className="text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wide">
-              Narrator
+          <div className="border-t border-amber-500/20 pt-3 space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-400">Collection</span>
+              <span className="text-amber-200">Sahih al-Bukhari</span>
             </div>
-            <div className="text-sm text-gray-300 mb-3">
-              {node.hadith.english.narrator}
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-400">Book</span>
+              <span className="text-gray-200">{node.hadith.bookId}</span>
             </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-400">Hadith Number</span>
+              <span className="text-gray-200">#{node.hadith.idInBook}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-400">Pillar Category</span>
+              <span className="text-amber-200 capitalize">{node.pillar}</span>
+            </div>
+          </div>
 
-            <div className="text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wide">
-              English
+          {/* Connection Topic */}
+          <div className="border-t border-amber-500/20 pt-3 mt-3">
+            <div className="text-xs text-amber-400 font-semibold mb-2 uppercase tracking-wide">
+              Connection
             </div>
-            <div className="text-sm text-gray-100 leading-relaxed mb-3">
-              {node.hadith.english.text}
-            </div>
-
-            <div className="text-xs text-amber-400 font-semibold mb-1 uppercase tracking-wide">
-              Arabic
-            </div>
-            <div className="text-right font-arabic text-base text-gray-100 leading-relaxed">
-              {node.hadith.arabic}
+            <div className="text-sm text-gray-300 leading-relaxed">
+              This hadith relates to the pillar of <span className="text-amber-200 font-medium capitalize">{node.pillar}</span>, connecting Islamic teachings with Quranic guidance.
             </div>
           </div>
 
@@ -145,12 +167,26 @@ export default function NodeDetailsPanel({
                     key={conn}
                     className="px-2 py-1 bg-amber-500/20 border border-amber-500/30 rounded text-xs text-amber-300"
                   >
-                    {conn.replace('surah-', '')}
+                    {conn.replace('surah-', 'Surah ')}
                   </span>
                 ))}
               </div>
             </div>
           )}
+
+          {/* External Link Button */}
+          <div className="border-t border-amber-500/20 pt-3 mt-3">
+            <a
+              href={`https://sunnah.com/bukhari:${node.hadith.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/30 hover:border-amber-400/50 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] text-amber-200 hover:text-amber-100 font-medium text-sm"
+            >
+              <span>📖</span>
+              <span>Read Full Hadith on Sunnah.com</span>
+              <span className="text-xs opacity-70">↗</span>
+            </a>
+          </div>
         </>
       )}
       </div>
