@@ -60,7 +60,11 @@ function HadithNode({
   const selectColor = '#fbbf24'
 
   const color = isSelected ? selectColor : isHovered ? hoverColor : baseColor
-  const baseSize = 0.8
+
+  // Scale node size by connection count (1-5 connections → 0.7-1.2 scale)
+  const connectionCount = node.connectionCount || 1
+  const sizeScale = Math.min(0.7 + (connectionCount * 0.15), 1.3)
+  const baseSize = 0.8 * sizeScale
 
   return (
     <group position={node.position}>

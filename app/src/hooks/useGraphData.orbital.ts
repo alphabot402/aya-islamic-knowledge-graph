@@ -65,7 +65,8 @@ export interface HadithNode {
   connections: string[]
   pillar: Pillar
   hadith: Hadith
-  verses: VerseConnection[]  // NEW: Specific verse connections
+  verses: VerseConnection[]  // Specific verse connections
+  connectionCount: number  // NEW: For visual scaling
 }
 
 export type GraphNode = SurahNode | HadithNode
@@ -505,7 +506,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
                 surahPos,
                 indexAroundSurah,
                 totalAroundSurah,
-                4 // Orbit radius
+                2.5 // Orbit radius - reduced from 4 for tighter clustering
               )
             } else {
               // Multiple connections: place at midpoint
@@ -538,7 +539,8 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
               connections: connectionIds,
               pillar,
               hadith: h,
-              verses: verseConnections  // NEW: Include specific verse data
+              verses: verseConnections,
+              connectionCount: connectedSurahs.length  // NEW: For visual hierarchy
             }
           })
         }

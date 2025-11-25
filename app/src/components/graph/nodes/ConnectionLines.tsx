@@ -12,26 +12,41 @@ import { GraphNode } from '@/hooks/useGraphData'
 
 interface ConnectionLinesProps {
   nodes: GraphNode[]
+  hoveredNodeId: string | null
+  selectedNodeId: string | null
 }
 
-export default function ConnectionLines({ nodes }: ConnectionLinesProps) {
-  // Memoize connection calculations (only recalculate when nodes change)
+export default function ConnectionLines({ nodes, hoveredNodeId, selectedNodeId }: ConnectionLinesProps) {
+  // Only show connections for hovered or selected nodes
   const connections = useMemo(() => {
     const result: Array<{ source: GraphNode; target: GraphNode }> = []
 
+    // If nothing is hovered/selected, show NO lines (clean view)
+    const activeNodeId = hoveredNodeId || selectedNodeId
+    if (!activeNodeId) {
+      return result
+    }
+
+    // Find connections FROM or TO the active node
     nodes.forEach(node => {
       if (node.type === 'hadith') {
-        node.connections.forEach(targetId => {
-          const target = nodes.find(n => n.id === targetId)
-          if (target) {
-            result.push({ source: node, target })
-          }
-        })
+        // Show connections if this hadith is active OR if it connects to active node
+        const isSourceActive = node.id === activeNodeId
+        const connectsToActive = node.connections.includes(activeNodeId)
+
+        if (isSourceActive || connectsToActive) {
+          node.connections.forEach(targetId => {
+            const target = nodes.find(n => n.id === targetId)
+            if (target) {
+              result.push({ source: node, target })
+            }
+          })
+        }
       }
     })
 
     return result
-  }, [nodes])
+  }, [nodes, hoveredNodeId, selectedNodeId])
 
   return (
     <>
