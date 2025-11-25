@@ -12,7 +12,7 @@
  * - Hadiths: "Moons" orbiting their connected surahs
  */
 
-import { type Pillar } from '@/hooks/useGraphData'
+import { type Pillar } from '@/hooks/useGraphData.orbital'
 
 // ============================================================================
 // ORBITAL CONFIGURATION

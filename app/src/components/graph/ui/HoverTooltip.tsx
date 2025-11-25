@@ -6,7 +6,7 @@
 
 'use client'
 
-import { GraphNode } from '@/hooks/useGraphData'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 import { PILLAR_INFO } from '../nodes/SurahNode'
 import { getSurahName } from '@/lib/surah-names'
 

@@ -8,7 +8,7 @@
 
 import { useMemo, useEffect } from 'react'
 import * as THREE from 'three'
-import { GraphNode } from '@/hooks/useGraphData'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 
 interface ConnectionLinesProps {
   nodes: GraphNode[]
@@ -30,17 +30,24 @@ export default function ConnectionLines({ nodes, hoveredNodeId, selectedNodeId }
     // Find connections FROM or TO the active node
     nodes.forEach(node => {
       if (node.type === 'hadith') {
-        // Show connections if this hadith is active OR if it connects to active node
         const isSourceActive = node.id === activeNodeId
         const connectsToActive = node.connections.includes(activeNodeId)
 
-        if (isSourceActive || connectsToActive) {
+        if (isSourceActive) {
+          // If hadith is active, show all its connections
           node.connections.forEach(targetId => {
             const target = nodes.find(n => n.id === targetId)
             if (target) {
               result.push({ source: node, target })
             }
           })
+        } else if (connectsToActive) {
+          // If a surah is active and this hadith connects to it,
+          // show ONLY that specific connection (not all hadith connections)
+          const target = nodes.find(n => n.id === activeNodeId)
+          if (target) {
+            result.push({ source: node, target })
+          }
         }
       }
     })

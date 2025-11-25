@@ -8,7 +8,7 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { OrbitControls } from '@react-three/drei'
-import { GraphNode } from '@/hooks/useGraphData'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 import SurahNode from './nodes/SurahNode'
 import HadithNode from './nodes/HadithNode'
 import ConnectionLines from './nodes/ConnectionLines'

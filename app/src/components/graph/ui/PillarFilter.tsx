@@ -6,7 +6,7 @@
 
 'use client'
 
-import { Pillar } from '@/hooks/useGraphData'
+import { Pillar } from '@/hooks/useGraphData.orbital'
 import { PILLAR_INFO } from '../nodes/SurahNode'
 
 interface PillarFilterProps {

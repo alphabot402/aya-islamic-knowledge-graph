@@ -6,7 +6,7 @@
 
 'use client'
 
-import { GraphNode } from '@/hooks/useGraphData'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 
 interface StatsDisplayProps {
   nodes: GraphNode[]

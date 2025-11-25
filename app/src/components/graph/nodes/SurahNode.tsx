@@ -10,7 +10,7 @@ import { useRef, useMemo, memo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
-import { SurahNode as SurahNodeType } from '@/hooks/useGraphData'
+import { SurahNode as SurahNodeType } from '@/hooks/useGraphData.orbital'
 
 // Pillar color configuration
 const PILLAR_INFO = {

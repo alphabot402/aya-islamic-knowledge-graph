@@ -110,36 +110,36 @@ export default function OrbitRings() {
         rotationSpeed={0.3}
       />
 
-      {/* Zakat Ring - Second orbit (Radius 50) - Emerald Teal */}
+      {/* Zakat Ring - Second orbit (Radius 42) - Emerald Teal */}
       <OrbitRing
-        radius={50}
+        radius={42}
         label="Zakat"
         color="#14b8a6" // Teal - distinct from blue/purple
         rotationSpeed={0.2}
       />
 
-      {/* Sawm Ring - Third orbit (Radius 70) - Deep Violet */}
+      {/* General Knowledge Plane - Third orbit (Radius 54) - Cool Gray */}
       <OrbitRing
-        radius={70}
+        radius={54}
+        label="General"
+        color="#64748b" // Slate Gray - neutral celestial
+        rotationSpeed={0.08}
+      />
+
+      {/* Sawm Ring - Fourth orbit (Radius 66) - Deep Violet */}
+      <OrbitRing
+        radius={66}
         label="Sawm"
         color="#8b5cf6" // Violet - celestial purple
         rotationSpeed={0.15}
       />
 
-      {/* Hajj Ring - Outermost orbit (Radius 90) - Rich Gold */}
+      {/* Hajj Ring - Outermost orbit (Radius 78) - Rich Gold */}
       <OrbitRing
-        radius={90}
+        radius={78}
         label="Hajj"
         color="#f59e0b" // Amber Gold - warm contrast
         rotationSpeed={0.1}
-      />
-
-      {/* General Knowledge Plane - Separate elevated plane - Cool Gray */}
-      <OrbitRing
-        radius={60}
-        label="General"
-        color="#64748b" // Slate Gray - neutral celestial
-        rotationSpeed={0.08}
       />
 
       {/* Central axis for Shahada (visual guide) */}
