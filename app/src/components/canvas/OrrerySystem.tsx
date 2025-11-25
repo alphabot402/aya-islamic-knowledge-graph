@@ -38,24 +38,23 @@ export default function OrrerySystem() {
   // Apply pillar filter (inline) - exclude "general" category, focus on Five Pillars
   const filteredNodes = useMemo(() => {
     if (!activePillar) {
-      // "All" view: Show all Five Pillars (exclude general)
+      // "All" view: Show all Five Pillars (exclude general for both surahs and hadiths)
       return nodes.filter((node) => {
-        if (node.type === 'surah') {
-          return node.pillar !== 'general'
-        }
-        // Show all hadiths
-        return true
+        return node.pillar !== 'general'
       })
     }
 
     // Specific pillar selected
     return nodes.filter((node) => {
-      // If surah, match pillar (general already excluded above)
+      // If surah, match pillar
       if (node.type === 'surah') {
         return node.pillar === activePillar
       }
-      // Always show hadiths (they connect across pillars)
-      return true
+      // For hadiths, show those connected to the selected pillar
+      if (node.type === 'hadith') {
+        return node.pillar === activePillar
+      }
+      return false
     })
   }, [nodes, activePillar])
 

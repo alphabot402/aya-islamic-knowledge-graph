@@ -61,51 +61,65 @@ function HadithNode({
 
   const color = isSelected ? selectColor : isHovered ? hoverColor : baseColor
 
-  // Scale node size by connection count - LARGER for planet-like appearance
+  // Scale node size by connection count - Balanced for neon aesthetic
   const connectionCount = node.connectionCount || 1
-  const sizeScale = Math.min(1.2 + (connectionCount * 0.25), 2.2)
-  const baseSize = 1.5 * sizeScale
+  const sizeScale = Math.min(0.9 + (connectionCount * 0.2), 1.8)
+  const baseSize = 1.0 * sizeScale
 
   return (
     <group position={node.position}>
-      {/* Outer atmospheric glow - golden planetary atmosphere */}
+      {/* Outer golden neon glow - soft diffuse halo */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.35, 32, 32]} />
+        <sphereGeometry args={[baseSize * 1.5, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.15 : isHovered ? 0.12 : 0.08}
+          opacity={isSelected ? 0.2 : isHovered ? 0.15 : 0.1}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Inner atmospheric glow */}
+      {/* Mid golden glow - crisp neon ring */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.18, 32, 32]} />
+        <sphereGeometry args={[baseSize * 1.25, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.28 : isHovered ? 0.22 : 0.16}
+          opacity={isSelected ? 0.35 : isHovered ? 0.28 : 0.22}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Main sphere - golden planet surface */}
+      {/* Inner bright golden core */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.08, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.5 : isHovered ? 0.4 : 0.3}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main sphere - crisp golden planet with rich color */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
         onPointerOver={() => onHover(true)}
         onPointerOut={() => onHover(false)}
+        castShadow
+        receiveShadow
       >
         <sphereGeometry args={[baseSize, 32, 32]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.4 : isHovered ? 1.1 : 0.8}
-          metalness={0.6}
-          roughness={0.3}
+          emissiveIntensity={isSelected ? 1.6 : isHovered ? 1.3 : 0.9}
+          metalness={0.4}
+          roughness={0.4}
         />
       </mesh>
 
