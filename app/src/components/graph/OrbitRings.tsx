@@ -35,7 +35,7 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={0.12}
+          opacity={0.18}
           side={THREE.DoubleSide}
           blending={THREE.AdditiveBlending}
         />
@@ -47,7 +47,7 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={0.2}
+          opacity={0.28}
           side={THREE.DoubleSide}
           blending={THREE.AdditiveBlending}
         />
@@ -58,12 +58,12 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
         <torusGeometry args={[radius, 0.45, 24, 100]} />
         <meshStandardMaterial
           color={color}
-          metalness={0.85}
-          roughness={0.25}
+          metalness={0.9}
+          roughness={0.2}
           emissive={color}
-          emissiveIntensity={0.8}
+          emissiveIntensity={1.2}
           transparent
-          opacity={0.75}
+          opacity={0.85}
           side={THREE.DoubleSide}
         />
       </mesh>
