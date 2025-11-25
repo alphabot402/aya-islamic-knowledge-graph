@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { type Concept } from '@/app/api/concepts/route'
 
 /**
  * ============================================================================
@@ -15,6 +14,32 @@ import { type Concept } from '@/app/api/concepts/route'
  * - Expandable concept cards with scholarly references
  * - Responsive grid layout
  */
+
+// Type definition for Concept
+interface Concept {
+  id: string
+  arabic_name: string
+  english_name: string
+  transliteration: string
+  root: string
+  definition: {
+    arabic: string
+    english: string
+  }
+  category: string
+  related_pillars: string[]
+  quranic_frequency: string
+  hadith_frequency: string
+  scholarly_references: Array<{
+    work: string
+    author?: string
+    reference?: string
+    hadith_number?: string
+    volume?: string
+    note?: string
+  }>
+  tags: string[]
+}
 
 interface ConceptBrowserProps {
   onConceptSelect?: (concept: Concept) => void
