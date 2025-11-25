@@ -102,43 +102,43 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 export default function OrbitRings() {
   return (
     <group>
-      {/* Salah Ring - Innermost orbit (Radius 30) */}
+      {/* Salah Ring - Innermost orbit (Radius 30) - Deep Blue */}
       <OrbitRing
         radius={30}
         label="Salah"
-        color="#2563eb" // Blue - matches PILLAR_INFO
+        color="#3b82f6" // Bright Blue - celestial
         rotationSpeed={0.3}
       />
 
-      {/* Zakat Ring - Second orbit (Radius 50) */}
+      {/* Zakat Ring - Second orbit (Radius 50) - Emerald Teal */}
       <OrbitRing
         radius={50}
         label="Zakat"
-        color="#059669" // Green - matches PILLAR_INFO
+        color="#14b8a6" // Teal - distinct from blue/purple
         rotationSpeed={0.2}
       />
 
-      {/* Sawm Ring - Third orbit (Radius 70) */}
+      {/* Sawm Ring - Third orbit (Radius 70) - Deep Violet */}
       <OrbitRing
         radius={70}
         label="Sawm"
-        color="#dc2626" // Red - matches PILLAR_INFO
+        color="#8b5cf6" // Violet - celestial purple
         rotationSpeed={0.15}
       />
 
-      {/* Hajj Ring - Outermost orbit (Radius 90) */}
+      {/* Hajj Ring - Outermost orbit (Radius 90) - Rich Gold */}
       <OrbitRing
         radius={90}
         label="Hajj"
-        color="#b91c1c" // Dark Red - matches PILLAR_INFO
+        color="#f59e0b" // Amber Gold - warm contrast
         rotationSpeed={0.1}
       />
 
-      {/* General Knowledge Plane - Separate elevated plane */}
+      {/* General Knowledge Plane - Separate elevated plane - Cool Gray */}
       <OrbitRing
         radius={60}
         label="General"
-        color="#475569" // Gray - matches PILLAR_INFO
+        color="#64748b" // Slate Gray - neutral celestial
         rotationSpeed={0.08}
       />
 
