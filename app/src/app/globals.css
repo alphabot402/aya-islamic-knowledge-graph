@@ -3,12 +3,54 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
   body {
     @apply bg-celestial-void text-gray-100;
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    position: fixed;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: pan-y pan-x;
   }
-  
+
   .text-arabic {
     @apply font-arabic text-right leading-loose text-2xl;
+  }
+
+  /* Smooth scrolling for containers */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-celestial-deep/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-purple-500/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-500/70;
   }
 }
 
@@ -16,32 +58,130 @@
   .badge-tier-1 {
     @apply bg-gold-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .badge-tier-2 {
     @apply bg-teal-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .badge-tier-3 {
     @apply bg-gray-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .badge-sahih {
     @apply bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .badge-hasan {
     @apply bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .badge-daif {
     @apply bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold;
   }
-  
+
   .card {
     @apply bg-celestial-deep border border-celestial-medium rounded-lg p-6 shadow-lg;
   }
-  
+
   .card-hover {
     @apply transition-all duration-300 hover:border-teal-500 hover:shadow-teal-500/20;
+  }
+}
+
+@layer utilities {
+  /* Smooth entrance animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 15px currentColor;
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 30px currentColor;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(168, 85, 247, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  /* Glass morphism utility */
+  .glass {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-strong {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  /* Prevent text selection in UI elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* 3D depth utilities */
+  .depth-1 {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  .depth-2 {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 60px rgba(168, 85, 247, 0.3);
+  }
+
+  .depth-3 {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 80px rgba(168, 85, 247, 0.4);
   }
 }

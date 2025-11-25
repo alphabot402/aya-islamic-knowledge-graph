@@ -17,7 +17,7 @@
 
 'use client'
 
-import { useMemo } from 'react'
+import { useMemo, useRef, useCallback } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGraphData, Pillar } from '@/hooks/useGraphData.orbital'
 import { useGraphFilters } from '@/hooks/useGraphFilters'
@@ -26,6 +26,7 @@ import { CanvasErrorBoundary } from './CanvasErrorBoundary'
 import Scene from './Scene'
 import Header from './ui/Header'
 import PillarFilter from './ui/PillarFilter'
+import ZoomControls from './ui/ZoomControls'
 import StatsDisplay from './ui/StatsDisplay'
 import LoadingIndicator from './ui/LoadingIndicator'
 import HoverTooltip from './ui/HoverTooltip'
@@ -63,8 +64,37 @@ export default function QuranGraph() {
     }, {} as Record<Pillar, number>)
   }, [nodes])
 
+  // Camera control state
+  const cameraControlsRef = useRef<any>(null)
+
+  // Zoom handlers
+  const handleZoomIn = useCallback(() => {
+    if (cameraControlsRef.current) {
+      const controls = cameraControlsRef.current
+      const zoomSpeed = 0.8
+      controls.dollyIn(zoomSpeed)
+      controls.update()
+    }
+  }, [])
+
+  const handleZoomOut = useCallback(() => {
+    if (cameraControlsRef.current) {
+      const controls = cameraControlsRef.current
+      const zoomSpeed = 0.8
+      controls.dollyOut(zoomSpeed)
+      controls.update()
+    }
+  }, [])
+
+  const handleResetView = useCallback(() => {
+    if (cameraControlsRef.current) {
+      const controls = cameraControlsRef.current
+      controls.reset()
+    }
+  }, [])
+
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative overflow-hidden">
       {/* 3D Canvas with Error Boundary - Optimized camera for orbital view */}
       <CanvasErrorBoundary>
         <Canvas
@@ -73,18 +103,24 @@ export default function QuranGraph() {
             fov: 60
           }}
           className="bg-transparent"
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: 'high-performance'
+          }}
         >
           {!isLoading && !error && (
             <Scene
               nodes={filteredNodes}
               onNodeSelect={handleNodeSelect}
               onNodeHover={handleNodeHover}
+              cameraControlsRef={cameraControlsRef}
             />
           )}
         </Canvas>
       </CanvasErrorBoundary>
 
-      {/* Header - Main explanation */}
+      {/* Header - Main explanation (top 25%) */}
       {!isLoading && !error && <Header />}
 
       {/* Pillar Filter Buttons */}
@@ -93,6 +129,15 @@ export default function QuranGraph() {
         onChange={setPillarFilter}
         pillarCounts={pillarCounts}
       />
+
+      {/* Zoom Controls - Beautiful and accessible */}
+      {!isLoading && !error && (
+        <ZoomControls
+          onZoomIn={handleZoomIn}
+          onZoomOut={handleZoomOut}
+          onReset={handleResetView}
+        />
+      )}
 
       {/* Loading State */}
       {isLoading && <LoadingIndicator />}
