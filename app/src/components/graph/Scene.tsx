@@ -62,40 +62,40 @@ export default function Scene({ nodes, onNodeSelect, onNodeHover, cameraControls
 
   return (
     <>
-      {/* Enhanced Lighting System - Dramatic and Beautiful */}
+      {/* Night Sky Lighting - Clean and Clear */}
 
-      {/* Base ambient - subtle purple tint */}
-      <ambientLight intensity={0.4} color="#d8b4fe" />
+      {/* Base ambient - soft white */}
+      <ambientLight intensity={0.6} color="#e0e7ff" />
 
-      {/* Key lights - Multiple sources for depth */}
-      <pointLight position={[30, 30, 30]} intensity={3.0} color="#ffffff" castShadow />
-      <pointLight position={[-30, -30, -30]} intensity={1.5} color="#9333ea" />
+      {/* Key lights - Bright and clear */}
+      <pointLight position={[40, 50, 40]} intensity={4.0} color="#ffffff" castShadow />
+      <pointLight position={[-40, -30, -40]} intensity={2.0} color="#dbeafe" />
 
-      {/* Accent lights for pillars - Creates drama */}
-      <pointLight position={[0, 40, 0]} intensity={2.0} color="#a855f7" />
-      <pointLight position={[70, 10, 0]} intensity={2.5} color="#f59e0b" />
-      <pointLight position={[-70, 10, 0]} intensity={2.0} color="#14b8a6" />
+      {/* Accent lights - Subtle blues instead of purple */}
+      <pointLight position={[0, 60, 0]} intensity={2.5} color="#93c5fd" />
+      <pointLight position={[80, 15, 0]} intensity={3.0} color="#fbbf24" />
+      <pointLight position={[-80, 15, 0]} intensity={2.5} color="#5eead4" />
 
-      {/* Rim lighting - Adds dimensionality */}
-      <pointLight position={[0, -40, 0]} intensity={1.2} color="#1ac7b1" />
-      <pointLight position={[0, 0, 60]} intensity={1.8} color="#d8b4fe" />
-      <pointLight position={[0, 0, -60]} intensity={1.5} color="#9333ea" />
+      {/* Rim lighting - Adds clarity */}
+      <pointLight position={[0, -50, 0]} intensity={1.8} color="#67e8f9" />
+      <pointLight position={[0, 0, 80]} intensity={2.2} color="#bfdbfe" />
+      <pointLight position={[0, 0, -80]} intensity={2.0} color="#dbeafe" />
 
-      {/* Spot lights for focused drama */}
+      {/* Spot light for center focus */}
       <spotLight
-        position={[50, 50, 50]}
-        intensity={2.0}
-        angle={0.6}
-        penumbra={0.5}
-        color="#fbbf24"
+        position={[60, 60, 60]}
+        intensity={3.0}
+        angle={0.5}
+        penumbra={0.4}
+        color="#f0f9ff"
         castShadow
       />
 
-      {/* Hemisphere light for realistic sky/ground lighting */}
+      {/* Hemisphere light - Night sky effect */}
       <hemisphereLight
-        color="#a855f7"
-        groundColor="#0a0e1a"
-        intensity={0.8}
+        color="#60a5fa"
+        groundColor="#0f172a"
+        intensity={1.0}
       />
 
       {/* Orbital Rings - The Astrolabe tracks */}

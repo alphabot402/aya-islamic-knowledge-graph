@@ -21,28 +21,28 @@ export default function PillarFilter({
   pillarCounts
 }: PillarFilterProps) {
   return (
-    <div className="absolute top-20 md:top-28 left-2 right-2 md:left-4 md:right-4 max-w-5xl mx-auto z-20">
-      {/* Glass morphism container with enhanced glow */}
-      <div className="bg-gradient-to-br from-black/90 via-black/85 to-black/90 backdrop-blur-2xl border border-purple-500/30 rounded-2xl p-3 md:p-4 shadow-2xl shadow-purple-500/20">
-        <div className="flex flex-wrap gap-1.5 md:gap-2 items-center justify-center md:justify-start">
-          <span className="text-[10px] md:text-xs text-gray-400 font-semibold uppercase tracking-wide mr-1 md:mr-2 hidden sm:inline">
-            Filter by:
+    <div className="fixed bottom-4 left-4 z-30 max-w-md">
+      {/* Compact glass container - bottom left */}
+      <div className="bg-black/70 backdrop-blur-xl border border-blue-300/20 rounded-xl p-2 shadow-2xl shadow-blue-500/10">
+        <div className="flex flex-wrap gap-1.5 items-center">
+          <span className="text-[10px] text-blue-300/70 font-semibold uppercase tracking-wide mr-1 hidden lg:inline">
+            Filter:
           </span>
 
           {/* All button */}
           <button
             onClick={() => onChange('all')}
-            className={`px-2.5 md:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 ${
+            className={`px-2 py-1 rounded-lg text-xs font-medium transition-all duration-200 ${
               value === 'all'
-                ? 'bg-purple-500/30 text-purple-300 border border-purple-500/50 shadow-lg shadow-purple-500/30 scale-105'
-                : 'text-gray-400 hover:text-gray-200 hover:border-purple-500/30 border border-gray-600/50 hover:bg-purple-500/10'
+                ? 'bg-blue-500/30 text-blue-200 border border-blue-400/50 shadow-[0_0_10px_rgba(96,165,250,0.3)]'
+                : 'text-blue-300/70 hover:text-blue-200 hover:border-blue-400/30 border border-blue-400/20 hover:bg-blue-500/10'
             }`}
           >
-            <span className="hidden sm:inline">All Surahs</span>
-            <span className="sm:hidden">All</span>
+            <span className="hidden md:inline">All</span>
+            <span className="md:hidden">All</span>
           </button>
 
-          {/* Pillar buttons - Enhanced with glow effects */}
+          {/* Pillar buttons - Compact */}
           {(Object.keys(PILLAR_INFO) as Pillar[]).map(pillar => {
             const info = PILLAR_INFO[pillar]
             const count = pillarCounts[pillar] || 0
@@ -52,27 +52,24 @@ export default function PillarFilter({
               <button
                 key={pillar}
                 onClick={() => onChange(pillar)}
-                className={`group px-2.5 md:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-300 border ${
+                className={`px-2 py-1 rounded-lg text-xs font-medium transition-all duration-200 border ${
                   isSelected
-                    ? 'border-2 shadow-lg scale-105'
-                    : 'border-gray-600/50 text-gray-400 hover:text-gray-200 hover:border-opacity-70 hover:scale-105'
+                    ? 'shadow-lg'
+                    : 'text-blue-300/70 hover:text-blue-200 border-blue-400/20 hover:border-blue-400/40'
                 }`}
                 style={
                   isSelected
                     ? {
-                        backgroundColor: `${info.color}30`,
+                        backgroundColor: `${info.color}20`,
                         borderColor: info.color,
                         color: info.color,
-                        boxShadow: `0 0 20px ${info.color}50`
+                        boxShadow: `0 0 15px ${info.color}40`
                       }
                     : {}
                 }
               >
-                <span className="flex items-center gap-1">
-                  {/* Icon or emoji for mobile */}
-                  <span className="text-xs">{info.name}</span>
-                  <span className="text-[10px] opacity-70">({count})</span>
-                </span>
+                <span className="hidden md:inline">{info.name}</span>
+                <span className="md:hidden">{info.name.slice(0, 3)}</span>
               </button>
             )
           })}

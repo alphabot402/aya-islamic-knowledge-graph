@@ -89,7 +89,18 @@ function SurahNode({
 
   return (
     <group position={node.position}>
-      {/* Main sphere */}
+      {/* Planetary glow outline - outer atmosphere */}
+      <mesh>
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.15, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.25 : isHovered ? 0.2 : 0.12}
+          side={THREE.BackSide}
+        />
+      </mesh>
+
+      {/* Main sphere - planet body */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -100,9 +111,21 @@ function SurahNode({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.0 : isHovered ? 0.8 : 0.6}
-          metalness={0.85}
-          roughness={0.15}
+          emissiveIntensity={isSelected ? 1.2 : isHovered ? 0.9 : 0.7}
+          metalness={0.7}
+          roughness={0.2}
+        />
+      </mesh>
+
+      {/* Rim glow - edge highlight */}
+      <mesh>
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.05, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.4 : isHovered ? 0.3 : 0.15}
+          side={THREE.FrontSide}
+          blending={THREE.AdditiveBlending}
         />
       </mesh>
 
