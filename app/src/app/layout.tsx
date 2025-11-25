@@ -9,8 +9,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'AYA (آية) - Islamic Knowledge Graph',
-  description: 'Explore authentic connections between Quran verses and hadiths through beautiful 3D visualization',
+  title: 'AYA (آية) - Project Aya',
+  description: 'Discover Quran & Hadith by Five Pillars through beautiful 3D visualization',
   viewport: {
     width: 'device-width',
     initialScale: 1,

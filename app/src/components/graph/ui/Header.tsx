@@ -25,7 +25,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
         {/* Single concise tagline */}
         <p className="text-sm md:text-base text-blue-200/80 text-center max-w-3xl px-4 drop-shadow-lg">
-          Quranic wisdom and prophetic traditions mapped across the Five Pillars
+          Discover Quran & Hadith by Five Pillars
         </p>
       </div>
     </div>
