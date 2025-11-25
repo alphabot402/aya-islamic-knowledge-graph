@@ -18,43 +18,60 @@ interface OrbitRingProps {
 }
 
 function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
-  const ringRef = useRef<THREE.Group>(null)
+  const rotatingRingRef = useRef<THREE.Group>(null)
 
-  // Animate rotation around Y-axis
+  // Animate rotation around Y-axis (only the rotating ring moves)
   useFrame((state, delta) => {
-    if (ringRef.current) {
-      ringRef.current.rotation.y += rotationSpeed * delta
+    if (rotatingRingRef.current) {
+      rotatingRingRef.current.rotation.y += rotationSpeed * delta
     }
   })
 
   return (
-    <group ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
-      {/* Subtle outer glow */}
-      <mesh>
-        <torusGeometry args={[radius, 0.35, 24, 100]} />
-        <meshBasicMaterial
-          color={color}
-          transparent
-          opacity={0.15}
-          side={THREE.DoubleSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
+    <group>
+      {/* STATIC ORBITAL TRACK - Fixed anchor showing the path */}
+      <group rotation={[Math.PI / 2, 0, 0]}>
+        {/* Thin guideline showing orbital path */}
+        <mesh>
+          <torusGeometry args={[radius, 0.08, 16, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.3}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      </group>
 
-      {/* Main crisp ring - defined and clean */}
-      <mesh>
-        <torusGeometry args={[radius, 0.25, 24, 100]} />
-        <meshStandardMaterial
-          color={color}
-          metalness={0.8}
-          roughness={0.3}
-          emissive={color}
-          emissiveIntensity={0.8}
-          transparent
-          opacity={0.9}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
+      {/* ROTATING RING - Moves along the orbital track like planetary rotation */}
+      <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
+        {/* Subtle outer glow */}
+        <mesh>
+          <torusGeometry args={[radius, 0.35, 24, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.12}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        {/* Main rotating ring - like Saturn's rings rolling on orbit */}
+        <mesh>
+          <torusGeometry args={[radius, 0.25, 24, 100]} />
+          <meshStandardMaterial
+            color={color}
+            metalness={0.8}
+            roughness={0.3}
+            emissive={color}
+            emissiveIntensity={0.7}
+            transparent
+            opacity={0.85}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      </group>
     </group>
   )
 }
