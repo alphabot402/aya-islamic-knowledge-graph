@@ -15,8 +15,8 @@ interface ZoomControlsProps {
 
 export default function ZoomControls({ onZoomIn, onZoomOut, onReset, className = '' }: ZoomControlsProps) {
   return (
-    <div className={`fixed right-4 bottom-4 z-30 ${className}`}>
-      {/* Compact horizontal layout */}
+    <div className={`fixed right-4 bottom-16 md:bottom-4 z-30 ${className}`}>
+      {/* Compact horizontal layout - with space for instructions */}
       <div className="bg-black/70 backdrop-blur-xl border border-blue-300/20 rounded-xl p-2 shadow-2xl shadow-blue-500/10">
         <div className="flex items-center gap-2">
           {/* Zoom In */}

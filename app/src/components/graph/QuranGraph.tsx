@@ -27,6 +27,7 @@ import Scene from './Scene'
 import Header from './ui/Header'
 import PillarFilter from './ui/PillarFilter'
 import ZoomControls from './ui/ZoomControls'
+import BottomInstructions from './ui/BottomInstructions'
 import StatsDisplay from './ui/StatsDisplay'
 import LoadingIndicator from './ui/LoadingIndicator'
 import HoverTooltip from './ui/HoverTooltip'
@@ -99,8 +100,8 @@ export default function QuranGraph() {
       <CanvasErrorBoundary>
         <Canvas
           camera={{
-            position: [100, 80, 100],  // Higher and farther for full orbital view
-            fov: 60
+            position: [120, 90, 120],  // Optimal view - not too close, not too far
+            fov: 55
           }}
           className="bg-transparent"
           gl={{
@@ -138,6 +139,9 @@ export default function QuranGraph() {
           onReset={handleResetView}
         />
       )}
+
+      {/* Bottom Instructions */}
+      {!isLoading && !error && <BottomInstructions />}
 
       {/* Loading State */}
       {isLoading && <LoadingIndicator />}

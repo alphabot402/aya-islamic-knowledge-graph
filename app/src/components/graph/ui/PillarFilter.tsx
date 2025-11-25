@@ -21,8 +21,8 @@ export default function PillarFilter({
   pillarCounts
 }: PillarFilterProps) {
   return (
-    <div className="fixed bottom-4 left-4 z-30 max-w-md">
-      {/* Compact glass container - bottom left */}
+    <div className="fixed bottom-16 md:bottom-4 left-4 z-30 max-w-md">
+      {/* Compact glass container - bottom left, with space for instructions */}
       <div className="bg-black/70 backdrop-blur-xl border border-blue-300/20 rounded-xl p-2 shadow-2xl shadow-blue-500/10">
         <div className="flex flex-wrap gap-1.5 items-center">
           <span className="text-[10px] text-blue-300/70 font-semibold uppercase tracking-wide mr-1 hidden lg:inline">
