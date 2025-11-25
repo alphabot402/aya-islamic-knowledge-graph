@@ -23,7 +23,17 @@ export default function NodeDetailsPanel({
   const surahInfo = node.type === 'surah' ? getSurahName(node.surahNumber) : null
 
   return (
-    <div className="absolute top-4 right-4 bottom-24 md:bottom-4 w-full md:w-96 max-w-md mx-4 md:mx-0 bg-black/90 backdrop-blur-md border border-blue-400/40 rounded-lg p-4 overflow-y-auto shadow-xl">
+    <>
+      {/* Semi-transparent backdrop - click to close */}
+      <div
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+        onClick={onClose}
+      />
+
+      {/* Details panel - centered modal on mobile, side panel on desktop */}
+      <div className="fixed inset-x-4 bottom-4 top-auto md:inset-auto md:top-4 md:right-4 md:w-96 max-w-2xl md:max-w-md mx-auto md:mx-0 bg-black/95 backdrop-blur-xl border border-blue-400/50 rounded-2xl shadow-2xl shadow-blue-500/20 overflow-hidden z-50 max-h-[70vh] md:max-h-[85vh] flex flex-col">
+      {/* Content - scrollable */}
+      <div className="overflow-y-auto p-4 flex-1">
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
           {node.type === 'surah' ? (
@@ -143,6 +153,8 @@ export default function NodeDetailsPanel({
           )}
         </>
       )}
-    </div>
+      </div>
+      </div>
+    </>
   )
 }
