@@ -44,17 +44,9 @@ export default function OrrerySystem() {
       })
     }
 
-    // Specific pillar selected
+    // Specific pillar selected - show both surahs AND hadiths for that pillar
     return nodes.filter((node) => {
-      // If surah, match pillar
-      if (node.type === 'surah') {
-        return node.pillar === activePillar
-      }
-      // For hadiths, show those connected to the selected pillar
-      if (node.type === 'hadith') {
-        return node.pillar === activePillar
-      }
-      return false
+      return node.pillar === activePillar
     })
   }, [nodes, activePillar])
 
