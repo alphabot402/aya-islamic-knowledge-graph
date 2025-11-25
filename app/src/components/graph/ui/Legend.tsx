@@ -1,7 +1,7 @@
 /**
  * Legend Component
- * Visual guide showing Surah colors, Hadith, and connections
- * Positioned at bottom right, near zoom controls
+ * Visual guide showing Surah colors and Hadith
+ * Clean planetary view without connection lines
  */
 
 'use client'
@@ -13,7 +13,7 @@ interface LegendProps {
 export default function Legend({ className = '' }: LegendProps) {
   return (
     <div className={`fixed left-1/2 -translate-x-1/2 bottom-12 z-30 ${className}`}>
-      {/* Top centered bar - Surahs, Hadith, Link */}
+      {/* Centered bar - Surahs and Hadith */}
       <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg px-3 py-1.5 shadow-lg">
         <div className="flex items-center gap-2 md:gap-3">
           {/* Surahs - 5 Pillars colors */}
@@ -32,12 +32,6 @@ export default function Legend({ className = '' }: LegendProps) {
           <div className="flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.9)]"></div>
             <span className="text-[10px] text-amber-200/90 font-medium">Hadith</span>
-          </div>
-
-          {/* Connection Line */}
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-[2px] bg-gradient-to-r from-blue-400 to-amber-400 shadow-[0_0_4px_rgba(251,191,36,0.6)]"></div>
-            <span className="text-[10px] text-blue-200/90 font-medium">Link</span>
           </div>
         </div>
       </div>

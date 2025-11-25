@@ -101,14 +101,7 @@ export default function Scene({ nodes, onNodeSelect, onNodeHover, cameraControls
       {/* Orbital Rings - The Astrolabe tracks */}
       <OrbitRings />
 
-      {/* Connection lines - Only show on hover/selection */}
-      <ConnectionLines
-        nodes={nodes}
-        hoveredNodeId={hoveredNodeId}
-        selectedNodeId={selectedNodeId}
-      />
-
-      {/* Nodes with stable callbacks */}
+      {/* Nodes with stable callbacks - Clean planetary view */}
       {nodes.map(node => {
         const callbacks = nodeCallbacks.get(node.id)!
 
