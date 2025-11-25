@@ -50,6 +50,14 @@ export interface SurahNode {
   pillar: Pillar
 }
 
+export interface VerseConnection {
+  surah: number
+  ayah: number
+  reference: string
+  relationship: string
+  connectionType: string
+}
+
 export interface HadithNode {
   id: string
   type: 'hadith'
@@ -57,6 +65,7 @@ export interface HadithNode {
   connections: string[]
   pillar: Pillar
   hadith: Hadith
+  verses: VerseConnection[]  // NEW: Specific verse connections
 }
 
 export type GraphNode = SurahNode | HadithNode
@@ -410,16 +419,31 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           edgesData.data.map((edge: EdgeData) => edge.hadith.idInBook)
         )
 
-        // Build edge connection map: hadithId -> [surah numbers]
+        // Build edge connection maps
         const hadithConnections = new Map<number, number[]>()
+        const hadithVerses = new Map<number, VerseConnection[]>()
+
         edgesData.data.forEach((edge: EdgeData) => {
           const hadithId = edge.hadith.idInBook
           const surahNum = edge.verse.surah
 
+          // Store surah connections
           if (!hadithConnections.has(hadithId)) {
             hadithConnections.set(hadithId, [])
           }
           hadithConnections.get(hadithId)!.push(surahNum)
+
+          // Store verse-level connections with metadata
+          if (!hadithVerses.has(hadithId)) {
+            hadithVerses.set(hadithId, [])
+          }
+          hadithVerses.get(hadithId)!.push({
+            surah: edge.verse.surah,
+            ayah: edge.verse.ayah,
+            reference: edge.verse.reference,
+            relationship: edge.pillar || 'general',
+            connectionType: edge.pillar || 'general'
+          })
         })
 
         let hadithUrl = `${apiBase}/hadith`
@@ -504,13 +528,17 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
               ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
               : 'general'
 
+            // Get verse-level connections for this hadith
+            const verseConnections = hadithVerses.get(h.idInBook) || []
+
             return {
               id: `hadith-${h.idInBook}`,
               type: 'hadith' as const,
               position,
               connections: connectionIds,
               pillar,
-              hadith: h
+              hadith: h,
+              verses: verseConnections  // NEW: Include specific verse data
             }
           })
         }

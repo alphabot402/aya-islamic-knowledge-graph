@@ -146,29 +146,32 @@ export default function NodeDetailsPanel({
             </div>
           </div>
 
-          {/* Connection Topic */}
-          <div className="border-t border-amber-500/20 pt-3 mt-3">
-            <div className="text-xs text-amber-400 font-semibold mb-2 uppercase tracking-wide">
-              Connection
-            </div>
-            <div className="text-sm text-gray-300 leading-relaxed">
-              This hadith relates to the pillar of <span className="text-amber-200 font-medium capitalize">{node.pillar}</span>, connecting Islamic teachings with Quranic guidance.
-            </div>
-          </div>
-
-          {node.connections.length > 0 && (
+          {/* Connected Verses with specific ayah numbers */}
+          {node.verses && node.verses.length > 0 && (
             <div className="border-t border-amber-500/20 pt-3 mt-3">
               <div className="text-xs text-amber-400 font-semibold mb-2 uppercase tracking-wide">
-                Connected Surahs ({node.connections.length})
+                Connected Verses ({node.verses.length})
               </div>
-              <div className="flex flex-wrap gap-2">
-                {node.connections.map(conn => (
-                  <span
-                    key={conn}
-                    className="px-2 py-1 bg-amber-500/20 border border-amber-500/30 rounded text-xs text-amber-300"
-                  >
-                    {conn.replace('surah-', 'Surah ')}
-                  </span>
+              <div className="space-y-2">
+                {node.verses.map((verse, index) => (
+                  <div key={index} className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-2">
+                    <div className="flex justify-between items-start mb-1">
+                      <div className="text-sm text-amber-200 font-medium">
+                        {verse.reference}
+                      </div>
+                      <span className="text-xs text-amber-400/70 capitalize">{verse.relationship}</span>
+                    </div>
+                    <a
+                      href={`https://quran.com/${verse.surah}/${verse.ayah}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-amber-300 hover:text-amber-100 transition-colors"
+                    >
+                      <span>📖</span>
+                      <span>Read Verse</span>
+                      <span className="opacity-70">↗</span>
+                    </a>
+                  </div>
                 ))}
               </div>
             </div>
