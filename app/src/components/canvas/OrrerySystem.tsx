@@ -3,11 +3,10 @@
  * "He has subjected the sun and the moon, each running [its course] for a specified term"
  *
  * The Celestial Orrery system that organizes all knowledge nodes:
- * - 5 Pillar Orbits (Salah, Zakat, Sawm, Hajj, General)
- * - Shahada Column at center
- * - Animated orbital rings
- * - Surahs as "Suns"
- * - Hadiths as "Moons" orbiting their surahs
+ * - Five Pillar Orbits (Shahada, Salah, Zakat, Sawm, Hajj)
+ * - Animated orbital rings with dual-ring system (static + rotating)
+ * - Surahs as planetary bodies (color-coded by pillar)
+ * - Hadiths as golden moons in their own orbital rings
  *
  * This component coordinates the rendering of all nodes and rings.
  */
@@ -36,12 +35,22 @@ export default function OrrerySystem() {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null)
 
-  // Apply pillar filter (inline)
+  // Apply pillar filter (inline) - exclude "general" category, focus on Five Pillars
   const filteredNodes = useMemo(() => {
-    if (!activePillar) return nodes
+    if (!activePillar) {
+      // "All" view: Show all Five Pillars (exclude general)
+      return nodes.filter((node) => {
+        if (node.type === 'surah') {
+          return node.pillar !== 'general'
+        }
+        // Show all hadiths
+        return true
+      })
+    }
 
+    // Specific pillar selected
     return nodes.filter((node) => {
-      // If surah, match pillar
+      // If surah, match pillar (general already excluded above)
       if (node.type === 'surah') {
         return node.pillar === activePillar
       }

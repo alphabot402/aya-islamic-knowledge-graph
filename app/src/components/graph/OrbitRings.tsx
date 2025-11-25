@@ -99,35 +99,27 @@ export default function OrbitRings() {
         rotationSpeed={0.3}
       />
 
-      {/* Zakat Ring - Second orbit (Radius 42) - Emerald Teal */}
+      {/* Zakat Ring - Third orbit (Radius 52) - Emerald Teal */}
       <OrbitRing
-        radius={42}
+        radius={52}
         label="Zakat"
-        color="#14b8a6" // Teal - distinct from blue/purple
+        color="#14b8a6" // Teal - charity
         rotationSpeed={0.2}
       />
 
-      {/* General Knowledge Plane - Third orbit (Radius 54) - Cool Gray */}
+      {/* Sawm Ring - Fourth orbit (Radius 68) - Deep Violet */}
       <OrbitRing
-        radius={54}
-        label="General"
-        color="#64748b" // Slate Gray - neutral celestial
-        rotationSpeed={0.08}
-      />
-
-      {/* Sawm Ring - Fourth orbit (Radius 66) - Deep Violet */}
-      <OrbitRing
-        radius={66}
+        radius={68}
         label="Sawm"
-        color="#8b5cf6" // Violet - celestial purple
+        color="#8b5cf6" // Violet - fasting
         rotationSpeed={0.15}
       />
 
-      {/* Hajj Ring - Outermost orbit (Radius 78) - Rich Gold */}
+      {/* Hajj Ring - Outermost orbit (Radius 84) - Rich Gold */}
       <OrbitRing
-        radius={78}
+        radius={84}
         label="Hajj"
-        color="#f59e0b" // Amber Gold - warm contrast
+        color="#f59e0b" // Amber Gold - pilgrimage
         rotationSpeed={0.1}
       />
 

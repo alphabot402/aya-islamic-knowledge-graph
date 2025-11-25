@@ -41,35 +41,37 @@ export default function PillarFilter({
             All
           </button>
 
-          {/* Pillar buttons - Vertical stack - compact */}
-          {(Object.keys(PILLAR_INFO) as Pillar[]).map(pillar => {
-            const info = PILLAR_INFO[pillar]
-            const isSelected = value === pillar
+          {/* Pillar buttons - Vertical stack - compact - Five Pillars only */}
+          {(Object.keys(PILLAR_INFO) as Pillar[])
+            .filter(pillar => pillar !== 'general') // Exclude general category
+            .map(pillar => {
+              const info = PILLAR_INFO[pillar]
+              const isSelected = value === pillar
 
-            return (
-              <button
-                key={pillar}
-                onClick={() => onChange(pillar)}
-                className={`px-2 py-1 rounded text-[10px] font-medium transition-all duration-200 border w-full text-left ${
-                  isSelected
-                    ? 'shadow-md'
-                    : 'text-blue-300/70 hover:text-blue-200 border-blue-400/20 hover:border-blue-400/40'
-                }`}
-                style={
-                  isSelected
-                    ? {
-                        backgroundColor: `${info.color}20`,
-                        borderColor: info.color,
-                        color: info.color,
-                        boxShadow: `0 0 12px ${info.color}40`
-                      }
-                    : {}
-                }
-              >
-                {info.name}
-              </button>
-            )
-          })}
+              return (
+                <button
+                  key={pillar}
+                  onClick={() => onChange(pillar)}
+                  className={`px-2 py-1 rounded text-[10px] font-medium transition-all duration-200 border w-full text-left ${
+                    isSelected
+                      ? 'shadow-md'
+                      : 'text-blue-300/70 hover:text-blue-200 border-blue-400/20 hover:border-blue-400/40'
+                  }`}
+                  style={
+                    isSelected
+                      ? {
+                          backgroundColor: `${info.color}20`,
+                          borderColor: info.color,
+                          color: info.color,
+                          boxShadow: `0 0 12px ${info.color}40`
+                        }
+                      : {}
+                  }
+                >
+                  {info.name}
+                </button>
+              )
+            })}
         </div>
       </div>
     </div>

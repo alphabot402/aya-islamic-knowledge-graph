@@ -52,8 +52,8 @@ function SurahNode({
     const hoverColorHex = baseColorObj.clone().multiplyScalar(1.3).getHexString()
     const selectColorHex = baseColorObj.clone().multiplyScalar(1.6).getHexString()
 
-    // Pre-calculate size
-    const baseSize = 0.6 + Math.min(node.verseCount / 120, 1.5)
+    // Pre-calculate size - LARGER for planet-like appearance
+    const baseSize = 1.8 + Math.min(node.verseCount / 80, 2.5)
 
     return {
       baseColor,
@@ -89,19 +89,31 @@ function SurahNode({
 
   return (
     <group position={node.position}>
-      {/* Subtle outer glow - crisp and minimal */}
+      {/* Outer atmospheric glow - planetary atmosphere effect */}
       <mesh>
-        <sphereGeometry args={[nodeMetrics.baseSize * 1.15, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.35, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.25 : isHovered ? 0.2 : 0.12}
+          opacity={isSelected ? 0.15 : isHovered ? 0.12 : 0.08}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Main sphere - crisp and defined */}
+      {/* Inner atmospheric glow */}
+      <mesh>
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.18, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.28 : isHovered ? 0.22 : 0.16}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main sphere - planet surface */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -112,9 +124,9 @@ function SurahNode({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.2 : isHovered ? 0.9 : 0.6}
-          metalness={0.7}
-          roughness={0.25}
+          emissiveIntensity={isSelected ? 1.4 : isHovered ? 1.1 : 0.8}
+          metalness={0.6}
+          roughness={0.3}
         />
       </mesh>
 

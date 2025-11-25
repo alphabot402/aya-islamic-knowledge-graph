@@ -19,12 +19,12 @@ import { type Pillar } from '@/hooks/useGraphData.orbital'
 // ============================================================================
 
 export const PILLAR_ORBITS: Record<Pillar, { radius: number; yOffset: number }> = {
-  shahada: { radius: 15, yOffset: 0 },     // Innermost circle - aligned with rest
-  salah: { radius: 30, yOffset: 0 },       // Row 2 - Inner circle
-  zakat: { radius: 42, yOffset: 0 },       // Row 3
-  sawm: { radius: 66, yOffset: 0 },        // Row 5
-  hajj: { radius: 78, yOffset: 0 },        // Row 6 - Outer circle
-  general: { radius: 54, yOffset: 8 }      // Row 4 - Slightly elevated for distinction
+  shahada: { radius: 20, yOffset: 0 },     // Row 1 - Innermost circle (Foundation)
+  salah: { radius: 36, yOffset: 0 },       // Row 2 - Prayer
+  zakat: { radius: 52, yOffset: 0 },       // Row 3 - Charity
+  sawm: { radius: 68, yOffset: 0 },        // Row 4 - Fasting
+  hajj: { radius: 84, yOffset: 0 },        // Row 5 - Pilgrimage (Outer circle)
+  general: { radius: 52, yOffset: 0 }      // Mapped to middle ring (will be filtered out)
 }
 
 // ============================================================================
@@ -44,12 +44,7 @@ export function calculateSurahPosition(
 ): [number, number, number] {
   const orbit = PILLAR_ORBITS[pillar]
 
-  // Special case: General surahs on elevated plane
-  if (pillar === 'general') {
-    return calculateGeneralPlanePosition(indexInPillar, totalInPillar)
-  }
-
-  // All pillars use standard circular positioning (including Shahada)
+  // All pillars use standard circular positioning - Five Pillars only
   return calculateOrbitalPosition(orbit.radius, indexInPillar, totalInPillar, orbit.yOffset)
 }
 

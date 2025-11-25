@@ -61,26 +61,38 @@ function HadithNode({
 
   const color = isSelected ? selectColor : isHovered ? hoverColor : baseColor
 
-  // Scale node size by connection count (1-5 connections → 0.7-1.2 scale)
+  // Scale node size by connection count - LARGER for planet-like appearance
   const connectionCount = node.connectionCount || 1
-  const sizeScale = Math.min(0.7 + (connectionCount * 0.15), 1.3)
-  const baseSize = 0.8 * sizeScale
+  const sizeScale = Math.min(1.2 + (connectionCount * 0.25), 2.2)
+  const baseSize = 1.5 * sizeScale
 
   return (
     <group position={node.position}>
-      {/* Subtle outer glow - crisp and minimal */}
+      {/* Outer atmospheric glow - golden planetary atmosphere */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.15, 32, 32]} />
+        <sphereGeometry args={[baseSize * 1.35, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.25 : isHovered ? 0.2 : 0.12}
+          opacity={isSelected ? 0.15 : isHovered ? 0.12 : 0.08}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Main sphere - crisp golden core */}
+      {/* Inner atmospheric glow */}
+      <mesh>
+        <sphereGeometry args={[baseSize * 1.18, 32, 32]} />
+        <meshBasicMaterial
+          color={color}
+          transparent
+          opacity={isSelected ? 0.28 : isHovered ? 0.22 : 0.16}
+          side={THREE.BackSide}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Main sphere - golden planet surface */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -91,9 +103,9 @@ function HadithNode({
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.2 : isHovered ? 0.9 : 0.6}
-          metalness={0.7}
-          roughness={0.25}
+          emissiveIntensity={isSelected ? 1.4 : isHovered ? 1.1 : 0.8}
+          metalness={0.6}
+          roughness={0.3}
         />
       </mesh>
 
