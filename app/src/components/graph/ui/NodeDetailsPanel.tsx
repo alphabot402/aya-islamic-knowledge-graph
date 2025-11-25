@@ -23,7 +23,7 @@ export default function NodeDetailsPanel({
   const surahInfo = node.type === 'surah' ? getSurahName(node.surahNumber) : null
 
   return (
-    <div className="absolute top-4 right-4 w-96 bg-black/90 backdrop-blur-md border border-purple-500/40 rounded-lg p-4 max-h-[80vh] overflow-y-auto shadow-xl">
+    <div className="absolute top-4 right-4 bottom-24 md:bottom-4 w-full md:w-96 max-w-md mx-4 md:mx-0 bg-black/90 backdrop-blur-md border border-blue-400/40 rounded-lg p-4 overflow-y-auto shadow-xl">
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
           {node.type === 'surah' ? (
