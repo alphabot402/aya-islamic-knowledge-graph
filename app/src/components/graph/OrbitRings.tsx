@@ -29,66 +29,30 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
   return (
     <group ref={ringRef} rotation={[Math.PI / 2, 0, 0]}>
-      {/* Outer glow atmosphere - far halo */}
-      <mesh>
-        <torusGeometry args={[radius, 0.8, 24, 100]} />
-        <meshBasicMaterial
-          color={color}
-          transparent
-          opacity={0.18}
-          side={THREE.DoubleSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-
-      {/* Middle atmosphere layer */}
-      <mesh>
-        <torusGeometry args={[radius, 0.6, 24, 100]} />
-        <meshBasicMaterial
-          color={color}
-          transparent
-          opacity={0.28}
-          side={THREE.DoubleSide}
-          blending={THREE.AdditiveBlending}
-        />
-      </mesh>
-
-      {/* Main thick ring - Saturn-like planetary ring */}
-      <mesh>
-        <torusGeometry args={[radius, 0.45, 24, 100]} />
-        <meshStandardMaterial
-          color={color}
-          metalness={0.9}
-          roughness={0.2}
-          emissive={color}
-          emissiveIntensity={1.2}
-          transparent
-          opacity={0.85}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-
-      {/* Inner bright core */}
+      {/* Subtle outer glow */}
       <mesh>
         <torusGeometry args={[radius, 0.35, 24, 100]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={0.4}
+          opacity={0.15}
           side={THREE.DoubleSide}
           blending={THREE.AdditiveBlending}
         />
       </mesh>
 
-      {/* Bright stellar edge highlight */}
+      {/* Main crisp ring - defined and clean */}
       <mesh>
         <torusGeometry args={[radius, 0.25, 24, 100]} />
-        <meshBasicMaterial
+        <meshStandardMaterial
           color={color}
+          metalness={0.8}
+          roughness={0.3}
+          emissive={color}
+          emissiveIntensity={0.8}
           transparent
-          opacity={0.5}
+          opacity={0.9}
           side={THREE.DoubleSide}
-          blending={THREE.AdditiveBlending}
         />
       </mesh>
     </group>
