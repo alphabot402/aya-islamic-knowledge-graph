@@ -21,7 +21,7 @@ export default function PillarFilter({
   pillarCounts
 }: PillarFilterProps) {
   return (
-    <div className="fixed bottom-16 left-2 z-30">
+    <div className="fixed bottom-2 left-2 z-30">
       {/* Vertical stack - bottom left - compact */}
       <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg p-1.5 shadow-lg">
         <div className="flex flex-col gap-1">

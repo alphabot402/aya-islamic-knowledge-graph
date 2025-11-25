@@ -15,7 +15,7 @@ interface ZoomControlsProps {
 
 export default function ZoomControls({ onZoomIn, onZoomOut, onReset, className = '' }: ZoomControlsProps) {
   return (
-    <div className={`fixed right-2 bottom-16 z-30 ${className}`}>
+    <div className={`fixed right-2 bottom-2 z-30 ${className}`}>
       {/* Vertical stack - bottom right - compact */}
       <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg p-1.5 shadow-lg">
         <div className="flex flex-col gap-1">

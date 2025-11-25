@@ -31,7 +31,7 @@ export default function NodeDetailsPanel({
       />
 
       {/* Details panel - compact modal on mobile, side panel on desktop */}
-      <div className="fixed left-16 right-16 bottom-20 top-auto md:inset-auto md:top-4 md:right-4 md:left-auto md:w-96 max-w-lg md:max-w-md mx-auto md:mx-0 bg-black/95 backdrop-blur-xl border border-blue-400/50 rounded-2xl shadow-2xl shadow-blue-500/20 overflow-hidden z-50 max-h-[55vh] md:max-h-[85vh] flex flex-col">
+      <div className="fixed left-2 right-2 bottom-14 top-auto md:inset-auto md:top-4 md:right-4 md:left-auto md:w-96 max-w-lg md:max-w-md mx-auto md:mx-0 bg-black/95 backdrop-blur-xl border border-blue-400/50 rounded-2xl shadow-2xl shadow-blue-500/20 overflow-hidden z-50 max-h-[60vh] md:max-h-[85vh] flex flex-col">
       {/* Content - scrollable */}
       <div className="overflow-y-auto p-4 flex-1">
       <div className="flex justify-between items-start mb-3">
