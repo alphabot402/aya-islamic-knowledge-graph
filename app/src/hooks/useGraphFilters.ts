@@ -5,7 +5,7 @@
  */
 
 import { useState, useEffect, useMemo } from 'react'
-import { GraphNode, Pillar } from './useGraphData'
+import { GraphNode, Pillar } from './useGraphData.orbital'
 
 interface UseGraphFiltersResult {
   filteredNodes: GraphNode[]

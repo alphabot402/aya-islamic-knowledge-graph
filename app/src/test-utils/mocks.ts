@@ -3,7 +3,7 @@
  * Mock data and utilities for testing
  */
 
-import { GraphNode, SurahNode, HadithNode, Pillar } from '@/hooks/useGraphData'
+import { GraphNode, SurahNode, HadithNode, Pillar } from '@/hooks/useGraphData.orbital'
 
 /**
  * Mock Surah Node
@@ -39,6 +39,16 @@ export const mockHadithNode: HadithNode = {
       text: 'Actions are judged by intentions',
     },
   },
+  verses: [
+    {
+      surah: 1,
+      ayah: 1,
+      reference: '1:1',
+      relationship: 'general',
+      connectionType: 'general',
+    },
+  ],
+  connectionCount: 2,
 }
 
 /**

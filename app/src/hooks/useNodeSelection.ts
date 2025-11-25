@@ -5,7 +5,7 @@
  */
 
 import { useState, useCallback } from 'react'
-import { GraphNode } from './useGraphData'
+import { GraphNode } from './useGraphData.orbital'
 
 interface UseNodeSelectionResult {
   selectedNode: GraphNode | null
