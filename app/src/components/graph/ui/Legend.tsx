@@ -12,7 +12,7 @@ interface LegendProps {
 
 export default function Legend({ className = '' }: LegendProps) {
   return (
-    <div className={`fixed left-1/2 -translate-x-1/2 bottom-14 z-30 ${className}`}>
+    <div className={`fixed left-1/2 -translate-x-1/2 bottom-12 z-30 ${className}`}>
       {/* Top centered bar - Surahs, Hadith, Link */}
       <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg px-3 py-1.5 shadow-lg">
         <div className="flex items-center gap-2 md:gap-3">
