@@ -125,7 +125,7 @@ function SurahNode({
         />
       </mesh>
 
-      {/* Main sphere - crisp planet surface with rich colors */}
+      {/* Main sphere - glassy, shiny planet surface with rich colors */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -134,13 +134,14 @@ function SurahNode({
         castShadow
         receiveShadow
       >
-        <sphereGeometry args={[nodeMetrics.baseSize, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize, 64, 64]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.6 : isHovered ? 1.3 : 0.9}
-          metalness={0.4}
-          roughness={0.4}
+          emissiveIntensity={isSelected ? 1.8 : isHovered ? 1.5 : 1.1}
+          metalness={0.7}
+          roughness={0.15}
+          envMapIntensity={1.5}
         />
       </mesh>
 

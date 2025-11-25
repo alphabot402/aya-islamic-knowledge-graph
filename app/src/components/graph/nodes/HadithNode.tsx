@@ -104,7 +104,7 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Main sphere - crisp golden planet with rich color */}
+      {/* Main sphere - glassy, shiny golden planet with rich color */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -113,13 +113,14 @@ function HadithNode({
         castShadow
         receiveShadow
       >
-        <sphereGeometry args={[baseSize, 32, 32]} />
+        <sphereGeometry args={[baseSize, 64, 64]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
-          emissiveIntensity={isSelected ? 1.6 : isHovered ? 1.3 : 0.9}
-          metalness={0.4}
-          roughness={0.4}
+          emissiveIntensity={isSelected ? 1.8 : isHovered ? 1.5 : 1.1}
+          metalness={0.7}
+          roughness={0.15}
+          envMapIntensity={1.5}
         />
       </mesh>
 

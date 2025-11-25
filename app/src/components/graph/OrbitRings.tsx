@@ -83,44 +83,44 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 export default function OrbitRings() {
   return (
     <group>
-      {/* Shahada Ring - Innermost orbit (Radius 15) - Purple */}
+      {/* Shahada Ring - Innermost orbit (Optimized spacing) - Purple */}
       <OrbitRing
-        radius={15}
+        radius={28}
         label="Shahada"
         color="#9333ea" // Purple - foundation
         rotationSpeed={0.4}
       />
 
-      {/* Salah Ring - Second orbit (Radius 30) - Deep Blue */}
+      {/* Salah Ring - Second orbit - Deep Blue */}
       <OrbitRing
-        radius={30}
+        radius={32}
         label="Salah"
         color="#3b82f6" // Bright Blue - celestial
+        rotationSpeed={0.35}
+      />
+
+      {/* Zakat Ring - Third orbit - Emerald Teal */}
+      <OrbitRing
+        radius={38}
+        label="Zakat"
+        color="#14b8a6" // Teal - charity
         rotationSpeed={0.3}
       />
 
-      {/* Zakat Ring - Third orbit (Radius 52) - Emerald Teal */}
+      {/* Sawm Ring - Fourth orbit - Deep Violet */}
       <OrbitRing
-        radius={52}
-        label="Zakat"
-        color="#14b8a6" // Teal - charity
-        rotationSpeed={0.2}
-      />
-
-      {/* Sawm Ring - Fourth orbit (Radius 68) - Deep Violet */}
-      <OrbitRing
-        radius={68}
+        radius={46}
         label="Sawm"
         color="#8b5cf6" // Violet - fasting
-        rotationSpeed={0.15}
+        rotationSpeed={0.25}
       />
 
-      {/* Hajj Ring - Outermost orbit (Radius 84) - Rich Gold */}
+      {/* Hajj Ring - Outermost orbit - Rich Gold */}
       <OrbitRing
-        radius={84}
+        radius={56}
         label="Hajj"
         color="#f59e0b" // Amber Gold - pilgrimage
-        rotationSpeed={0.1}
+        rotationSpeed={0.2}
       />
 
       {/* Small central marker sphere - subtle reference point */}

@@ -18,13 +18,15 @@ import { type Pillar } from '@/hooks/useGraphData.orbital'
 // CIRCULAR ROW CONFIGURATION
 // ============================================================================
 
+// Optimized radii for balanced spacing (target: 8-12 units per node)
+// Distribution: Shahada(19), Salah(20), Zakat(18), Sawm(12), Hajj(8)
 export const PILLAR_ORBITS: Record<Pillar, { radius: number; yOffset: number }> = {
-  shahada: { radius: 20, yOffset: 0 },     // Row 1 - Innermost circle (Foundation)
-  salah: { radius: 36, yOffset: 0 },       // Row 2 - Prayer
-  zakat: { radius: 52, yOffset: 0 },       // Row 3 - Charity
-  sawm: { radius: 68, yOffset: 0 },        // Row 4 - Fasting
-  hajj: { radius: 84, yOffset: 0 },        // Row 5 - Pilgrimage (Outer circle)
-  general: { radius: 52, yOffset: 0 }      // Mapped to middle ring (will be filtered out)
+  shahada: { radius: 28, yOffset: 0 },     // 19 nodes → 9.3 units/node
+  salah: { radius: 32, yOffset: 0 },       // 20 nodes → 10.1 units/node
+  zakat: { radius: 38, yOffset: 0 },       // 18 nodes → 13.3 units/node
+  sawm: { radius: 46, yOffset: 0 },        // 12 nodes → 24.1 units/node
+  hajj: { radius: 56, yOffset: 0 },        // 8 nodes → 44.0 units/node
+  general: { radius: 38, yOffset: 0 }      // Mapped to middle ring (will be filtered out)
 }
 
 // ============================================================================
