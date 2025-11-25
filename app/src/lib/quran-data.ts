@@ -20,7 +20,7 @@ export interface QuranMetadata {
  */
 export async function loadSurah(surahNumber: number): Promise<QuranSurah | null> {
   try {
-    const dataDir = path.join(process.cwd(), '..', 'data', 'quran')
+    const dataDir = path.join(process.cwd(), 'data', 'quran')
     const fileName = `surah_${String(surahNumber).padStart(3, '0')}.json`
     const filePath = path.join(dataDir, fileName)
     
@@ -37,7 +37,7 @@ export async function loadSurah(surahNumber: number): Promise<QuranSurah | null>
  */
 export async function loadSurahsMetadata(): Promise<QuranMetadata | null> {
   try {
-    const dataDir = path.join(process.cwd(), '..', 'data', 'quran')
+    const dataDir = path.join(process.cwd(), 'data', 'quran')
     const filePath = path.join(dataDir, 'surahs-metadata.json')
     
     const fileContent = fs.readFileSync(filePath, 'utf-8')

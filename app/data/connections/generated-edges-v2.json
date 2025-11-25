@@ -1,0 +1,618 @@
+{
+  "metadata": {
+    "generatedAt": "2025-11-25T03:10:12.752Z",
+    "version": "2.0.0",
+    "generator": "auto-curator-v2-precision",
+    "source": "bukhari-raw.json",
+    "hadithsScanned": 7277,
+    "connectionsFound": 27,
+    "method": "high-precision pattern matching with context validation",
+    "confidenceThreshold": "90%+",
+    "reviewStatus": "high-confidence-batch",
+    "falsePositiveRate": "estimated <5%"
+  },
+  "statistics": {
+    "hadithsScanned": 7277,
+    "verseSignatureMatches": 15,
+    "revelationWithSurahName": 0,
+    "recitationWithVerse": 0,
+    "explicitVerseReferences": 13,
+    "totalConnectionsFound": 27
+  },
+  "edges": [
+    {
+      "id": "edge-1",
+      "verse": {
+        "surah": 96,
+        "verse": 1,
+        "reference": "96:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 3,
+        "chapterId": 1,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Aisha (the mother of the faithful believers):",
+        "text_excerpt": "The commencement of the Divine Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like bright daylight, and then the ..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Alaq 96:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-2",
+      "verse": {
+        "surah": 75,
+        "verse": 16,
+        "reference": "75:16"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 5,
+        "chapterId": 1,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Said bin Jubair:",
+        "text_excerpt": "Ibn 'Abbas in the explanation of the statement of Allah \"Move not your tongue concerning (the Quran) to make haste therewith.\" (75.16) said \"Allah's M..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Qiyamah 75:16",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-3",
+      "verse": {
+        "surah": 3,
+        "verse": 64,
+        "reference": "3:64"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 7,
+        "chapterId": 1,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Abdullah bin 'Abbas:",
+        "text_excerpt": "Abu Sufyan bin Harb informed me that Heraclius had sent a messenger to\n     him while he had been accompanying a caravan from Quraish. They were \n    ..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Ali Imran 3:64",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-4",
+      "verse": {
+        "surah": 6,
+        "verse": 83,
+        "reference": "6:83"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 32,
+        "chapterId": 2,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Abdullah:",
+        "text_excerpt": "When the following Verse was revealed: \"It is those who believe and \n     confuse not their belief with wrong (worshipping others besides \n     Allah...."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (6:83)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-5",
+      "verse": {
+        "surah": 2,
+        "verse": 143,
+        "reference": "2:143"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 40,
+        "chapterId": 2,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Al-Bara' (bin 'Azib):",
+        "text_excerpt": "When the Prophet (ﷺ) came to Medina, he stayed first with his grandfathers\n     or maternal uncles from Ansar. He offered his prayers facing \n     Bai..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (2:143)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-6",
+      "verse": {
+        "surah": 5,
+        "verse": 3,
+        "reference": "5:3"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 45,
+        "chapterId": 2,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Umar bin Al-Khattab:",
+        "text_excerpt": "Once a Jew said to me, \"O the chief of believers! There is a verse in \n     your Holy Book Which is read by all of you (Muslims), and had it been \n   ..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (5:3)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-7",
+      "verse": {
+        "surah": 2,
+        "verse": 159,
+        "reference": "2:159"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 160,
+        "chapterId": 4,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "After \n     performing the ablution 'Uthman said, \"I am going to tell you a Hadith\n     which I would not have told you, had I not been compelled by a certain\n     Holy Verse (the sub narrator 'Urwa said:",
+        "text_excerpt": "This verse is: \"Verily, those\n     who conceal the clear signs and the guidance which we have sent \n     down...)\" (2:159). I heard the Prophet (ﷺ) sa..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (2:159)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-8",
+      "verse": {
+        "surah": 2,
+        "verse": 144,
+        "reference": "2:144"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 394,
+        "chapterId": 8,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Bara' bin `Azib:",
+        "text_excerpt": "Allah's Messenger (ﷺ) prayed facing Baitul-Maqdis for sixteen or seventeen months but he loved to face the \nKa`ba (at Mecca) so Allah revealed: \"Veril..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (2:144)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-9",
+      "verse": {
+        "surah": 2,
+        "verse": 142,
+        "reference": "2:142"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 394,
+        "chapterId": 8,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Bara' bin `Azib:",
+        "text_excerpt": "Allah's Messenger (ﷺ) prayed facing Baitul-Maqdis for sixteen or seventeen months but he loved to face the \nKa`ba (at Mecca) so Allah revealed: \"Veril..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (2:142)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-10",
+      "verse": {
+        "surah": 17,
+        "verse": 78,
+        "reference": "17:78"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 633,
+        "chapterId": 10,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Abu Salama bin `Abdur Rahman:",
+        "text_excerpt": "Abu Huraira said, \"I heard Allah's Messenger (ﷺ) saying, 'The reward of a prayer in congregation is twenty \nfive times greater than that of a prayer o..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (17:78)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-11",
+      "verse": {
+        "surah": 3,
+        "verse": 64,
+        "reference": "3:64"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 2822,
+        "chapterId": 56,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated `Abdullah bin `Abbas:",
+        "text_excerpt": "Allah's Messenger (ﷺ) wrote to Caesar and invited him to Islam and sent him his letter with Dihya Al-Kalbi \nwhom Allah's Messenger (ﷺ) ordered to hand..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Ali Imran 3:64",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-12",
+      "verse": {
+        "surah": 4,
+        "verse": 69,
+        "reference": "4:69"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4245,
+        "chapterId": 64,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated `Aisha:",
+        "text_excerpt": "I heard the Prophet (ﷺ) and listened to him before his death while he was leaning his back on me and \nsaying, \"O Allah! Forgive me, and bestow Your Me..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (4:69)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-13",
+      "verse": {
+        "surah": 3,
+        "verse": 64,
+        "reference": "3:64"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4347,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Ibn `Abbas:",
+        "text_excerpt": "Abu Sufyan narrated to me personally, saying, \"I set out during the Truce that had been concluded \nbetween me and Allah's Messenger (ﷺ). While I was i..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Ali Imran 3:64",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-14",
+      "verse": {
+        "surah": 18,
+        "verse": 81,
+        "reference": "18:81"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4520,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Ibn Juraij:",
+        "text_excerpt": "Ya`la bin Muslim and `Amr bin Dinar and some others narrated the narration of Sa`id bin Jubair. \nNarrated Sa`id: While we were at the house of Ibn `Ab..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (18:81)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-15",
+      "verse": {
+        "surah": 74,
+        "verse": 1,
+        "reference": "74:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4717,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Jabir bin `Abdullah:",
+        "text_excerpt": "I heard the Prophet (ﷺ) describing the period of pause of the Divine Inspiration. He said in his talk, \n\"While I was walking, I heard voices from the ..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Muddaththir 74:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-16",
+      "verse": {
+        "surah": 75,
+        "verse": 16,
+        "reference": "75:16"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4719,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Ibn `Abbas:",
+        "text_excerpt": "The Prophet (ﷺ) used to move his tongue when the divine Inspiration was being revealed to him. (Sufyan, \na subnarrator, demonstrated (how the Prophet ..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Qiyamah 75:16",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-17",
+      "verse": {
+        "surah": 75,
+        "verse": 16,
+        "reference": "75:16"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4720,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Musa bin Abi Aisha:",
+        "text_excerpt": "That he asked Sa`id bin Jubair regarding (the statement of Allah). 'Move not your tongue concerning \n(the Qur'an) to make haste therewith.' He said, \"..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Qiyamah 75:16",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-18",
+      "verse": {
+        "surah": 75,
+        "verse": 16,
+        "reference": "75:16"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4721,
+        "chapterId": 65,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Ibn `Abbas:",
+        "text_excerpt": "(as regards) Allah's Statement: \n\"Move not your tongue concerning (the Qur'an) to make haste therewith.\" (75.16) \nWhen Gabriel revealed the Divine Ins..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Qiyamah 75:16",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-19",
+      "verse": {
+        "surah": 112,
+        "verse": 1,
+        "reference": "112:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4810,
+        "chapterId": 66,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Aisha:",
+        "text_excerpt": "Whenever the Prophet (ﷺ) went to bed every night, he used to cup his hands together and blow over it after reciting Surat Al-Ikhlas, Surat Al-Falaq an..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Ikhlas 112:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-20",
+      "verse": {
+        "surah": 113,
+        "verse": 1,
+        "reference": "113:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4810,
+        "chapterId": 66,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Aisha:",
+        "text_excerpt": "Whenever the Prophet (ﷺ) went to bed every night, he used to cup his hands together and blow over it after reciting Surat Al-Ikhlas, Surat Al-Falaq an..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Falaq 113:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-21",
+      "verse": {
+        "surah": 114,
+        "verse": 1,
+        "reference": "114:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4810,
+        "chapterId": 66,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated 'Aisha:",
+        "text_excerpt": "Whenever the Prophet (ﷺ) went to bed every night, he used to cup his hands together and blow over it after reciting Surat Al-Ikhlas, Surat Al-Falaq an..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: An-Nas 114:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-22",
+      "verse": {
+        "surah": 75,
+        "verse": 16,
+        "reference": "75:16"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4839,
+        "chapterId": 66,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated Ibn `Abbas:",
+        "text_excerpt": "Regarding His (Allah's) Statement:-- 'Move not your tongue concerning (the Qur'an) to make haste \ntherewith.' (75.16) And whenever Gabriel descended t..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Qiyamah 75:16",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-23",
+      "verse": {
+        "surah": 4,
+        "verse": 23,
+        "reference": "4:23"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4901,
+        "chapterId": 67,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Ibn 'Abbas further said, \"Seven types of marriages are unlawful because of blood relations, and seven because of marriage relations.\" Then Ibn 'Abbas recited the Verse:",
+        "text_excerpt": "\"Forbidden for you (for marriages) are your mothers...\" (4:23). \n\n'Abdullah bin Ja'far married the daughter and wife of 'Ali at the same time (they we..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (4:23)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-24",
+      "verse": {
+        "surah": 4,
+        "verse": 24,
+        "reference": "4:24"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 4901,
+        "chapterId": 67,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Ibn 'Abbas further said, \"Seven types of marriages are unlawful because of blood relations, and seven because of marriage relations.\" Then Ibn 'Abbas recited the Verse:",
+        "text_excerpt": "\"Forbidden for you (for marriages) are your mothers...\" (4:23). \n\n'Abdullah bin Ja'far married the daughter and wife of 'Ali at the same time (they we..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (4:24)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-25",
+      "verse": {
+        "surah": 102,
+        "verse": 1,
+        "reference": "102:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 6201,
+        "chapterId": 81,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "'Ubayy said (referring to the hadith above), \"We considered this as a saying from the Qur'an till the Surah (beginning with):",
+        "text_excerpt": "\"The mutual rivalry (for piling up of worldly things) diverts you' (102:1) was revealed.\"..."
+      },
+      "type": "explicit_reference",
+      "confidence": "very_high",
+      "evidence": "Direct notation: (102:1)",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-26",
+      "verse": {
+        "surah": 112,
+        "verse": 1,
+        "reference": "112:1"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 7094,
+        "chapterId": 97,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "Narrated `Aisha:",
+        "text_excerpt": "The Prophet (ﷺ) sent (an army unit) under the command of a man who used to lead his companions in the \nprayers and would finish his recitation with (t..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Al-Ikhlas 112:1",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    },
+    {
+      "id": "edge-27",
+      "verse": {
+        "surah": 3,
+        "verse": 64,
+        "reference": "3:64"
+      },
+      "hadith": {
+        "source": "bukhari",
+        "idInBook": 7255,
+        "chapterId": 97,
+        "bookId": 1,
+        "grade": "sahih",
+        "narrator": "And Ibn 'Abbas narrated:",
+        "text_excerpt": "Abu Sufyan bin Harb told me that Heraclius called for his translator and then asked for the letter of the Prophet (ﷺ), and the former read it (thus): ..."
+      },
+      "type": "explicit_citation",
+      "confidence": "very_high",
+      "evidence": "Contains known verse: Ali Imran 3:64",
+      "generatedBy": "auto-curator-v2-precision",
+      "needsReview": false
+    }
+  ]
+}

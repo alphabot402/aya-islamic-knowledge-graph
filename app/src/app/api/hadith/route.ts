@@ -16,8 +16,8 @@ export interface Hadith {
 
 export async function GET() {
   try {
-    // From app directory, go up one level to AYA root, then into data
-    const filePath = path.join(process.cwd(), '..', 'data', 'hadith', 'bukhari-raw.json');
+    // Data is now in app/data directory
+    const filePath = path.join(process.cwd(), 'data', 'hadith', 'bukhari-raw.json');
     console.log('Loading hadith from:', filePath);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const data = JSON.parse(fileContents);

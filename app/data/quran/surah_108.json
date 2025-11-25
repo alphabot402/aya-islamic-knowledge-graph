@@ -1,0 +1,37 @@
+{
+  "surah_number": 108,
+  "revelation_order": 0,
+  "juz_list": [],
+  "verses": [
+    {
+      "index": 1,
+      "text_uthmani": "إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ",
+      "text_simple": "إِنَّآ أَعْطَيْنَـٰكَ ٱلْكَوْثَرَ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 2,
+      "text_uthmani": "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ",
+      "text_simple": "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    },
+    {
+      "index": 3,
+      "text_uthmani": "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ",
+      "text_simple": "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ",
+      "structural_tags": {
+        "pillar_tags": [],
+        "topic_tags": []
+      },
+      "cross_refs": []
+    }
+  ]
+}

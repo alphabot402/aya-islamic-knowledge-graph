@@ -1,0 +1,719 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created_at": "2024-11-24",
+    "description": "Core Islamic concepts for Knowledge Graph - Curated by scholarly methodology",
+    "total_concepts": 30,
+    "curation_notes": "Each concept includes Arabic terminology, English translation, root letters, and scholarly references"
+  },
+  "concepts": [
+    {
+      "id": "concept_taqwa",
+      "arabic_name": "تقوى",
+      "english_name": "Taqwa",
+      "transliteration": "Taqwā",
+      "root": "و-ق-ي",
+      "definition": {
+        "arabic": "الخوف من الجليل والعمل بالتنزيل والقناعة بالقليل والاستعداد ليوم الرحيل",
+        "english": "God-consciousness; mindfulness of Allah in all actions; protection from Divine displeasure through obedience"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "salah", "sawm", "hajj"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "2:2",
+          "note": "Definition of muttaqeen (those with taqwa)"
+        },
+        {
+          "work": "Al-Ghazali's Ihya Ulum al-Din",
+          "volume": 4,
+          "note": "Chapter on Taqwa and its stations"
+        }
+      ],
+      "tags": ["ihsan", "core_virtue", "quran_central"]
+    },
+    {
+      "id": "concept_sabr",
+      "arabic_name": "صبر",
+      "english_name": "Patience",
+      "transliteration": "Ṣabr",
+      "root": "ص-ب-ر",
+      "definition": {
+        "arabic": "حبس النفس على المكروه والثبات عند المصيبة",
+        "english": "Patience, perseverance, steadfastness in times of trial and adversity"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "salah", "sawm"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Qurtubi",
+          "reference": "2:153",
+          "note": "Types of sabr: physical, spiritual, and against sin"
+        },
+        {
+          "work": "Ibn Qayyim's Uddat al-Sabirin",
+          "note": "Comprehensive treatise on patience"
+        }
+      ],
+      "tags": ["trial", "core_virtue", "frequently_mentioned"]
+    },
+    {
+      "id": "concept_shukr",
+      "arabic_name": "شكر",
+      "english_name": "Gratitude",
+      "transliteration": "Shukr",
+      "root": "ش-ك-ر",
+      "definition": {
+        "arabic": "الاعتراف بالنعمة ظاهرا وباطنا",
+        "english": "Gratitude to Allah; recognition of blessings with the heart, tongue, and actions"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "salah", "zakat"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "medium",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "14:7",
+          "note": "If you are grateful, I will surely increase you"
+        }
+      ],
+      "tags": ["gratitude", "blessing", "core_virtue"]
+    },
+    {
+      "id": "concept_tawakkul",
+      "arabic_name": "توكل",
+      "english_name": "Trust in Allah",
+      "transliteration": "Tawakkul",
+      "root": "و-ك-ل",
+      "definition": {
+        "arabic": "الاعتماد على الله في جميع الأمور مع فعل الأسباب",
+        "english": "Complete reliance and trust in Allah while taking appropriate worldly means"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "medium",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Tabari",
+          "reference": "3:159",
+          "note": "When you have decided, then rely upon Allah"
+        }
+      ],
+      "tags": ["trust", "reliance", "core_virtue"]
+    },
+    {
+      "id": "concept_ikhlas",
+      "arabic_name": "إخلاص",
+      "english_name": "Sincerity",
+      "transliteration": "Ikhlāṣ",
+      "root": "خ-ل-ص",
+      "definition": {
+        "arabic": "تصفية العمل من شوائب الشرك وإرادة وجه الله تعالى وحده",
+        "english": "Sincerity and purity of intention in worship; doing deeds solely for Allah's pleasure"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "salah", "zakat", "sawm", "hajj"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 1,
+          "note": "Actions are by intentions"
+        },
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "98:5",
+          "note": "Commanded only to worship Allah, sincere to Him in religion"
+        }
+      ],
+      "tags": ["intention", "worship", "core_virtue", "hadith_central"]
+    },
+    {
+      "id": "concept_ihsan",
+      "arabic_name": "إحسان",
+      "english_name": "Excellence",
+      "transliteration": "Iḥsān",
+      "root": "ح-س-ن",
+      "definition": {
+        "arabic": "أن تعبد الله كأنك تراه فإن لم تكن تراه فإنه يراك",
+        "english": "Excellence in worship; to worship Allah as if you see Him, and if you cannot see Him, know that He sees you"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "salah"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Muslim",
+          "hadith_number": 8,
+          "note": "Hadith of Jibril defining Ihsan"
+        }
+      ],
+      "tags": ["excellence", "worship", "core_virtue", "jibril_hadith"]
+    },
+    {
+      "id": "concept_adl",
+      "arabic_name": "عدل",
+      "english_name": "Justice",
+      "transliteration": "'Adl",
+      "root": "ع-د-ل",
+      "definition": {
+        "arabic": "إعطاء كل ذي حق حقه والإنصاف",
+        "english": "Justice and fairness; giving each their due right without transgression or deficiency"
+      },
+      "category": "social_ethics",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Qurtubi",
+          "reference": "4:58",
+          "note": "Allah commands justice"
+        }
+      ],
+      "tags": ["justice", "ethics", "social", "core_virtue"]
+    },
+    {
+      "id": "concept_rahma",
+      "arabic_name": "رحمة",
+      "english_name": "Mercy",
+      "transliteration": "Raḥmah",
+      "root": "ر-ح-م",
+      "definition": {
+        "arabic": "رقة القلب والشفقة والعطف",
+        "english": "Mercy, compassion, and kindness toward all creation"
+      },
+      "category": "spiritual_attributes",
+      "related_pillars": ["shahada", "zakat"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6011,
+          "note": "The merciful will be shown mercy by the Most Merciful"
+        }
+      ],
+      "tags": ["mercy", "compassion", "divine_attribute"]
+    },
+    {
+      "id": "concept_tawbah",
+      "arabic_name": "توبة",
+      "english_name": "Repentance",
+      "transliteration": "Tawbah",
+      "root": "ت-و-ب",
+      "definition": {
+        "arabic": "الرجوع إلى الله بالندم على الذنب والإقلاع عنه والعزم على عدم العودة إليه",
+        "english": "Repentance to Allah; returning to Allah with regret, abandoning the sin, and resolve not to return to it"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "39:53",
+          "note": "Allah forgives all sins for those who repent"
+        }
+      ],
+      "tags": ["repentance", "forgiveness", "spiritual_healing"]
+    },
+    {
+      "id": "concept_zuhd",
+      "arabic_name": "زهد",
+      "english_name": "Asceticism",
+      "transliteration": "Zuhd",
+      "root": "ز-ه-د",
+      "definition": {
+        "arabic": "الإعراض عن الدنيا وعدم التعلق بها مع القدرة عليها",
+        "english": "Detachment from worldly desires; not being attached to material possessions while having access to them"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "zakat"],
+      "quranic_frequency": "medium",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Sunan Ibn Majah",
+          "hadith_number": 4102,
+          "note": "Be in this world as if you were a stranger"
+        }
+      ],
+      "tags": ["detachment", "worldliness", "spiritual_practice"]
+    },
+    {
+      "id": "concept_khushoo",
+      "arabic_name": "خشوع",
+      "english_name": "Humility in Prayer",
+      "transliteration": "Khushū'",
+      "root": "خ-ش-ع",
+      "definition": {
+        "arabic": "السكينة والخضوع والطمأنينة في الصلاة",
+        "english": "Tranquility, humility, and presence of heart in prayer"
+      },
+      "category": "worship_states",
+      "related_pillars": ["salah"],
+      "quranic_frequency": "medium",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "23:1-2",
+          "note": "Successful are the believers who have khushu in their prayer"
+        }
+      ],
+      "tags": ["prayer", "concentration", "salah"]
+    },
+    {
+      "id": "concept_yaqeen",
+      "arabic_name": "يقين",
+      "english_name": "Certainty",
+      "transliteration": "Yaqīn",
+      "root": "ي-ق-ن",
+      "definition": {
+        "arabic": "العلم الذي لا شك فيه",
+        "english": "Certainty of faith; knowledge that admits no doubt"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "medium",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Tabari",
+          "reference": "15:99",
+          "note": "Worship until certainty (death) comes to you"
+        }
+      ],
+      "tags": ["faith", "certainty", "conviction"]
+    },
+    {
+      "id": "concept_haya",
+      "arabic_name": "حياء",
+      "english_name": "Modesty",
+      "transliteration": "Ḥayā'",
+      "root": "ح-ي-ي",
+      "definition": {
+        "arabic": "خلق يبعث على فعل الجميل وترك القبيح",
+        "english": "Modesty, shyness, and sense of shame that prevents one from evil"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "low",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6120,
+          "note": "Modesty brings nothing but good"
+        }
+      ],
+      "tags": ["modesty", "character", "virtue"]
+    },
+    {
+      "id": "concept_birr",
+      "arabic_name": "بر",
+      "english_name": "Righteousness",
+      "transliteration": "Birr",
+      "root": "ب-ر-ر",
+      "definition": {
+        "arabic": "سعة الخير والإحسان",
+        "english": "Righteousness, piety, and comprehensive goodness in belief and action"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Qurtubi",
+          "reference": "2:177",
+          "note": "Comprehensive definition of righteousness"
+        }
+      ],
+      "tags": ["righteousness", "goodness", "comprehensive_virtue"]
+    },
+    {
+      "id": "concept_tawhid",
+      "arabic_name": "توحيد",
+      "english_name": "Oneness of Allah",
+      "transliteration": "Tawḥīd",
+      "root": "و-ح-د",
+      "definition": {
+        "arabic": "إفراد الله بالعبادة والربوبية والأسماء والصفات",
+        "english": "Belief in the absolute Oneness and Uniqueness of Allah in His Lordship, worship, Names and Attributes"
+      },
+      "category": "aqeedah",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Kitab al-Tawhid by Muhammad ibn Abd al-Wahhab",
+          "note": "Foundational text on Tawhid"
+        },
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "112:1-4",
+          "note": "Surah Al-Ikhlas - Declaration of Tawhid"
+        }
+      ],
+      "tags": ["creed", "foundation", "shahada", "core_belief"]
+    },
+    {
+      "id": "concept_iman",
+      "arabic_name": "إيمان",
+      "english_name": "Faith",
+      "transliteration": "Īmān",
+      "root": "أ-م-ن",
+      "definition": {
+        "arabic": "التصديق بالقلب والإقرار باللسان والعمل بالأركان",
+        "english": "Faith consisting of belief in the heart, declaration with the tongue, and action with the limbs"
+      },
+      "category": "aqeedah",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Muslim",
+          "hadith_number": 8,
+          "note": "Hadith of Jibril defining Iman"
+        }
+      ],
+      "tags": ["faith", "belief", "core_concept", "jibril_hadith"]
+    },
+    {
+      "id": "concept_amanah",
+      "arabic_name": "أمانة",
+      "english_name": "Trustworthiness",
+      "transliteration": "Amānah",
+      "root": "أ-م-ن",
+      "definition": {
+        "arabic": "حفظ الحقوق وأداؤها إلى أهلها",
+        "english": "Trustworthiness, honesty, and fulfilling responsibilities entrusted to one"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "medium",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "4:58",
+          "note": "Allah commands you to render trusts to whom they are due"
+        }
+      ],
+      "tags": ["trust", "responsibility", "character"]
+    },
+    {
+      "id": "concept_sidq",
+      "arabic_name": "صدق",
+      "english_name": "Truthfulness",
+      "transliteration": "Ṣidq",
+      "root": "ص-د-ق",
+      "definition": {
+        "arabic": "مطابقة القول للواقع",
+        "english": "Truthfulness in speech and action; conformity of words to reality"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6094,
+          "note": "Truthfulness leads to righteousness"
+        }
+      ],
+      "tags": ["truthfulness", "honesty", "character", "core_virtue"]
+    },
+    {
+      "id": "concept_hilm",
+      "arabic_name": "حلم",
+      "english_name": "Forbearance",
+      "transliteration": "Ḥilm",
+      "root": "ح-ل-م",
+      "definition": {
+        "arabic": "ضبط النفس عند الغضب",
+        "english": "Forbearance, self-control, and patience in the face of provocation"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "medium",
+      "hadith_frequency": "medium",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6114,
+          "note": "The strong is not the one who overcomes people by strength, but the one who controls himself while in anger"
+        }
+      ],
+      "tags": ["forbearance", "self-control", "anger_management"]
+    },
+    {
+      "id": "concept_dhikr",
+      "arabic_name": "ذكر",
+      "english_name": "Remembrance of Allah",
+      "transliteration": "Dhikr",
+      "root": "ذ-ك-ر",
+      "definition": {
+        "arabic": "ذكر الله باللسان والقلب",
+        "english": "Remembrance of Allah through the tongue and heart; constant awareness of Allah"
+      },
+      "category": "worship_practice",
+      "related_pillars": ["shahada", "salah"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "13:28",
+          "note": "In the remembrance of Allah hearts find rest"
+        }
+      ],
+      "tags": ["remembrance", "worship", "spiritual_practice"]
+    },
+    {
+      "id": "concept_istighfar",
+      "arabic_name": "استغفار",
+      "english_name": "Seeking Forgiveness",
+      "transliteration": "Istighfār",
+      "root": "غ-ف-ر",
+      "definition": {
+        "arabic": "طلب المغفرة من الله",
+        "english": "Seeking Allah's forgiveness for sins committed"
+      },
+      "category": "worship_practice",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6307,
+          "note": "I seek Allah's forgiveness 70 times a day"
+        }
+      ],
+      "tags": ["forgiveness", "repentance", "spiritual_practice"]
+    },
+    {
+      "id": "concept_talab_ilm",
+      "arabic_name": "طلب العلم",
+      "english_name": "Seeking Knowledge",
+      "transliteration": "Ṭalab al-'Ilm",
+      "root": "ع-ل-م",
+      "definition": {
+        "arabic": "السعي لاكتساب العلم الشرعي والنافع",
+        "english": "Seeking beneficial Islamic knowledge; pursuit of religious and worldly knowledge"
+      },
+      "category": "intellectual_virtues",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sunan Ibn Majah",
+          "hadith_number": 224,
+          "note": "Seeking knowledge is obligatory upon every Muslim"
+        }
+      ],
+      "tags": ["knowledge", "learning", "education", "core_duty"]
+    },
+    {
+      "id": "concept_infaq",
+      "arabic_name": "إنفاق",
+      "english_name": "Spending in Allah's Path",
+      "transliteration": "Infāq",
+      "root": "ن-ف-ق",
+      "definition": {
+        "arabic": "إخراج المال في سبيل الله",
+        "english": "Spending wealth in the way of Allah; charitable giving beyond obligatory zakat"
+      },
+      "category": "financial_virtue",
+      "related_pillars": ["zakat"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "2:261",
+          "note": "Parable of those who spend their wealth in Allah's way"
+        }
+      ],
+      "tags": ["charity", "spending", "generosity", "zakat"]
+    },
+    {
+      "id": "concept_ithar",
+      "arabic_name": "إيثار",
+      "english_name": "Altruism",
+      "transliteration": "Īthār",
+      "root": "أ-ث-ر",
+      "definition": {
+        "arabic": "تقديم حاجة الغير على حاجة النفس",
+        "english": "Selflessness and altruism; preferring others' needs over one's own"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["zakat", "general"],
+      "quranic_frequency": "low",
+      "hadith_frequency": "medium",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "59:9",
+          "note": "They prefer others over themselves even though poverty be upon them"
+        }
+      ],
+      "tags": ["selflessness", "generosity", "sacrifice"]
+    },
+    {
+      "id": "concept_dua",
+      "arabic_name": "دعاء",
+      "english_name": "Supplication",
+      "transliteration": "Du'ā'",
+      "root": "د-ع-و",
+      "definition": {
+        "arabic": "سؤال الله والتضرع إليه",
+        "english": "Supplication and calling upon Allah; invoking Allah with humility"
+      },
+      "category": "worship_practice",
+      "related_pillars": ["shahada", "salah"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sunan al-Tirmidhi",
+          "hadith_number": 3247,
+          "note": "Dua is the essence of worship"
+        }
+      ],
+      "tags": ["supplication", "worship", "prayer"]
+    },
+    {
+      "id": "concept_rifq",
+      "arabic_name": "رفق",
+      "english_name": "Gentleness",
+      "transliteration": "Rifq",
+      "root": "ر-ف-ق",
+      "definition": {
+        "arabic": "اللين في القول والفعل",
+        "english": "Gentleness and kindness in dealing with others; soft approach in speech and action"
+      },
+      "category": "moral_virtues",
+      "related_pillars": ["general"],
+      "quranic_frequency": "low",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Muslim",
+          "hadith_number": 2593,
+          "note": "Allah is Gentle and loves gentleness in all matters"
+        }
+      ],
+      "tags": ["gentleness", "kindness", "character"]
+    },
+    {
+      "id": "concept_ukhuwah",
+      "arabic_name": "أخوة",
+      "english_name": "Brotherhood",
+      "transliteration": "Ukhuwwah",
+      "root": "أ-خ-و",
+      "definition": {
+        "arabic": "رابطة الأخوة الإيمانية بين المسلمين",
+        "english": "Islamic brotherhood; bond of faith connecting Muslims"
+      },
+      "category": "social_ethics",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "very_high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Bukhari",
+          "hadith_number": 6011,
+          "note": "The Muslim is a brother of another Muslim"
+        }
+      ],
+      "tags": ["brotherhood", "community", "social_bond"]
+    },
+    {
+      "id": "concept_amr_maruf",
+      "arabic_name": "أمر بالمعروف",
+      "english_name": "Enjoining Good",
+      "transliteration": "Al-Amr bi'l-Ma'rūf",
+      "root": "ع-ر-ف",
+      "definition": {
+        "arabic": "الأمر بكل خير أمر به الشرع",
+        "english": "Enjoining what is good and right; commanding what is recognized as virtuous in Islam"
+      },
+      "category": "social_duty",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir Ibn Kathir",
+          "reference": "3:104",
+          "note": "Let there arise from you a nation inviting to good"
+        }
+      ],
+      "tags": ["social_duty", "dawah", "commanding_good"]
+    },
+    {
+      "id": "concept_nahy_munkar",
+      "arabic_name": "نهي عن المنكر",
+      "english_name": "Forbidding Evil",
+      "transliteration": "Al-Nahy 'an al-Munkar",
+      "root": "ن-ك-ر",
+      "definition": {
+        "arabic": "النهي عن كل شر نهى عنه الشرع",
+        "english": "Forbidding what is evil and wrong; preventing what is prohibited in Islam"
+      },
+      "category": "social_duty",
+      "related_pillars": ["shahada", "general"],
+      "quranic_frequency": "high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Sahih Muslim",
+          "hadith_number": 49,
+          "note": "Whoever sees evil should change it with his hand, tongue, or heart"
+        }
+      ],
+      "tags": ["social_duty", "prevention_of_harm", "commanding_good"]
+    },
+    {
+      "id": "concept_khawf_raja",
+      "arabic_name": "خوف ورجاء",
+      "english_name": "Fear and Hope",
+      "transliteration": "Khawf wa Rajā'",
+      "root": "خ-و-ف / ر-ج-و",
+      "definition": {
+        "arabic": "التوازن بين خوف عقاب الله ورجاء رحمته",
+        "english": "Balance between fear of Allah's punishment and hope in His mercy"
+      },
+      "category": "spiritual_states",
+      "related_pillars": ["shahada"],
+      "quranic_frequency": "very_high",
+      "hadith_frequency": "high",
+      "scholarly_references": [
+        {
+          "work": "Tafsir al-Qurtubi",
+          "reference": "39:9",
+          "note": "Those who fear the Hereafter and hope for the mercy of their Lord"
+        }
+      ],
+      "tags": ["fear", "hope", "spiritual_balance", "dual_concept"]
+    }
+  ]
+}

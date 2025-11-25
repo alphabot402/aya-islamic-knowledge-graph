@@ -67,7 +67,7 @@ const VERIFICATION_WEIGHTS: Record<string, number> = {
  * Load all edge files from data/edges directory
  */
 async function loadEdges(): Promise<Edge[]> {
-  const edgesDir = join(process.cwd(), '..', 'data', 'edges')
+  const edgesDir = join(process.cwd(), 'data', 'edges')
 
   try {
     const files = await readdir(edgesDir)

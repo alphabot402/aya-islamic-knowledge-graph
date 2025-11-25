@@ -33,7 +33,7 @@ export interface VerseHadithEdge {
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), '..', 'data', 'connections', 'verse-hadith-edges.json');
+    const filePath = path.join(process.cwd(), 'data', 'connections', 'verse-hadith-edges.json');
     console.log('Loading edges from:', filePath);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const data = JSON.parse(fileContents);
