@@ -478,44 +478,51 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
             ? hadithData.data
             : hadithData.data.filter((h: Hadith) => connectedHadithIds.has(h.idInBook))
 
-          // Create hadith nodes with "moon" positioning
-          hadithNodes = connectedHadiths.map((h: Hadith) => {
+          // Create hadith nodes with organized ring distribution
+          // Group hadiths by pillar for better organization
+          const hadithsByPillar = new Map<string, Hadith[]>()
+          connectedHadiths.forEach((h: Hadith) => {
+            const connectedSurahs = hadithConnections.get(h.idInBook) || []
+            const pillar = connectedSurahs.length > 0
+              ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
+              : 'general'
+
+            if (!hadithsByPillar.has(pillar)) {
+              hadithsByPillar.set(pillar, [])
+            }
+            hadithsByPillar.get(pillar)!.push(h)
+          })
+
+          // Hadith ring radii - between pillar rings for organized distribution
+          const hadithRingRadii: Record<string, number> = {
+            shahada: 20,  // Between center and Salah
+            salah: 36,    // Between Salah (30) and Zakat (42)
+            zakat: 48,    // Between Zakat (42) and General (54)
+            general: 60,  // Between General (54) and Sawm (66)
+            sawm: 72,     // Between Sawm (66) and Hajj (78)
+            hajj: 84      // Outside Hajj (78)
+          }
+
+          hadithNodes = connectedHadiths.map((h: Hadith, globalIndex: number) => {
             const connectedSurahs = hadithConnections.get(h.idInBook) || []
             const connectionIds = connectedSurahs.map(s => `surah-${s}`)
 
-            let rawPosition: [number, number, number]
+            // Determine pillar and ring
+            const pillar = connectedSurahs.length > 0
+              ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
+              : 'general'
 
-            if (connectedSurahs.length === 0) {
-              // No connections: place at origin
-              rawPosition = [0, 0, 0]
-            } else if (connectedSurahs.length === 1) {
-              // Single connection: orbit as "moon" around that surah
-              const surahNum = connectedSurahs[0]
-              const surahPos = surahPositions.get(surahNum) || [0, 0, 0]
+            const radius = hadithRingRadii[pillar] || 60
+            const hadithsInThisPillar = hadithsByPillar.get(pillar) || []
+            const indexInPillar = hadithsInThisPillar.findIndex(hh => hh.idInBook === h.idInBook)
 
-              // Count hadiths connected to this surah for even distribution
-              const hadithsForThisSurah = connectedHadiths.filter((otherH: Hadith) => {
-                const otherConns = hadithConnections.get(otherH.idInBook) || []
-                return otherConns.length === 1 && otherConns[0] === surahNum
-              })
+            // Distribute evenly around the ring
+            const angle = (indexInPillar / hadithsInThisPillar.length) * Math.PI * 2
+            const x = Math.cos(angle) * radius
+            const z = Math.sin(angle) * radius
+            const y = 0 // Flat circular row
 
-              const indexAroundSurah = hadithsForThisSurah.findIndex((hh: Hadith) => hh.idInBook === h.idInBook)
-              const totalAroundSurah = hadithsForThisSurah.length
-
-              rawPosition = calculateHadithMoonPosition(
-                surahPos,
-                indexAroundSurah,
-                totalAroundSurah,
-                2.5 // Orbit radius - reduced from 4 for tighter clustering
-              )
-            } else {
-              // Multiple connections: place at midpoint
-              const surahPoss = connectedSurahs
-                .map(s => surahPositions.get(s))
-                .filter((p): p is [number, number, number] => p !== undefined)
-
-              rawPosition = calculateMultiConnectionHadithPosition(surahPoss)
-            }
+            const rawPosition: [number, number, number] = [x, y, z]
 
             const position = validatePosition(
               rawPosition[0],
@@ -523,11 +530,6 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
               rawPosition[2],
               `Hadith ${h.idInBook}`
             )
-
-            // Determine pillar based on connections
-            const pillar = connectedSurahs.length > 0
-              ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
-              : 'general'
 
             // Get verse-level connections for this hadith
             const verseConnections = hadithVerses.get(h.idInBook) || []
