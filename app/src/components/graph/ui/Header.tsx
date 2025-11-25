@@ -23,14 +23,9 @@ export default function Header({ className = '' }: HeaderProps) {
           <span className="text-5xl md:text-6xl lg:text-7xl font-arabic text-blue-100 drop-shadow-[0_0_20px_rgba(191,219,254,0.6)]">آية</span>
         </div>
 
-        {/* Subtitle */}
-        <p className="text-base md:text-lg text-blue-200/90 mb-1 drop-shadow-lg">
-          Islamic Knowledge Navigator
-        </p>
-
-        {/* Single concise description */}
-        <p className="text-xs md:text-sm text-blue-300/70 text-center max-w-2xl">
-          Exploring 114 Quranic surahs connected to 72 verified hadiths through 101 scholarly links
+        {/* Single concise tagline */}
+        <p className="text-sm md:text-base text-blue-200/80 text-center max-w-3xl px-4 drop-shadow-lg">
+          Quranic wisdom and prophetic traditions mapped across the Five Pillars
         </p>
       </div>
     </div>
