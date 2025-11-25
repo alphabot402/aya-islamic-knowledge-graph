@@ -16,25 +16,25 @@ interface ZoomControlsProps {
 export default function ZoomControls({ onZoomIn, onZoomOut, onReset, className = '' }: ZoomControlsProps) {
   return (
     <div className={`fixed right-2 bottom-16 z-30 ${className}`}>
-      {/* Vertical stack - bottom right */}
-      <div className="bg-black/70 backdrop-blur-xl border border-blue-300/20 rounded-xl p-2 shadow-2xl shadow-blue-500/10">
-        <div className="flex flex-col gap-2">
+      {/* Vertical stack - bottom right - compact */}
+      <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg p-1.5 shadow-lg">
+        <div className="flex flex-col gap-1">
           {/* Zoom In */}
           <button
             onClick={onZoomIn}
-            className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 transition-all duration-200 hover:shadow-[0_0_15px_rgba(96,165,250,0.4)] active:scale-95"
+            className="w-8 h-8 flex items-center justify-center rounded bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(96,165,250,0.4)] active:scale-95"
             aria-label="Zoom in"
           >
-            <span className="text-xl text-blue-200 font-bold">+</span>
+            <span className="text-base text-blue-200 font-bold">+</span>
           </button>
 
           {/* Zoom Out */}
           <button
             onClick={onZoomOut}
-            className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 transition-all duration-200 hover:shadow-[0_0_15px_rgba(96,165,250,0.4)] active:scale-95"
+            className="w-8 h-8 flex items-center justify-center rounded bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(96,165,250,0.4)] active:scale-95"
             aria-label="Zoom out"
           >
-            <span className="text-xl text-blue-200 font-bold">−</span>
+            <span className="text-base text-blue-200 font-bold">−</span>
           </button>
 
           {/* Divider */}
@@ -43,10 +43,10 @@ export default function ZoomControls({ onZoomIn, onZoomOut, onReset, className =
           {/* Reset View */}
           <button
             onClick={onReset}
-            className="w-10 h-10 flex items-center justify-center rounded-lg bg-teal-500/20 hover:bg-teal-500/30 border border-teal-400/30 hover:border-teal-400/50 transition-all duration-200 hover:shadow-[0_0_15px_rgba(20,184,166,0.4)] active:scale-95"
+            className="w-8 h-8 flex items-center justify-center rounded bg-teal-500/20 hover:bg-teal-500/30 border border-teal-400/30 hover:border-teal-400/50 transition-all duration-200 hover:shadow-[0_0_12px_rgba(20,184,166,0.4)] active:scale-95"
             aria-label="Reset view"
           >
-            <span className="text-lg text-teal-200">⟲</span>
+            <span className="text-sm text-teal-200">⟲</span>
           </button>
         </div>
       </div>
