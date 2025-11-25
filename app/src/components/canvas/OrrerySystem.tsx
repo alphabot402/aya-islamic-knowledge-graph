@@ -120,8 +120,12 @@ export default function OrrerySystem() {
       {/* The Orbital Rings - The Astrolabe tracks */}
       <OrbitRings />
 
-      {/* Connection lines between nodes */}
-      <ConnectionLines nodes={filteredNodes} />
+      {/* Connection lines between nodes - Only show on hover/selection */}
+      <ConnectionLines
+        nodes={filteredNodes}
+        hoveredNodeId={hoveredNodeId}
+        selectedNodeId={selectedNodeId}
+      />
 
       {/* The Nodes - Surahs and Hadiths */}
       {filteredNodes.map((node) => {
