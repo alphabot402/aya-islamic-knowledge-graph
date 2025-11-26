@@ -15,57 +15,18 @@ interface HoverTooltipProps {
 }
 
 export default function HoverTooltip({ node }: HoverTooltipProps) {
-  const surahInfo = node.type === 'primary' ? getSurahName(node.surahNumber) : null
-
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       <div className="bg-black/95 backdrop-blur-md border border-purple-500/50 rounded-lg p-4 max-w-sm shadow-xl">
-        {node.type === 'primary' ? (
-          <>
-            <div className="text-xs text-gray-400 mb-1 uppercase tracking-wide">
-              {PILLAR_INFO[node.pillar].name}
-            </div>
-            {surahInfo && (
-              <>
-                <div
-                  className="text-right font-arabic text-lg mb-1"
-                  style={{ color: PILLAR_INFO[node.pillar].color }}
-                >
-                  سورة {surahInfo.nameArabic}
-                </div>
-                <div className="text-gray-200 font-semibold text-base mb-1">
-                  {surahInfo.nameEnglish}
-                </div>
-                <div className="text-gray-400 text-xs italic">
-                  &quot;{surahInfo.meaningEnglish}&quot;
-                </div>
-              </>
-            )}
-            {!surahInfo && (
-              <div className="text-gray-300 text-sm">
-                Surah {node.surahNumber}
-              </div>
-            )}
-            <div className="text-xs text-gray-400 mt-2">
-              {node.verseCount} verses • {surahInfo?.revelationType}
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="text-amber-400 font-semibold text-sm mb-1">
-              Sahih al-Bukhari
-            </div>
-            <div className="text-gray-300 text-xs mb-2">
-              Book {node.hadith.bookId} • Hadith #{node.hadith.idInBook}
-            </div>
-            <div className="text-xs text-gray-400 uppercase tracking-wide mb-1">
-              {node.pillar.charAt(0).toUpperCase() + node.pillar.slice(1)}
-            </div>
-            <div className="text-xs text-gray-400">
-              Connected to {node.connections.length} surah{node.connections.length !== 1 ? 's' : ''}
-            </div>
-          </>
-        )}
+        <div className="text-xs text-gray-400 mb-1 uppercase tracking-wide">
+          {PILLAR_INFO[node.pillar].name}
+        </div>
+        <div className="text-gray-200 font-semibold text-base mb-1">
+          {node.source} {node.citation}
+        </div>
+        <div className="text-xs text-gray-400 mt-2">
+          {node.function}
+        </div>
       </div>
     </div>
   )

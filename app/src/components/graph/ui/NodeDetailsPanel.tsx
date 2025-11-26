@@ -20,7 +20,7 @@ export default function NodeDetailsPanel({
   onClose
 }: NodeDetailsPanelProps) {
   // Get surah name info for surah nodes
-  const surahInfo = node.type === 'primary' ? getSurahName(node.surahNumber) : null
+  // Simplified for new dataset
 
   return (
     <>
@@ -59,20 +59,20 @@ export default function NodeDetailsPanel({
                     &quot;{surahInfo.meaningEnglish}&quot;
                   </div>
                   <div className="text-gray-500 text-xs">
-                    Surah {node.surahNumber}
+                    Surah {node.citation}
                   </div>
                 </>
               )}
               {!surahInfo && (
                 <div className="text-gray-300 text-sm">
-                  Surah {node.surahNumber}
+                  Surah {node.citation}
                 </div>
               )}
             </>
           ) : (
             <>
               <div className="text-amber-400 font-semibold text-sm">
-                Hadith {node.hadith.idInBook}
+                Hadith {node.citation}
               </div>
               <div className="text-xs text-gray-400 mt-1">
                 Sahih al-Bukhari
@@ -93,7 +93,7 @@ export default function NodeDetailsPanel({
           <div className="border-t border-purple-500/20 pt-3 space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Total Verses</span>
-              <span className="text-gray-200">{node.verseCount}</span>
+              <span className="text-gray-200">{1}</span>
             </div>
             {surahInfo && (
               <div className="flex justify-between text-sm">
@@ -114,7 +114,7 @@ export default function NodeDetailsPanel({
           {/* External Link Button */}
           <div className="border-t border-purple-500/20 pt-3 mt-3">
             <a
-              href={`https://quran.com/${node.surahNumber}`}
+              href={`https://quran.com/${node.citation}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-400/30 hover:border-blue-400/50 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] text-blue-200 hover:text-blue-100 font-medium text-sm"
@@ -134,11 +134,11 @@ export default function NodeDetailsPanel({
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Book</span>
-              <span className="text-gray-200">{node.hadith.bookId}</span>
+              <span className="text-gray-200">{node.source}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Hadith Number</span>
-              <span className="text-gray-200">#{node.hadith.idInBook}</span>
+              <span className="text-gray-200">#{node.citation}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Pillar Category</span>
@@ -180,7 +180,7 @@ export default function NodeDetailsPanel({
           {/* External Link Button */}
           <div className="border-t border-amber-500/20 pt-3 mt-3">
             <a
-              href={`https://sunnah.com/bukhari:${node.hadith.id}`}
+              href={`https://sunnah.com/bukhari:${node.refId}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/30 hover:border-amber-400/50 rounded-lg transition-all duration-200 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] text-amber-200 hover:text-amber-100 font-medium text-sm"

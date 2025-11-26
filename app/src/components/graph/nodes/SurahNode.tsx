@@ -52,8 +52,8 @@ function SurahNode({
     const hoverColorHex = baseColorObj.clone().multiplyScalar(1.3).getHexString()
     const selectColorHex = baseColorObj.clone().multiplyScalar(1.6).getHexString()
 
-    // Pre-calculate size - Balanced for neon planet aesthetic
-    const baseSize = 1.2 + Math.min(node.verseCount / 100, 1.8)
+    // Fixed size for all nodes
+    const baseSize = 1.8
 
     return {
       baseColor,
@@ -61,7 +61,7 @@ function SurahNode({
       selectColor: `#${selectColorHex}`,
       baseSize
     }
-  }, [node.pillar, node.verseCount])
+  }, [node.pillar])
 
   // ✅ OPTIMIZATION 3: Only animate when scale is different (early exit)
   useFrame(() => {
@@ -155,7 +155,7 @@ function SurahNode({
         outlineWidth={0.04}
         outlineColor="#000000"
       >
-        {node.surahNumber}
+        {node.citation}
       </Text>
 
       {/* Selection ring */}

@@ -45,7 +45,7 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
       filtered = filtered.filter(node => {
         if (node.type === 'primary') {
           return (
-            node.surahNumber.toString().includes(query) ||
+            node.citation.toString().includes(query) ||
             node.name.toLowerCase().includes(query) ||
             node.englishName.toLowerCase().includes(query)
           )
@@ -53,7 +53,7 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
 
         if (node.type === 'secondary') {
           return (
-            node.hadith.english.text.toLowerCase().includes(query) ||
+            node.coreText.toLowerCase().includes(query) ||
             node.id.includes(query)
           )
         }
