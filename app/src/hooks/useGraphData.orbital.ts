@@ -24,6 +24,7 @@ import {
   groupSurahsByPillar,
   HADITH_ORBITS
 } from '@/lib/orbital-layout'
+import { getSurahsByPillar, type PillarType } from '@/data/five-pillars-references'
 
 // Type imports
 export type Pillar = 'shahada' | 'salah' | 'zakat' | 'sawm' | 'hajj' | 'general'
@@ -144,146 +145,40 @@ function validatePosition(
 }
 
 /**
- * AUTHENTIC Surah pillar classification - Based on PRIMARY THEMES
- * Date: 2025-11-25
- * Source: Classical tafsir and scholarly consensus on each surah's dominant message
+ * AUTHENTICATED SURAH PILLAR MAPPING
+ * Generated from 100 authenticated references (Quran + Hadith)
+ * Source: five-pillars-references.ts
  *
- * Distribution reflects authentic Islamic categorization:
- * - Shahada: 47 surahs (Aqeedah - belief, Tawhid, prophethood, afterlife)
- * - Salah: 20 surahs (Worship, prayer, ritual acts, glorification)
- * - Zakat: 18 surahs (Social justice, charity, wealth distribution)
- * - Sawm: 13 surahs (Patience, self-restraint, perseverance)
- * - Hajj: 8 surahs (Pilgrimage, sacred journey, Ka'bah)
- * - General: 8 surahs (Mixed themes, legal rulings, specific events)
+ * This mapping is based on explicit Quranic references to each pillar,
+ * not subjective thematic categorization. Surahs are mapped only when
+ * they contain direct references to a specific pillar.
+ *
+ * All unmapped surahs default to 'general' and are filtered from display.
  */
-const SURAH_PILLARS: Record<number, Pillar> = {
-  // SHAHADA (47) - Aqeedah: Core Beliefs, Tawhid, Prophethood, Day of Judgment
-  // These surahs primarily emphasize faith in Allah, His oneness, messengers, and resurrection
-  1: 'shahada',   // Al-Fatihah - Essence of belief and worship
-  6: 'shahada',   // Al-An'am - Pure Tawhid, refuting shirk
-  7: 'shahada',   // Al-A'raf - Prophets' stories, warnings
-  10: 'shahada',  // Yunus - Prophethood, Tawhid
-  11: 'shahada',  // Hud - Prophets and their nations
-  12: 'shahada',  // Yusuf - Prophet's story, divine plan
-  14: 'shahada',  // Ibrahim - Tawhid and prophets
-  16: 'shahada',  // An-Nahl - Signs of Allah's creation
-  18: 'shahada',  // Al-Kahf - Stories of faith
-  19: 'shahada',  // Maryam - Prophethood of Isa
-  20: 'shahada',  // Ta-Ha - Musa's story
-  21: 'shahada',  // Al-Anbiya - Prophets and resurrection
-  23: 'shahada',  // Al-Mu'minun - Qualities of believers
-  25: 'shahada',  // Al-Furqan - Criterion of truth
-  26: 'shahada',  // Ash-Shu'ara - Prophets' stories
-  27: 'shahada',  // An-Naml - Sulayman, signs of Allah
-  28: 'shahada',  // Al-Qasas - Musa's detailed story
-  31: 'shahada',  // Luqman - Wisdom and Tawhid
-  34: 'shahada',  // Saba - Signs and resurrection
-  35: 'shahada',  // Fatir - Allah as Creator
-  36: 'shahada',  // Ya-Sin - Resurrection proof
-  37: 'shahada',  // As-Saffat - Tawhid and prophets
-  38: 'shahada',  // Sad - Prophets' patience
-  39: 'shahada',  // Az-Zumar - Pure Tawhid
-  40: 'shahada',  // Ghafir - Faith and forgiveness
-  41: 'shahada',  // Fussilat - Signs detailed
-  43: 'shahada',  // Az-Zukhruf - Tawhid vs materialism
-  44: 'shahada',  // Ad-Dukhan - Day of Judgment
-  45: 'shahada',  // Al-Jathiyah - Resurrection
-  46: 'shahada',  // Al-Ahqaf - Warner to his people
-  50: 'shahada',  // Qaf - Resurrection evidence
-  54: 'shahada',  // Al-Qamar - Moon splitting, warnings
-  56: 'shahada',  // Al-Waqi'ah - The inevitable event
-  67: 'shahada',  // Al-Mulk - Dominion of Allah
-  69: 'shahada',  // Al-Haqqa - The reality of resurrection
-  71: 'shahada',  // Nuh - Prophet's call to Tawhid
-  75: 'shahada',  // Al-Qiyamah - Resurrection day
-  77: 'shahada',  // Al-Mursalat - Messengers and judgment
-  78: 'shahada',  // An-Naba - The great news
-  79: 'shahada',  // An-Nazi'at - Those who pull out souls
-  81: 'shahada',  // At-Takwir - Sun folding up
-  82: 'shahada',  // Al-Infitar - Sky cleaving
-  84: 'shahada',  // Al-Inshiqaq - Sky splitting
-  85: 'shahada',  // Al-Buruj - People of the trench
-  89: 'shahada',  // Al-Fajr - Historical warnings
-  99: 'shahada',  // Az-Zalzalah - Earth's earthquake
-  101: 'shahada', // Al-Qari'ah - The striking hour
-  112: 'shahada', // Al-Ikhlas - Pure Tawhid statement
+function buildAuthenticatedSurahMapping(): Record<number, Pillar> {
+  const mapping: Record<number, Pillar> = {}
 
-  // SALAH (20) - Worship: Prayer, Ritual Acts, Glorification of Allah
-  2: 'salah',     // Al-Baqarah - Prayer, worship laws
-  4: 'salah',     // An-Nisa - Prayer regulations
-  17: 'salah',    // Al-Isra - Night journey, prayer emphasis
-  29: 'salah',    // Al-'Ankabut - Prayer and trials
-  30: 'salah',    // Ar-Rum - Glorification times
-  32: 'salah',    // As-Sajdah - Prostration worship
-  33: 'salah',    // Al-Ahzab - Remembrance of Allah
-  51: 'salah',    // Adh-Dhariyat - Created for worship
-  52: 'salah',    // At-Tur - Glorify your Lord
-  53: 'salah',    // An-Najm - Prostration to Allah
-  62: 'salah',    // Al-Jumu'ah - Friday prayer
-  68: 'salah',    // Al-Qalam - Patience in worship
-  73: 'salah',    // Al-Muzzammil - Night prayer
-  74: 'salah',    // Al-Muddaththir - Stand and warn
-  76: 'salah',    // Al-Insan - Patience and prayer
-  87: 'salah',    // Al-A'la - Glorify your Lord's name
-  93: 'salah',    // Ad-Duha - Morning prayer time
-  96: 'salah',    // Al-'Alaq - Prostrate and draw near
-  107: 'salah',   // Al-Ma'un - Those who neglect prayer
-  108: 'salah',   // Al-Kawthar - Pray and sacrifice
+  // Build mapping from authenticated references
+  const pillars: PillarType[] = ['shahada', 'salah', 'zakat', 'sawm', 'hajj']
 
-  // ZAKAT (18) - Social Justice: Charity, Wealth, Community Rights
-  3: 'zakat',     // Ali 'Imran - Spending in Allah's way
-  5: 'zakat',     // Al-Ma'idah - Social justice
-  9: 'zakat',     // At-Tawbah - Zakat obligations
-  13: 'zakat',    // Ar-Ra'd - Good deeds and charity
-  15: 'zakat',    // Al-Hijr - Provide for the needy
-  22: 'zakat',    // Al-Hajj - Charity and sacrifice
-  24: 'zakat',    // An-Nur - Social laws
-  42: 'zakat',    // Ash-Shura - Spending from provisions
-  47: 'zakat',    // Muhammad - Spending obligation
-  57: 'zakat',    // Al-Hadid - Lend to Allah
-  58: 'zakat',    // Al-Mujadilah - Charity for atonement
-  59: 'zakat',    // Al-Hashr - Distribution of wealth
-  63: 'zakat',    // Al-Munafiqun - Spend before death
-  64: 'zakat',    // At-Taghabun - Lend Allah a goodly loan
-  90: 'zakat',    // Al-Balad - Freeing slaves, feeding poor
-  92: 'zakat',    // Al-Lail - Giving vs withholding
-  102: 'zakat',   // At-Takathur - Competition in wealth
-  104: 'zakat',   // Al-Humazah - Hoarding wealth
+  pillars.forEach(pillar => {
+    const surahs = getSurahsByPillar(pillar)
+    surahs.forEach(surahNum => {
+      mapping[surahNum] = pillar
+    })
+  })
 
-  // SAWM (13) - Self-Discipline: Patience, Restraint, Perseverance
-  8: 'sawm',      // Al-Anfal - Patience in battle
-  70: 'sawm',     // Al-Ma'arij - Patience and prayer
-  80: 'sawm',     // 'Abasa - Self-restraint
-  83: 'sawm',     // Al-Mutaffifin - Restraint from cheating
-  86: 'sawm',     // At-Tariq - Self-control
-  88: 'sawm',     // Al-Ghashiyah - Endurance
-  91: 'sawm',     // Ash-Shams - Soul purification
-  94: 'sawm',     // Ash-Sharh - Patience with hardship
-  95: 'sawm',     // At-Tin - Restraining evil
-  97: 'sawm',     // Al-Qadr - Night of restraint/retreat
-  100: 'sawm',    // Al-'Adiyat - Restraining greed
-  103: 'sawm',    // Al-'Asr - Patience and perseverance
+  // All remaining surahs default to 'general' (will be filtered out)
+  for (let i = 1; i <= 114; i++) {
+    if (!mapping[i]) {
+      mapping[i] = 'general'
+    }
+  }
 
-  // HAJJ (8) - Pilgrimage: Sacred Journey, Ka'bah, Sacred Rites
-  48: 'hajj',     // Al-Fath - Treaty during Hajj journey
-  49: 'hajj',     // Al-Hujurat - Pilgrimage ethics
-  55: 'hajj',     // Ar-Rahman - Sacred precincts
-  60: 'hajj',     // Al-Mumtahanah - Testing pilgrims
-  61: 'hajj',     // As-Saff - Fighting in sacred months
-  65: 'hajj',     // At-Talaq - Sacred waiting periods
-  105: 'hajj',    // Al-Fil - Protection of Ka'bah
-  106: 'hajj',    // Quraysh - Guardians of Ka'bah
-
-  // GENERAL (8) - Mixed Themes: Legal, Historical Events, Multiple Focus
-  66: 'general',  // At-Tahrim - Domestic law
-  72: 'general',  // Al-Jinn - Jinn's encounter with Quran
-  98: 'general',  // Al-Bayyinah - Clear evidence
-  109: 'general', // Al-Kafirun - Declaration to disbelievers
-  110: 'general', // An-Nasr - Victory announcement
-  111: 'general', // Al-Masad - Abu Lahab incident
-  113: 'general', // Al-Falaq - Seeking refuge from evil
-  114: 'general'  // An-Nas - Seeking refuge from whispers
+  return mapping
 }
+
+const SURAH_PILLARS: Record<number, Pillar> = buildAuthenticatedSurahMapping()
 
 interface UseGraphDataResult {
   nodes: GraphNode[]
