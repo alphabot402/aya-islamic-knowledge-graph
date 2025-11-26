@@ -27,7 +27,7 @@ export type CameraMode = 'orbit' | 'travel' | 'focused'
 
 export interface SelectedNode {
   id: string
-  type: 'surah' | 'hadith'
+  type: 'primary' | 'secondary'
   position: [number, number, number]
 }
 
