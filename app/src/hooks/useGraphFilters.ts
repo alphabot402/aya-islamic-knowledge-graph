@@ -43,22 +43,20 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
       const query = searchQuery.toLowerCase().trim()
 
       filtered = filtered.filter(node => {
-        if (node.type === 'primary') {
-          return (
-            node.citation.toString().includes(query) ||
-            node.name.toLowerCase().includes(query) ||
-            node.englishName.toLowerCase().includes(query)
-          )
-        }
+        // Search in citation, source, function, coreText, and tags
+        const matchesBasic =
+          node.citation.toString().toLowerCase().includes(query) ||
+          node.source.toLowerCase().includes(query) ||
+          node.function.toLowerCase().includes(query) ||
+          node.coreText.toLowerCase().includes(query) ||
+          node.id.toLowerCase().includes(query)
 
-        if (node.type === 'secondary') {
-          return (
-            node.coreText.toLowerCase().includes(query) ||
-            node.id.includes(query)
-          )
-        }
+        // Also search in tags array
+        const matchesTags = node.tags && node.tags.some(tag =>
+          tag.toLowerCase().includes(query)
+        )
 
-        return false
+        return matchesBasic || matchesTags
       })
     }
 
