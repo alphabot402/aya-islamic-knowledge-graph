@@ -288,19 +288,29 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       )
 
       // ========================================================================
-      // STEP 4: Load Authenticated Hadith References
+      // STEP 4: Load Authenticated Hadith References with Citation Mapping
       // ========================================================================
       let hadithNodes: HadithNode[] = []
 
-      // Build set of authenticated hadith IDs from FIVE_PILLARS_REFERENCES
+      // Load hadith citation mapping (sunnah.com numbers → database idInBook)
+      const hadithMappingModule = await import('@/data/hadith-citation-mapping.json')
+      const hadithMapping = hadithMappingModule.default
+
+      // Build set of authenticated hadith IDs using the mapping
       const authenticatedHadiths = new Map<number, { pillar: Pillar; refId: string }>()
       const pillars: PillarType[] = ['shahada', 'salah', 'zakat', 'sawm', 'hajj']
 
       pillars.forEach(pillar => {
         const hadithRefs = getHadithsByPillar(pillar)
         hadithRefs.forEach(ref => {
-          const idInBook = parseInt(ref.number)
-          authenticatedHadiths.set(idInBook, { pillar, refId: ref.refId })
+          // Look up the correct idInBook from the mapping
+          const mappingEntry = hadithMapping[ref.refId]
+          if (mappingEntry && mappingEntry.database_idInBook) {
+            const idInBook = mappingEntry.database_idInBook
+            authenticatedHadiths.set(idInBook, { pillar, refId: ref.refId })
+          } else {
+            console.warn(`No mapping found for ${ref.refId} (Sunnah #${ref.number})`)
+          }
         })
       })
 
