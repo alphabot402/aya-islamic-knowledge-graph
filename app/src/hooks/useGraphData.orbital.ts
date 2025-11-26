@@ -24,7 +24,11 @@ import {
   groupSurahsByPillar,
   HADITH_ORBITS
 } from '@/lib/orbital-layout'
-import { getSurahsByPillar, type PillarType } from '@/data/five-pillars-references'
+import {
+  getSurahsByPillar,
+  getHadithsByPillar,
+  type PillarType
+} from '@/data/five-pillars-references'
 
 // Type imports
 export type Pillar = 'shahada' | 'salah' | 'zakat' | 'sawm' | 'hajj' | 'general'
@@ -284,158 +288,105 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       )
 
       // ========================================================================
-      // STEP 4: Fetch edges with validation
+      // STEP 4: Load Authenticated Hadith References
       // ========================================================================
-      const edgesResponse = await fetch(`${apiBase}/edges`)
-      if (!edgesResponse.ok) {
-        throw new Error(`Failed to fetch edges: ${edgesResponse.statusText}`)
-      }
-
-      const rawEdgesData: unknown = await edgesResponse.json()
-      const edgesValidation = validateData(
-        EdgesApiResponseSchema,
-        rawEdgesData,
-        'Edges API Response'
-      )
-
-      if (!edgesValidation.success) {
-        console.error('Edges API validation errors:', edgesValidation.error.format())
-        throw new Error(
-          `Invalid Edges API response format: ${edgesValidation.error.message}`
-        )
-      }
-
-      const edgesData = edgesValidation.data
       let hadithNodes: HadithNode[] = []
 
-      // ========================================================================
-      // STEP 5: Create Hadith "Moon" Nodes
-      // ========================================================================
-      if (edgesData.success && edgesData.data.length > 0) {
-        const connectedHadithIds = new Set(
-          edgesData.data.map((edge: EdgeData) => edge.hadith.idInBook)
-        )
+      // Build set of authenticated hadith IDs from FIVE_PILLARS_REFERENCES
+      const authenticatedHadiths = new Map<number, { pillar: Pillar; refId: string }>()
+      const pillars: PillarType[] = ['shahada', 'salah', 'zakat', 'sawm', 'hajj']
 
-        // Build edge connection maps
-        const hadithConnections = new Map<number, number[]>()
-        const hadithVerses = new Map<number, VerseConnection[]>()
-
-        edgesData.data.forEach((edge: EdgeData) => {
-          const hadithId = edge.hadith.idInBook
-          const surahNum = edge.verse.surah
-
-          // Store surah connections
-          if (!hadithConnections.has(hadithId)) {
-            hadithConnections.set(hadithId, [])
-          }
-          hadithConnections.get(hadithId)!.push(surahNum)
-
-          // Store verse-level connections with metadata
-          if (!hadithVerses.has(hadithId)) {
-            hadithVerses.set(hadithId, [])
-          }
-          hadithVerses.get(hadithId)!.push({
-            surah: edge.verse.surah,
-            ayah: edge.verse.ayah,
-            reference: edge.verse.reference,
-            relationship: edge.pillar || 'general',
-            connectionType: edge.pillar || 'general'
-          })
+      pillars.forEach(pillar => {
+        const hadithRefs = getHadithsByPillar(pillar)
+        hadithRefs.forEach(ref => {
+          const idInBook = parseInt(ref.number)
+          authenticatedHadiths.set(idInBook, { pillar, refId: ref.refId })
         })
+      })
 
-        let hadithUrl = `${apiBase}/hadith`
-        if (useDatabase) {
-          hadithUrl += `?ids=${Array.from(connectedHadithIds).join(',')}`
-        }
+      // Load hadiths from API
+      const hadithResponse = await fetch(`${apiBase}/hadith`)
+      if (!hadithResponse.ok) {
+        throw new Error(`Failed to fetch hadiths: ${hadithResponse.statusText}`)
+      }
 
-        const hadithResponse = await fetch(hadithUrl)
-        if (!hadithResponse.ok) {
-          throw new Error(`Failed to fetch hadiths: ${hadithResponse.statusText}`)
-        }
+      const rawHadithData: unknown = await hadithResponse.json()
+      const hadithValidation = validateData(
+        HadithApiResponseSchema,
+        rawHadithData,
+        'Hadith API Response'
+      )
 
-        const rawHadithData: unknown = await hadithResponse.json()
-        const hadithValidation = validateData(
-          HadithApiResponseSchema,
-          rawHadithData,
-          'Hadith API Response'
+      if (!hadithValidation.success) {
+        console.error('Hadith API validation errors:', hadithValidation.error.format())
+        throw new Error(
+          `Invalid Hadith API response format: ${hadithValidation.error.message}`
+        )
+      }
+
+      const hadithData = hadithValidation.data
+
+      if (hadithData.success) {
+        // Filter to only authenticated hadiths
+        const authenticatedHadithList = hadithData.data.filter((h: Hadith) =>
+          authenticatedHadiths.has(h.idInBook)
         )
 
-        if (!hadithValidation.success) {
-          console.error('Hadith API validation errors:', hadithValidation.error.format())
-          throw new Error(
-            `Invalid Hadith API response format: ${hadithValidation.error.message}`
-          )
-        }
-
-        const hadithData = hadithValidation.data
-
-        if (hadithData.success) {
-          const connectedHadiths = useDatabase
-            ? hadithData.data
-            : hadithData.data.filter((h: Hadith) => connectedHadithIds.has(h.idInBook))
-
-          // Create hadith nodes with organized ring distribution
-          // Group hadiths by pillar for better organization
-          const hadithsByPillar = new Map<string, Hadith[]>()
-          connectedHadiths.forEach((h: Hadith) => {
-            const connectedSurahs = hadithConnections.get(h.idInBook) || []
-            const pillar = connectedSurahs.length > 0
-              ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
-              : 'general'
-
+        // Group hadiths by pillar based on authenticated references
+        const hadithsByPillar = new Map<string, Hadith[]>()
+        authenticatedHadithList.forEach((h: Hadith) => {
+          const auth = authenticatedHadiths.get(h.idInBook)
+          if (auth) {
+            const pillar = auth.pillar
             if (!hadithsByPillar.has(pillar)) {
               hadithsByPillar.set(pillar, [])
             }
             hadithsByPillar.get(pillar)!.push(h)
-          })
+          }
+        })
 
-          // Position hadiths on organized rings - each pillar has its own hadith circle
-          hadithNodes = connectedHadiths.map((h: Hadith, globalIndex: number) => {
-            const connectedSurahs = hadithConnections.get(h.idInBook) || []
-            const connectionIds = connectedSurahs.map(s => `surah-${s}`)
+        // Create hadith nodes positioned on their pillar rings
+        hadithNodes = authenticatedHadithList.map((h: Hadith) => {
+          const auth = authenticatedHadiths.get(h.idInBook)!
+          const pillar = auth.pillar
 
-            // Determine pillar from first connected surah
-            const pillar = connectedSurahs.length > 0
-              ? SURAH_PILLARS[connectedSurahs[0]] || 'general'
-              : 'general'
+          // Get hadith ring radius for this pillar
+          const hadithRadius = HADITH_ORBITS[pillar] || 50
 
-            // Get hadith ring radius for this pillar
-            const hadithRadius = HADITH_ORBITS[pillar as Pillar] || 50
+          // Get all hadiths in this pillar for even distribution
+          const hadithsInThisPillar = hadithsByPillar.get(pillar) || []
+          const indexInPillar = hadithsInThisPillar.findIndex(hh => hh.idInBook === h.idInBook)
 
-            // Get all hadiths in this pillar for even distribution
-            const hadithsInThisPillar = hadithsByPillar.get(pillar) || []
-            const indexInPillar = hadithsInThisPillar.findIndex(hh => hh.idInBook === h.idInBook)
+          // Distribute evenly around the hadith ring
+          const angle = (indexInPillar / hadithsInThisPillar.length) * Math.PI * 2
+          const x = Math.cos(angle) * hadithRadius
+          const z = Math.sin(angle) * hadithRadius
+          const y = 0 // Flat circular row
 
-            // Distribute evenly around the hadith ring
-            const angle = (indexInPillar / hadithsInThisPillar.length) * Math.PI * 2
-            const x = Math.cos(angle) * hadithRadius
-            const z = Math.sin(angle) * hadithRadius
-            const y = 0 // Flat circular row
+          const rawPosition: [number, number, number] = [x, y, z]
 
-            const rawPosition: [number, number, number] = [x, y, z]
+          const position = validatePosition(
+            rawPosition[0],
+            rawPosition[1],
+            rawPosition[2],
+            `Hadith ${h.idInBook}`
+          )
 
-            const position = validatePosition(
-              rawPosition[0],
-              rawPosition[1],
-              rawPosition[2],
-              `Hadith ${h.idInBook}`
-            )
+          // Get connected surahs from the same pillar
+          const surahsInPillar = surahsByPillar[pillar] || []
+          const connectionIds = surahsInPillar.map(s => `surah-${s}`)
 
-            // Get verse-level connections for this hadith
-            const verseConnections = hadithVerses.get(h.idInBook) || []
-
-            return {
-              id: `hadith-${h.idInBook}`,
-              type: 'hadith' as const,
-              position,
-              connections: connectionIds,
-              pillar,
-              hadith: h,
-              verses: verseConnections,
-              connectionCount: connectedSurahs.length  // NEW: For visual hierarchy
-            }
-          })
-        }
+          return {
+            id: `hadith-${auth.refId}`,
+            type: 'hadith' as const,
+            position,
+            connections: connectionIds,
+            pillar,
+            hadith: h,
+            verses: [],  // Can be populated later from edges if needed
+            connectionCount: surahsInPillar.length
+          }
+        })
       }
 
       // ========================================================================

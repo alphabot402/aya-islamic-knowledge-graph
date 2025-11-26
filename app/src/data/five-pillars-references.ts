@@ -1096,3 +1096,36 @@ export function getReferencesByPillar(pillar: PillarType): PillarReference[] {
 export function getReferenceById(refId: string): PillarReference | undefined {
   return FIVE_PILLARS_REFERENCES.find(ref => ref.refId === refId)
 }
+
+/**
+ * Extract hadith references (collection + number) for a specific pillar
+ * Returns array of {collection: 'bukhari'|'muslim', number: string, refId: string}
+ */
+export function getHadithsByPillar(pillar: PillarType): Array<{
+  collection: 'bukhari' | 'muslim'
+  number: string
+  refId: string
+  function: FunctionType
+  coreText: string
+  tags: string[]
+  apiLink: string
+}> {
+  return FIVE_PILLARS_REFERENCES
+    .filter(ref => ref.pillar === pillar && ref.source !== 'quran')
+    .map(ref => ({
+      collection: ref.source as 'bukhari' | 'muslim',
+      number: ref.citation,
+      refId: ref.refId,
+      function: ref.function,
+      coreText: ref.coreText,
+      tags: ref.tags,
+      apiLink: ref.apiLink
+    }))
+}
+
+/**
+ * Get all authenticated references (Quran + Hadith) for a specific pillar
+ */
+export function getAllReferencesByPillar(pillar: PillarType): PillarReference[] {
+  return FIVE_PILLARS_REFERENCES.filter(ref => ref.pillar === pillar)
+}
