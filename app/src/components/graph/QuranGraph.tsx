@@ -27,7 +27,6 @@ import Scene from './Scene'
 import Header from './ui/Header'
 import PillarFilter from './ui/PillarFilter'
 import ZoomControls from './ui/ZoomControls'
-import BottomInstructions from './ui/BottomInstructions'
 import StatsDisplay from './ui/StatsDisplay'
 import LoadingIndicator from './ui/LoadingIndicator'
 import HoverTooltip from './ui/HoverTooltip'
@@ -144,9 +143,6 @@ export default function QuranGraph() {
           onReset={handleResetView}
         />
       )}
-
-      {/* Bottom Instructions */}
-      {!isLoading && !error && <BottomInstructions />}
 
       {/* Loading State */}
       {isLoading && <LoadingIndicator />}

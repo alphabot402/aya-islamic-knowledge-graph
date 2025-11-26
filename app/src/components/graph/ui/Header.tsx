@@ -20,9 +20,11 @@ export default function Header({ className = '' }: HeaderProps) {
       <div className={`absolute top-0 left-0 right-0 z-20 pointer-events-none ${className}`} style={{ paddingTop: 'max(0.75rem, env(safe-area-inset-top))' }}>
         <div className="text-center max-w-5xl mx-auto py-3 md:py-4 px-4">
 
-          {/* Main Heading - SMALLER 28-32px with 3D glow */}
-          <h1 className="text-xl md:text-[28px] lg:text-[32px] font-bold text-white mb-2 leading-tight drop-shadow-[0_0_20px_rgba(147,197,253,0.5)] whitespace-nowrap">
-            Explore Islam's Five Pillars Through Quranic Verses & Sahih Hadith
+          {/* Main Heading - Split into two lines for better visual rhythm */}
+          <h1 className="text-xl md:text-[28px] lg:text-[32px] font-bold text-white mb-2 leading-tight drop-shadow-[0_0_20px_rgba(147,197,253,0.5)]">
+            Explore Islam's Five Pillars
+            <br />
+            Through Quranic Verses & Sahih Hadith
           </h1>
 
           {/* Subtitle - LARGER 16-18px for readability */}
@@ -30,10 +32,10 @@ export default function Header({ className = '' }: HeaderProps) {
             A curated selection of authentic connections from primary Islamic sources
           </p>
 
-          {/* CTA - Slightly larger, prominent light blue */}
+          {/* CTA - Integrated controls and instructions */}
           <div className="flex items-center justify-center text-cyan-300 pointer-events-auto">
             <span className="text-sm md:text-base font-medium drop-shadow-md">
-              ↓ Click any node below to begin exploring
+              ↓ Click nodes to explore  |  Drag to rotate  |  Scroll to zoom
             </span>
           </div>
 

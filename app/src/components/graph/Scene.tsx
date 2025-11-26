@@ -13,7 +13,6 @@ import SurahNode from './nodes/SurahNode'
 import HadithNode from './nodes/HadithNode'
 import ConnectionLines from './nodes/ConnectionLines'
 import OrbitRings from './OrbitRings'
-import GalaxyCenter from './GalaxyCenter'
 
 interface SceneProps {
   nodes: GraphNode[]
@@ -99,9 +98,6 @@ export default function Scene({ nodes, onNodeSelect, onNodeHover, pillarFilter, 
         groundColor="#0f172a"
         intensity={1.0}
       />
-
-      {/* Galaxy Center - Dense star cluster behind everything */}
-      <GalaxyCenter />
 
       {/* Orbital Rings - Filtered by pillar */}
       <OrbitRings pillarFilter={pillarFilter} />
