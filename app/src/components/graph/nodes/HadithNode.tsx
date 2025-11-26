@@ -6,11 +6,12 @@
 
 'use client'
 
-import { useRef, memo } from 'react'
+import { useRef, memo, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 import { GraphNode } from '@/hooks/useGraphData.orbital'
+import { PILLAR_INFO } from './SurahNode'
 
 interface HadithNodeProps {
   node: GraphNode
@@ -31,6 +32,27 @@ function HadithNode({
 
   // ✅ OPTIMIZATION: Reuse Vector3 object instead of creating new one each frame
   const targetScaleVector = useRef(new THREE.Vector3())
+
+  // Memoize color calculations based on pillar
+  const nodeMetrics = useMemo(() => {
+    const pillarInfo = PILLAR_INFO[node.pillar]
+    const baseColor = pillarInfo.hadithColor  // Use light Hadith color for this pillar
+
+    // Pre-calculate all colors once
+    const baseColorObj = new THREE.Color(baseColor)
+    const hoverColorHex = baseColorObj.clone().multiplyScalar(1.2).getHexString()
+    const selectColorHex = baseColorObj.clone().multiplyScalar(1.4).getHexString()
+
+    // Smaller size for Hadith nodes (80% of Quran nodes)
+    const baseSize = 2.3 * 0.8  // 80% of Quran node size
+
+    return {
+      baseColor,
+      hoverColor: `#${hoverColorHex}`,
+      selectColor: `#${selectColorHex}`,
+      baseSize
+    }
+  }, [node.pillar])
 
   // Smooth scale animation + rotation
   useFrame(() => {
@@ -54,21 +76,18 @@ function HadithNode({
     meshRef.current.rotation.y += 0.004
   })
 
-  // Golden color scheme for hadiths
-  const baseColor = '#d97706'
-  const hoverColor = '#f59e0b'
-  const selectColor = '#fbbf24'
-
-  const color = isSelected ? selectColor : isHovered ? hoverColor : baseColor
-
-  // Smaller size for Hadith nodes (reduced by ~30%)
-  const baseSize = 0.7
+  // Select color based on state
+  const color = isSelected
+    ? nodeMetrics.selectColor
+    : isHovered
+    ? nodeMetrics.hoverColor
+    : nodeMetrics.baseColor
 
   return (
     <group position={node.position}>
-      {/* Outer golden neon glow - soft diffuse halo */}
+      {/* Outer neon glow - soft diffuse halo */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.5, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.5, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
@@ -78,9 +97,9 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Mid golden glow - crisp neon ring */}
+      {/* Mid glow - crisp neon ring */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.25, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.25, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
@@ -90,9 +109,9 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Inner bright golden core */}
+      {/* Inner bright core */}
       <mesh>
-        <sphereGeometry args={[baseSize * 1.08, 32, 32]} />
+        <sphereGeometry args={[nodeMetrics.baseSize * 1.08, 32, 32]} />
         <meshBasicMaterial
           color={color}
           transparent
@@ -102,7 +121,7 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Main sphere - glassy, shiny golden planet with rich color */}
+      {/* Main sphere - glassy, shiny planet with rich color */}
       <mesh
         ref={meshRef}
         onClick={onSelect}
@@ -111,7 +130,7 @@ function HadithNode({
         castShadow
         receiveShadow
       >
-        <sphereGeometry args={[baseSize, 64, 64]} />
+        <sphereGeometry args={[nodeMetrics.baseSize, 64, 64]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
@@ -122,11 +141,11 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Hadith ID label - Smaller and more subtle */}
+      {/* Hadith ID label - pillar-colored, smaller and subtle */}
       <Text
-        position={[0, baseSize + 0.5, 0]}
+        position={[0, nodeMetrics.baseSize + 0.5, 0]}
         fontSize={0.35}
-        color="#fbbf24"
+        color={color}
         anchorX="center"
         anchorY="middle"
         outlineWidth={0.02}
@@ -138,7 +157,7 @@ function HadithNode({
       {/* Selection ring */}
       {isSelected && (
         <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[baseSize + 0.3, baseSize + 0.5, 32]} />
+          <ringGeometry args={[nodeMetrics.baseSize + 0.3, nodeMetrics.baseSize + 0.5, 32]} />
           <meshBasicMaterial color={color} transparent opacity={0.8} />
         </mesh>
       )}

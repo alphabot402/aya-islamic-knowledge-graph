@@ -12,14 +12,45 @@ import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 import { GraphNode } from '@/hooks/useGraphData.orbital'
 
-// Pillar color configuration
+// Two-tone pillar color configuration
+// Each pillar has bold color (Quran) and light color (Hadith)
 const PILLAR_INFO = {
-  shahada: { name: 'Shahada', nameAr: 'الشهادة', color: '#9333ea' },
-  salah: { name: 'Salah', nameAr: 'الصلاة', color: '#2563eb' },
-  zakat: { name: 'Zakat', nameAr: 'الزكاة', color: '#059669' },
-  sawm: { name: 'Sawm', nameAr: 'الصوم', color: '#dc2626' },
-  hajj: { name: 'Hajj', nameAr: 'الحج', color: '#b91c1c' },
-  general: { name: 'General', nameAr: 'عام', color: '#475569' }
+  shahada: {
+    name: 'Shahada',
+    nameAr: 'الشهادة',
+    quranColor: '#9333EA',  // Deep purple
+    hadithColor: '#C084FC'  // Light purple
+  },
+  salah: {
+    name: 'Salah',
+    nameAr: 'الصلاة',
+    quranColor: '#2563EB',  // Deep blue
+    hadithColor: '#60A5FA'  // Light blue
+  },
+  zakat: {
+    name: 'Zakat',
+    nameAr: 'الزكاة',
+    quranColor: '#059669',  // Deep green
+    hadithColor: '#34D399'  // Light green
+  },
+  sawm: {
+    name: 'Sawm',
+    nameAr: 'الصوم',
+    quranColor: '#EA580C',  // Deep orange
+    hadithColor: '#FB923C'  // Light orange
+  },
+  hajj: {
+    name: 'Hajj',
+    nameAr: 'الحج',
+    quranColor: '#DC2626',  // Deep red
+    hadithColor: '#F87171'  // Light red/pink
+  },
+  general: {
+    name: 'General',
+    nameAr: 'عام',
+    quranColor: '#475569',  // Slate gray
+    hadithColor: '#94A3B8'  // Light slate
+  }
 }
 
 interface SurahNodeProps {
@@ -45,7 +76,7 @@ function SurahNode({
   // ✅ OPTIMIZATION 2: Memoize all color calculations (only runs when pillar changes)
   const nodeMetrics = useMemo(() => {
     const pillarInfo = PILLAR_INFO[node.pillar]
-    const baseColor = pillarInfo.color
+    const baseColor = pillarInfo.quranColor  // Use bold Quran color
 
     // Pre-calculate all colors once
     const baseColorObj = new THREE.Color(baseColor)

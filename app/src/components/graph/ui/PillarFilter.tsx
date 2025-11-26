@@ -21,29 +21,33 @@ export default function PillarFilter({
   pillarCounts
 }: PillarFilterProps) {
   return (
-    <div className="fixed bottom-2 left-2 z-30">
-      {/* Vertical stack - bottom left - compact */}
-      <div className="bg-black/60 backdrop-blur-lg border border-blue-300/20 rounded-lg p-1.5 shadow-lg">
-        <div className="flex flex-col gap-1">
-          <span className="text-[8px] text-blue-300/60 font-semibold uppercase tracking-wide text-center mb-0.5">
-            Filter
+    <div className="fixed bottom-4 left-4 z-30">
+      {/* Vertical sidebar - color-coded legend with two-tone circles */}
+      <div className="bg-black/70 backdrop-blur-xl border border-blue-300/30 rounded-xl p-3 shadow-2xl">
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] text-blue-200 font-bold uppercase tracking-widest text-center mb-1">
+            Legend
           </span>
 
-          {/* All button */}
+          {/* All button - white/gray */}
           <button
             onClick={() => onChange('all')}
-            className={`px-2 py-1 rounded text-[10px] font-medium transition-all duration-200 w-full ${
+            className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 w-full flex items-center gap-2 ${
               value === 'all'
-                ? 'bg-blue-500/30 text-blue-200 border border-blue-400/50 shadow-[0_0_8px_rgba(96,165,250,0.3)]'
-                : 'text-blue-300/70 hover:text-blue-200 hover:border-blue-400/30 border border-blue-400/20 hover:bg-blue-500/10'
+                ? 'bg-gray-500/30 text-white border border-gray-400/60 shadow-[0_0_12px_rgba(156,163,175,0.4)]'
+                : 'text-gray-300/80 hover:text-white hover:border-gray-400/40 border border-gray-400/20 hover:bg-gray-500/20'
             }`}
           >
-            All
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+              <span className="w-2 h-2 rounded-full bg-gray-400"></span>
+            </span>
+            <span>All</span>
           </button>
 
-          {/* Pillar buttons - Vertical stack - compact - Five Pillars only */}
+          {/* Pillar buttons with two-tone color circles */}
           {(Object.keys(PILLAR_INFO) as Pillar[])
-            .filter(pillar => pillar !== 'general') // Exclude general category
+            .filter(pillar => pillar !== 'general')
             .map(pillar => {
               const info = PILLAR_INFO[pillar]
               const isSelected = value === pillar
@@ -52,23 +56,37 @@ export default function PillarFilter({
                 <button
                   key={pillar}
                   onClick={() => onChange(pillar)}
-                  className={`px-2 py-1 rounded text-[10px] font-medium transition-all duration-200 border w-full text-left ${
+                  className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 border w-full flex items-center gap-2 ${
                     isSelected
-                      ? 'shadow-md'
-                      : 'text-blue-300/70 hover:text-blue-200 border-blue-400/20 hover:border-blue-400/40'
+                      ? 'bg-white/10 shadow-lg'
+                      : 'text-white/70 hover:text-white border-white/20 hover:border-white/40 hover:bg-white/5'
                   }`}
                   style={
                     isSelected
                       ? {
-                          backgroundColor: `${info.color}20`,
-                          borderColor: info.color,
-                          color: info.color,
-                          boxShadow: `0 0 12px ${info.color}40`
+                          borderColor: info.quranColor,
+                          boxShadow: `0 0 16px ${info.quranColor}50`
                         }
                       : {}
                   }
                 >
-                  {info.name}
+                  {/* Two-tone color circles */}
+                  <span className="flex items-center gap-1">
+                    {/* Left circle: Bold Quran color */}
+                    <span
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: info.quranColor }}
+                    ></span>
+                    {/* Right circle: Light Hadith color */}
+                    <span
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: info.hadithColor }}
+                    ></span>
+                  </span>
+                  {/* Pillar name */}
+                  <span className={isSelected ? 'text-white' : ''}>
+                    {info.name}
+                  </span>
                 </button>
               )
             })}
