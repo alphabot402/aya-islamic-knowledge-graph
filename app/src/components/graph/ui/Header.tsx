@@ -22,16 +22,31 @@ export default function Header({ className = '' }: HeaderProps) {
 
         {/* The Product's Value Proposition */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight">
-          The Scriptural Architecture <br />
-          <span className="text-slate-700">of the Five Pillars</span>
+          Explore Islam's Five Pillars <br />
+          <span className="text-slate-700">Connected Through Sahih Hadith & Quran</span>
         </h1>
 
         {/* The Nuanced Explanation */}
-        <p className="text-base md:text-lg text-slate-600 leading-relaxed font-light">
-          A curated mapping of primary evidences (<span className="italic">Adillah</span>),
-          selected to bridge the gap between sacred text and structural understanding.
-          Explore the mandates, wisdoms, and rewards that form the foundation of your faith.
+        <p className="text-base md:text-lg text-slate-600 leading-relaxed font-light max-w-xl mx-auto">
+          Explore curated connections between Quran verses and authenticated
+          hadiths (Sahih Bukhari & Sahih Muslim). Click any node to discover
+          the evidence, wisdom, and rewards behind each pillar.
+          <br />
+          <span className="text-sm text-slate-500 mt-2 block">
+            This is a focused selection of primary sources—not exhaustive,
+            but carefully verified for authenticity.
+          </span>
         </p>
+
+        {/* Clear Call to Action */}
+        <div className="mt-6 flex items-center justify-center gap-2 text-blue-600 pointer-events-auto">
+          <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+          <span className="text-sm font-medium">
+            Click any node below to begin exploring
+          </span>
+        </div>
 
       </div>
     </div>
