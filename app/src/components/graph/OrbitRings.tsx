@@ -79,25 +79,25 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 /**
  * Main OrbitRings component
  * ONE ring per pillar (Quran and Hadith share the same orbital path)
- * Rings start at radius 150 to create sacred empty void at center
+ * Rings start at radius 40 to create void while fitting on screen
  */
 export default function OrbitRings() {
   return (
     <group>
-      {/* Ring 1 - SHAHADA (innermost, starting at 150 for divine void) */}
-      <OrbitRing radius={150} label="Shahada" color="#9333EA" rotationSpeed={0.15} />
+      {/* Ring 1 - SHAHADA (innermost, starting at 40 for divine void) */}
+      <OrbitRing radius={40} label="Shahada" color="#9333EA" rotationSpeed={0.15} />
 
       {/* Ring 2 - SALAH */}
-      <OrbitRing radius={220} label="Salah" color="#3B82F6" rotationSpeed={0.12} />
+      <OrbitRing radius={60} label="Salah" color="#3B82F6" rotationSpeed={0.12} />
 
       {/* Ring 3 - ZAKAT */}
-      <OrbitRing radius={290} label="Zakat" color="#10B981" rotationSpeed={0.1} />
+      <OrbitRing radius={80} label="Zakat" color="#10B981" rotationSpeed={0.1} />
 
       {/* Ring 4 - SAWM */}
-      <OrbitRing radius={360} label="Sawm" color="#F43F5E" rotationSpeed={0.08} />
+      <OrbitRing radius={100} label="Sawm" color="#F43F5E" rotationSpeed={0.08} />
 
       {/* Ring 5 - HAJJ (outermost) */}
-      <OrbitRing radius={430} label="Hajj" color="#EF4444" rotationSpeed={0.06} />
+      <OrbitRing radius={120} label="Hajj" color="#EF4444" rotationSpeed={0.06} />
 
       {/* NO central sphere - keep the void empty (Divine Vastness) */}
     </group>

@@ -101,7 +101,7 @@ export default function QuranGraph() {
       <CanvasErrorBoundary>
         <Canvas
           camera={{
-            position: [600, 450, 600],  // Adjusted for larger orbital system (radii 150-430)
+            position: [180, 135, 180],  // Adjusted for orbital system (radii 40-120) to fit on screen
             fov: 55
           }}
           className="bg-transparent"

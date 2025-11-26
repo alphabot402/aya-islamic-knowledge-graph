@@ -42,14 +42,14 @@ export type GraphNode = NodeData
 // ============================================================================
 
 // Each pillar has ONE ring shared by both Quran and Hadith
-// Starting at radius 150 to create empty divine center
+// Starting at radius 40 to create empty divine center while fitting on screen
 // These values match the visual rings in OrbitRings.tsx
 const PILLAR_RINGS: Record<Pillar, number> = {
-  shahada: 150,
-  salah: 220,
-  zakat: 290,
-  sawm: 360,
-  hajj: 430,
+  shahada: 40,
+  salah: 60,
+  zakat: 80,
+  sawm: 100,
+  hajj: 120,
   general: 0  // Not used
 }
 
