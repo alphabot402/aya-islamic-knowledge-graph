@@ -27,21 +27,31 @@ function GenericNode({
   onSelect: () => void
   onHover: (hover: boolean) => void
 }) {
+  // Visual differentiation: Quran (primary) vs Hadith (secondary)
+  const isPrimary = node.type === 'primary'
+  const baseSize = isPrimary ? 0.6 : 0.45  // Quran larger, Hadith smaller
   const scale = isHovered ? 1.3 : isSelected ? 1.2 : 1.0
+
+  // Colors: Quran = teal/cyan, Hadith = gold/amber
+  const baseColor = isPrimary ? '#14b8a6' : '#f59e0b'  // teal-500 : amber-500
+  const selectedColor = '#fbbf24'  // amber-400
+  const emissiveColor = isPrimary ? '#0d9488' : '#d97706'  // teal-600 : amber-600
 
   return (
     <group position={node.position}>
       <Sphere
-        args={[0.5, 16, 16]}
+        args={[baseSize, 16, 16]}
         scale={scale}
         onClick={onSelect}
         onPointerOver={() => onHover(true)}
         onPointerOut={() => onHover(false)}
       >
         <meshStandardMaterial
-          color={isSelected ? '#ffd700' : '#00ffff'}
-          emissive={isSelected ? '#ffaa00' : '#0088aa'}
-          emissiveIntensity={isHovered ? 0.8 : 0.3}
+          color={isSelected ? selectedColor : baseColor}
+          emissive={emissiveColor}
+          emissiveIntensity={isHovered ? 0.8 : isSelected ? 0.6 : 0.3}
+          metalness={0.3}
+          roughness={0.4}
         />
       </Sphere>
     </group>

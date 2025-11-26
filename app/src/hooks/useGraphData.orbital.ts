@@ -1,29 +1,75 @@
 /**
- * useGraphData Hook - CLEAN SLATE VERSION
- * Ready for new 100-item dataset with custom headers
- *
- * Visual structure preserved, all data references removed
+ * useGraphData Hook - INTEGRATED WITH 100 AUTHENTICATED REFERENCES
+ * Loads the Master Five Pillars Database and positions nodes in orbital layout
  */
 
 import { useState, useEffect } from 'react'
+import {
+  getAllReferences,
+  getReferencesByPillar,
+  getApiLink,
+  type PillarReference,
+  type PillarType
+} from '@/data/five-pillars-database'
 
 // ============================================================================
-// TYPE DEFINITIONS - Ready for new data structure
+// TYPE DEFINITIONS
 // ============================================================================
 
 export type Pillar = 'shahada' | 'salah' | 'zakat' | 'sawm' | 'hajj' | 'general'
 
 export interface NodeData {
   id: string
-  type: 'primary' | 'secondary'  // Flexible node types
+  type: 'primary' | 'secondary'
   position: [number, number, number]
   pillar: Pillar
   label: string
-  metadata: Record<string, any>  // Flexible for any data structure
-  apiLink?: string  // External API link
+
+  // Reference data
+  refId: string
+  source: string
+  citation: string
+  function: string
+  coreText: string
+  tags: string[]
+  apiLink: string
 }
 
 export type GraphNode = NodeData
+
+// ============================================================================
+// ORBITAL LAYOUT CONFIGURATION
+// ============================================================================
+
+// Radius for each pillar ring
+const PILLAR_RINGS: Record<Pillar, number> = {
+  shahada: 30,  // Innermost ring
+  salah: 45,
+  zakat: 60,
+  sawm: 75,
+  hajj: 90,     // Outermost ring
+  general: 0    // Not used
+}
+
+/**
+ * Calculate orbital position for a node on its pillar ring
+ */
+function calculateOrbitalPosition(
+  pillar: Pillar,
+  index: number,
+  totalInRing: number
+): [number, number, number] {
+  const radius = PILLAR_RINGS[pillar]
+
+  // Distribute nodes evenly around the ring
+  const angle = (index / totalInRing) * Math.PI * 2
+
+  const x = Math.cos(angle) * radius
+  const z = Math.sin(angle) * radius
+  const y = 0  // All nodes on same horizontal plane
+
+  return [x, y, z]
+}
 
 // ============================================================================
 // HOOK
@@ -37,12 +83,11 @@ interface UseGraphDataResult {
 }
 
 /**
- * Main data loading hook
- * Currently returns empty data - ready for new dataset
+ * Main data loading hook - Loads 100 authenticated references
  */
 export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
   const [nodes, setNodes] = useState<GraphNode[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
   const fetchData = async () => {
@@ -51,16 +96,61 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
     try {
       // ========================================================================
-      // TODO: Load new 100-item dataset here
+      // Load all 100 authenticated references
       // ========================================================================
+      const allReferences = getAllReferences()
 
-      // For now, return empty nodes
-      // This will be replaced with your new data loading logic
-      const emptyNodes: GraphNode[] = []
+      // Group references by pillar for positioning
+      const referencesByPillar: Record<PillarType, PillarReference[]> = {
+        shahada: getReferencesByPillar('shahada'),
+        salah: getReferencesByPillar('salah'),
+        zakat: getReferencesByPillar('zakat'),
+        sawm: getReferencesByPillar('sawm'),
+        hajj: getReferencesByPillar('hajj')
+      }
 
-      setNodes(emptyNodes)
+      // ========================================================================
+      // Create nodes with orbital positions
+      // ========================================================================
+      const graphNodes: GraphNode[] = []
+
+      // Process each pillar
+      Object.entries(referencesByPillar).forEach(([pillar, references]) => {
+        const pillarType = pillar as PillarType
+        const totalInRing = references.length
+
+        references.forEach((ref, index) => {
+          // Calculate position on orbital ring
+          const position = calculateOrbitalPosition(pillarType, index, totalInRing)
+
+          // Determine node type (Quran = primary, Hadith = secondary)
+          const nodeType = ref.source === 'Quran' ? 'primary' : 'secondary'
+
+          // Create node
+          const node: GraphNode = {
+            id: ref.refId,
+            type: nodeType,
+            position,
+            pillar: pillarType,
+            label: `${ref.source} ${ref.citation}`,
+
+            // Reference data
+            refId: ref.refId,
+            source: ref.source,
+            citation: ref.citation,
+            function: ref.function,
+            coreText: ref.coreText,
+            tags: ref.tags,
+            apiLink: getApiLink(ref.source as any, ref.citation)
+          }
+
+          graphNodes.push(node)
+        })
+      })
+
+      setNodes(graphNodes)
     } catch (err) {
-      console.error('Error fetching graph data:', err)
+      console.error('Error loading graph data:', err)
       setError(err instanceof Error ? err : new Error('Unknown error occurred'))
     } finally {
       setIsLoading(false)
