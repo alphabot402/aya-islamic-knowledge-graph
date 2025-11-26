@@ -96,7 +96,7 @@ export default function QuranGraph() {
   }, [])
 
   return (
-    <div className="w-full h-full relative overflow-hidden">
+    <div className="w-full h-[100dvh] relative overflow-hidden" style={{ touchAction: 'none' }}>
       {/* 3D Canvas with Error Boundary - Optimized camera for orbital view */}
       <CanvasErrorBoundary>
         <Canvas
@@ -108,7 +108,8 @@ export default function QuranGraph() {
           gl={{
             antialias: true,
             alpha: true,
-            powerPreference: 'high-performance'
+            powerPreference: 'high-performance',
+            pixelRatio: typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1
           }}
         >
           {!isLoading && !error && (

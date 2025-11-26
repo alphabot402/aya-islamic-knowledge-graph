@@ -41,25 +41,30 @@ export type GraphNode = NodeData
 // ORBITAL LAYOUT CONFIGURATION
 // ============================================================================
 
-// Radius for each pillar ring
-const PILLAR_RINGS: Record<Pillar, number> = {
-  shahada: 30,  // Innermost ring
-  salah: 45,
-  zakat: 60,
-  sawm: 75,
-  hajj: 90,     // Outermost ring
-  general: 0    // Not used
+// Each pillar has two rings: inner (Quran/primary) and outer (Hadith/secondary)
+// These values match the visual rings in OrbitRings.tsx
+const PILLAR_RINGS: Record<Pillar, { primary: number; secondary: number }> = {
+  shahada: { primary: 25, secondary: 30 },
+  salah: { primary: 35, secondary: 40 },
+  zakat: { primary: 45, secondary: 50 },
+  sawm: { primary: 55, secondary: 60 },
+  hajj: { primary: 65, secondary: 70 },
+  general: { primary: 0, secondary: 0 }  // Not used
 }
 
 /**
  * Calculate orbital position for a node on its pillar ring
+ * Primary nodes (Quran) go on inner ring, secondary (Hadith) on outer ring
  */
 function calculateOrbitalPosition(
   pillar: Pillar,
   index: number,
-  totalInRing: number
+  totalInRing: number,
+  nodeType: 'primary' | 'secondary'
 ): [number, number, number] {
-  const radius = PILLAR_RINGS[pillar]
+  const radius = nodeType === 'primary'
+    ? PILLAR_RINGS[pillar].primary
+    : PILLAR_RINGS[pillar].secondary
 
   // Distribute nodes evenly around the ring
   const angle = (index / totalInRing) * Math.PI * 2
@@ -120,11 +125,11 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         const totalInRing = references.length
 
         references.forEach((ref, index) => {
-          // Calculate position on orbital ring
-          const position = calculateOrbitalPosition(pillarType, index, totalInRing)
-
           // Determine node type (Quran = primary, Hadith = secondary)
           const nodeType = ref.source === 'Quran' ? 'primary' : 'secondary'
+
+          // Calculate position on orbital ring (primary on inner ring, secondary on outer)
+          const position = calculateOrbitalPosition(pillarType, index, totalInRing, nodeType)
 
           // Create node
           const node: GraphNode = {

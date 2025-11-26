@@ -12,7 +12,7 @@ interface HeaderProps {
 
 export default function Header({ className = '' }: HeaderProps) {
   return (
-    <div className={`absolute top-0 left-0 right-0 z-20 pointer-events-none ${className}`}>
+    <div className={`absolute top-0 left-0 right-0 z-20 pointer-events-none ${className}`} style={{ paddingTop: 'max(1.5rem, env(safe-area-inset-top))' }}>
       <div className="text-center max-w-2xl mx-auto py-6 md:py-12 px-4">
 
         {/* The Scholar's Anchor */}
@@ -39,7 +39,7 @@ export default function Header({ className = '' }: HeaderProps) {
         </p>
 
         {/* Clear Call to Action */}
-        <div className="mt-6 flex items-center justify-center gap-2 text-blue-600 pointer-events-auto">
+        <div className="mt-6 flex items-center justify-center gap-2 text-cyan-400 pointer-events-auto">
           <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>

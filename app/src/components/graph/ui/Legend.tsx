@@ -12,7 +12,7 @@ interface LegendProps {
 
 export default function Legend({ className = '' }: LegendProps) {
   return (
-    <div className={`fixed left-1/2 -translate-x-1/2 bottom-12 z-30 ${className}`}>
+    <div className={`fixed left-1/2 -translate-x-1/2 bottom-12 z-30 ${className}`} style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       {/* Centered legend - Five Pillars clearly labeled */}
       <div className="bg-black/70 backdrop-blur-xl border border-blue-300/30 rounded-xl px-4 py-2.5 shadow-2xl">
         <div className="flex flex-col gap-2">
