@@ -1,13 +1,10 @@
 /**
  * ConnectionLines Component
- * Renders connection lines between nodes
- * Extracted from QuranGraph.tsx (lines 220-234, 260-270)
+ * Temporarily disabled - no connections in current dataset
  */
 
 'use client'
 
-import { useMemo, useEffect } from 'react'
-import * as THREE from 'three'
 import { GraphNode } from '@/hooks/useGraphData.orbital'
 
 interface ConnectionLinesProps {
@@ -17,55 +14,8 @@ interface ConnectionLinesProps {
 }
 
 export default function ConnectionLines({ nodes, hoveredNodeId, selectedNodeId }: ConnectionLinesProps) {
-  // Only show connections for hovered or selected nodes
-  const connections = useMemo(() => {
-    const result: Array<{ source: GraphNode; target: GraphNode }> = []
-
-    // If nothing is hovered/selected, show NO lines (clean view)
-    const activeNodeId = hoveredNodeId || selectedNodeId
-    if (!activeNodeId) {
-      return result
-    }
-
-    // Find connections FROM or TO the active node
-    nodes.forEach(node => {
-      if (node.type === 'secondary') {
-        const isSourceActive = node.id === activeNodeId
-        const connectsToActive = node.connections.includes(activeNodeId)
-
-        if (isSourceActive) {
-          // If hadith is active, show all its connections
-          node.connections.forEach(targetId => {
-            const target = nodes.find(n => n.id === targetId)
-            if (target) {
-              result.push({ source: node, target })
-            }
-          })
-        } else if (connectsToActive) {
-          // If a surah is active and this hadith connects to it,
-          // show ONLY that specific connection (not all hadith connections)
-          const target = nodes.find(n => n.id === activeNodeId)
-          if (target) {
-            result.push({ source: node, target })
-          }
-        }
-      }
-    })
-
-    return result
-  }, [nodes, hoveredNodeId, selectedNodeId])
-
-  return (
-    <>
-      {connections.map((conn, i) => (
-        <ConnectionLine
-          key={`${conn.source.id}-${conn.target.id}`} // ✅ Better key than index
-          start={conn.source.position}
-          end={conn.target.position}
-        />
-      ))}
-    </>
-  )
+  // No connections in current dataset - return empty component
+  return null
 }
 
 /**
