@@ -27,14 +27,11 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
   const filteredNodes = useMemo(() => {
     let filtered = allNodes
 
-    // Apply pillar filter
+    // Apply pillar filter - show ONLY nodes for selected pillar
     if (pillarFilter !== 'all') {
       filtered = filtered.filter(node => {
-        if (node.type === 'primary') {
-          return node.pillar === pillarFilter
-        }
-        // Always show hadiths (they connect across pillars)
-        return node.type === 'secondary'
+        // Show both Quran (primary) AND Hadith (secondary) for selected pillar only
+        return node.pillar === pillarFilter
       })
     }
 

@@ -143,7 +143,7 @@ export default function OrrerySystem() {
   return (
     <group name="orrery-system">
       {/* The Orbital Rings */}
-      <OrbitRings />
+      <OrbitRings pillarFilter={activePillar || 'all'} />
 
       {/* The Nodes - Generic rendering for any node type */}
       {filteredNodes.map((node) => {

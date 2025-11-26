@@ -29,37 +29,49 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
   return (
     <group>
-      {/* STATIC ORBITAL TRACK - Semi-transparent with subtle glow */}
+      {/* STATIC ORBITAL TRACK - THICKER with 3D depth */}
       <group rotation={[Math.PI / 2, 0, 0]}>
-        {/* Outer glow layer for depth */}
+        {/* Wide outer glow for atmospheric depth */}
         <mesh>
-          <torusGeometry args={[radius, 0.15, 16, 100]} />
+          <torusGeometry args={[radius, 0.8, 32, 100]} />
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={0.15}
+            opacity={0.12}
             side={THREE.DoubleSide}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
 
-        {/* Main guideline showing orbital path */}
+        {/* Mid-layer glow */}
         <mesh>
-          <torusGeometry args={[radius, 0.08, 16, 100]} />
+          <torusGeometry args={[radius, 0.5, 32, 100]} />
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={0.4}
+            opacity={0.25}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        {/* Main guideline - THICKER (3x original) */}
+        <mesh>
+          <torusGeometry args={[radius, 0.24, 32, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.5}
             side={THREE.DoubleSide}
           />
         </mesh>
       </group>
 
-      {/* ROTATING RING - Enhanced 3D effect with multiple glow layers */}
+      {/* ROTATING RING - THICKER with enhanced 3D effect */}
       <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
-        {/* Outer glow for atmospheric effect */}
+        {/* Wide outer glow for atmospheric effect */}
         <mesh>
-          <torusGeometry args={[radius, 0.45, 24, 100]} />
+          <torusGeometry args={[radius, 1.2, 32, 100]} />
           <meshBasicMaterial
             color={color}
             transparent
@@ -69,29 +81,41 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
           />
         </mesh>
 
-        {/* Mid glow layer */}
+        {/* Mid glow layer - thicker */}
         <mesh>
-          <torusGeometry args={[radius, 0.35, 24, 100]} />
+          <torusGeometry args={[radius, 0.9, 32, 100]} />
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={0.18}
+            opacity={0.15}
             side={THREE.DoubleSide}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
 
-        {/* Main rotating ring with emissive glow */}
+        {/* Inner glow */}
         <mesh>
-          <torusGeometry args={[radius, 0.25, 24, 100]} />
+          <torusGeometry args={[radius, 0.6, 32, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.25}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        {/* Main rotating ring - THICKER (3x) with strong emissive glow */}
+        <mesh>
+          <torusGeometry args={[radius, 0.7, 32, 100]} />
           <meshStandardMaterial
             color={color}
-            metalness={0.9}
-            roughness={0.2}
+            metalness={0.95}
+            roughness={0.1}
             emissive={color}
-            emissiveIntensity={0.9}
+            emissiveIntensity={1.2}
             transparent
-            opacity={0.75}
+            opacity={0.6}
             side={THREE.DoubleSide}
           />
         </mesh>
@@ -102,28 +126,42 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
 /**
  * Main OrbitRings component
- * Rings for Quran nodes only (Hadiths in center)
- * Reduced by 20% to fit all rings on screen
+ * Conditionally renders rings based on filter
+ * Each ring represents one of the Five Pillars
  */
-export default function OrbitRings() {
+
+import { Pillar } from '@/hooks/useGraphData.orbital'
+
+interface OrbitRingsProps {
+  pillarFilter: Pillar | 'all'
+}
+
+export default function OrbitRings({ pillarFilter }: OrbitRingsProps) {
+  // Define all rings with their properties
+  const rings = [
+    { pillar: 'shahada' as Pillar, radius: 32, label: "Shahada", color: "#9333EA", rotationSpeed: 0.15 },
+    { pillar: 'salah' as Pillar, radius: 48, label: "Salah", color: "#2563EB", rotationSpeed: 0.12 },
+    { pillar: 'zakat' as Pillar, radius: 64, label: "Zakat", color: "#059669", rotationSpeed: 0.1 },
+    { pillar: 'sawm' as Pillar, radius: 80, label: "Sawm", color: "#EA580C", rotationSpeed: 0.08 },
+    { pillar: 'hajj' as Pillar, radius: 96, label: "Hajj", color: "#DC2626", rotationSpeed: 0.06 }
+  ]
+
+  // Filter rings based on pillar filter
+  const visibleRings = pillarFilter === 'all'
+    ? rings
+    : rings.filter(ring => ring.pillar === pillarFilter)
+
   return (
     <group>
-      {/* Ring 1 - SHAHADA */}
-      <OrbitRing radius={32} label="Shahada" color="#9333EA" rotationSpeed={0.15} />
-
-      {/* Ring 2 - SALAH */}
-      <OrbitRing radius={48} label="Salah" color="#3B82F6" rotationSpeed={0.12} />
-
-      {/* Ring 3 - ZAKAT */}
-      <OrbitRing radius={64} label="Zakat" color="#10B981" rotationSpeed={0.1} />
-
-      {/* Ring 4 - SAWM */}
-      <OrbitRing radius={80} label="Sawm" color="#F43F5E" rotationSpeed={0.08} />
-
-      {/* Ring 5 - HAJJ (outermost) */}
-      <OrbitRing radius={96} label="Hajj" color="#EF4444" rotationSpeed={0.06} />
-
-      {/* Hadiths cluster in center (no ring needed) */}
+      {visibleRings.map(ring => (
+        <OrbitRing
+          key={ring.pillar}
+          radius={ring.radius}
+          label={ring.label}
+          color={ring.color}
+          rotationSpeed={ring.rotationSpeed}
+        />
+      ))}
     </group>
   )
 }

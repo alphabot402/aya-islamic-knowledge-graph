@@ -119,6 +119,7 @@ export default function QuranGraph() {
               nodes={filteredNodes}
               onNodeSelect={handleNodeClick}
               onNodeHover={handleNodeHover}
+              pillarFilter={pillarFilter}
               cameraControlsRef={cameraControlsRef}
             />
           )}

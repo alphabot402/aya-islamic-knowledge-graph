@@ -8,20 +8,22 @@
 
 import { useState, useCallback, useMemo } from 'react'
 import { OrbitControls } from '@react-three/drei'
-import { GraphNode } from '@/hooks/useGraphData.orbital'
+import { GraphNode, Pillar } from '@/hooks/useGraphData.orbital'
 import SurahNode from './nodes/SurahNode'
 import HadithNode from './nodes/HadithNode'
 import ConnectionLines from './nodes/ConnectionLines'
 import OrbitRings from './OrbitRings'
+import GalaxyCenter from './GalaxyCenter'
 
 interface SceneProps {
   nodes: GraphNode[]
   onNodeSelect: (node: GraphNode | null) => void
   onNodeHover: (node: GraphNode | null) => void
+  pillarFilter: Pillar | 'all'
   cameraControlsRef?: React.MutableRefObject<any>
 }
 
-export default function Scene({ nodes, onNodeSelect, onNodeHover, cameraControlsRef }: SceneProps) {
+export default function Scene({ nodes, onNodeSelect, onNodeHover, pillarFilter, cameraControlsRef }: SceneProps) {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null)
 
@@ -98,8 +100,11 @@ export default function Scene({ nodes, onNodeSelect, onNodeHover, cameraControls
         intensity={1.0}
       />
 
-      {/* Orbital Rings - The Astrolabe tracks */}
-      <OrbitRings />
+      {/* Galaxy Center - Dense star cluster behind everything */}
+      <GalaxyCenter />
+
+      {/* Orbital Rings - Filtered by pillar */}
+      <OrbitRings pillarFilter={pillarFilter} />
 
       {/* Nodes with stable callbacks - Clean planetary view */}
       {nodes.map(node => {
