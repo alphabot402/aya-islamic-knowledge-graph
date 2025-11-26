@@ -1,14 +1,8 @@
 /**
- * OrrerySystem - The Order
- * "He has subjected the sun and the moon, each running [its course] for a specified term"
+ * OrrerySystem - CLEAN SLATE VERSION
  *
- * The Celestial Orrery system that organizes all knowledge nodes:
- * - Five Pillar Orbits (Shahada, Salah, Zakat, Sawm, Hajj)
- * - Animated orbital rings with dual-ring system (static + rotating)
- * - Surahs as planetary bodies (color-coded by pillar)
- * - Hadiths as golden moons in their own orbital rings
- *
- * This component coordinates the rendering of all nodes and rings.
+ * Orbital ring system ready for new 100-item dataset
+ * Visual structure preserved, data references removed
  */
 
 'use client'
@@ -16,13 +10,46 @@
 import { useState, useCallback, useMemo } from 'react'
 import { useGraphData, type GraphNode } from '@/hooks/useGraphData.orbital'
 import { useCosmicStore } from '@/lib/stores/useCosmicStore'
-import SurahNode from '@/components/graph/nodes/SurahNode'
-import HadithNode from '@/components/graph/nodes/HadithNode'
-import ConnectionLines from '@/components/graph/nodes/ConnectionLines'
 import OrbitRings from '@/components/graph/OrbitRings'
+import { Sphere } from '@react-three/drei'
+
+// Generic Node Component for rendering any node type
+function GenericNode({
+  node,
+  isSelected,
+  isHovered,
+  onSelect,
+  onHover
+}: {
+  node: GraphNode
+  isSelected: boolean
+  isHovered: boolean
+  onSelect: () => void
+  onHover: (hover: boolean) => void
+}) {
+  const scale = isHovered ? 1.3 : isSelected ? 1.2 : 1.0
+
+  return (
+    <group position={node.position}>
+      <Sphere
+        args={[0.5, 16, 16]}
+        scale={scale}
+        onClick={onSelect}
+        onPointerOver={() => onHover(true)}
+        onPointerOut={() => onHover(false)}
+      >
+        <meshStandardMaterial
+          color={isSelected ? '#ffd700' : '#00ffff'}
+          emissive={isSelected ? '#ffaa00' : '#0088aa'}
+          emissiveIntensity={isHovered ? 0.8 : 0.3}
+        />
+      </Sphere>
+    </group>
+  )
+}
 
 export default function OrrerySystem() {
-  // Load graph data (uses orbital layout)
+  // Load graph data
   const { nodes, isLoading, error } = useGraphData()
 
   // Get filter state from Cosmic Store
@@ -31,23 +58,16 @@ export default function OrrerySystem() {
   const setHoveredNode = useCosmicStore((state) => state.setHoveredNode)
   const emitBlessing = useCosmicStore((state) => state.emitBlessing)
 
-  // Local selection state (for visual feedback)
+  // Local selection state
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null)
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null)
 
-  // Apply pillar filter (inline) - exclude "general" category, focus on Five Pillars
+  // Apply pillar filter
   const filteredNodes = useMemo(() => {
     if (!activePillar) {
-      // "All" view: Show all Five Pillars (exclude general for both surahs and hadiths)
-      return nodes.filter((node) => {
-        return node.pillar !== 'general'
-      })
+      return nodes.filter((node) => node.pillar !== 'general')
     }
-
-    // Specific pillar selected - show both surahs AND hadiths for that pillar
-    return nodes.filter((node) => {
-      return node.pillar === activePillar
-    })
+    return nodes.filter((node) => node.pillar === activePillar)
   }, [nodes, activePillar])
 
   // Handle node selection
@@ -56,14 +76,12 @@ export default function OrrerySystem() {
       const newSelection = node.id === selectedNodeId ? null : node.id
       setSelectedNodeId(newSelection)
 
-      // Update cosmic store
       if (newSelection) {
         setSelectedNode({
           id: node.id,
           type: node.type,
           position: node.position
         })
-        // Trigger blessing particle effect
         emitBlessing()
       } else {
         setSelectedNode(null)
@@ -90,15 +108,12 @@ export default function OrrerySystem() {
     [setHoveredNode]
   )
 
-  // Memoize node callbacks for stable references
+  // Memoize callbacks
   const nodeCallbacks = useMemo(() => {
-    const callbacks = new Map<
-      string,
-      {
-        onSelect: () => void
-        onHover: (hover: boolean) => void
-      }
-    >()
+    const callbacks = new Map<string, {
+      onSelect: () => void
+      onHover: (hover: boolean) => void
+    }>()
 
     filteredNodes.forEach((node) => {
       callbacks.set(node.id, {
@@ -117,24 +132,15 @@ export default function OrrerySystem() {
 
   return (
     <group name="orrery-system">
-      {/* The Orbital Rings - The Astrolabe tracks */}
+      {/* The Orbital Rings */}
       <OrbitRings />
 
-      {/* The Nodes - Surahs and Hadiths - Clean planetary view */}
+      {/* The Nodes - Generic rendering for any node type */}
       {filteredNodes.map((node) => {
         const callbacks = nodeCallbacks.get(node.id)!
 
-        return node.type === 'surah' ? (
-          <SurahNode
-            key={node.id}
-            node={node}
-            isSelected={selectedNodeId === node.id}
-            isHovered={hoveredNodeId === node.id}
-            onSelect={callbacks.onSelect}
-            onHover={callbacks.onHover}
-          />
-        ) : (
-          <HadithNode
+        return (
+          <GenericNode
             key={node.id}
             node={node}
             isSelected={selectedNodeId === node.id}
