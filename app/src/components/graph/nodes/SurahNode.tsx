@@ -10,7 +10,7 @@ import { useRef, useMemo, memo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
-import { SurahNode as SurahNodeType } from '@/hooks/useGraphData.orbital'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 
 // Pillar color configuration
 const PILLAR_INFO = {
@@ -23,7 +23,7 @@ const PILLAR_INFO = {
 }
 
 interface SurahNodeProps {
-  node: SurahNodeType
+  node: GraphNode
   isSelected: boolean
   isHovered: boolean
   onSelect: () => void

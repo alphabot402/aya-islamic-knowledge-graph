@@ -10,10 +10,10 @@ import { useRef, memo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
 import * as THREE from 'three'
-import { HadithNode as HadithNodeType } from '@/hooks/useGraphData.orbital'
+import { GraphNode } from '@/hooks/useGraphData.orbital'
 
 interface HadithNodeProps {
-  node: HadithNodeType
+  node: GraphNode
   isSelected: boolean
   isHovered: boolean
   onSelect: () => void
