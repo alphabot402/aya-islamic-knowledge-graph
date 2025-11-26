@@ -52,8 +52,8 @@ function SurahNode({
     const hoverColorHex = baseColorObj.clone().multiplyScalar(1.3).getHexString()
     const selectColorHex = baseColorObj.clone().multiplyScalar(1.6).getHexString()
 
-    // Fixed size for all nodes
-    const baseSize = 1.8
+    // Larger size for Quran nodes (increased by ~30%)
+    const baseSize = 2.3
 
     return {
       baseColor,

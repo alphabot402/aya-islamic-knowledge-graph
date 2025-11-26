@@ -29,45 +29,69 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
   return (
     <group>
-      {/* STATIC ORBITAL TRACK - Fixed anchor showing the path */}
+      {/* STATIC ORBITAL TRACK - Semi-transparent with subtle glow */}
       <group rotation={[Math.PI / 2, 0, 0]}>
-        {/* Thin guideline showing orbital path */}
+        {/* Outer glow layer for depth */}
         <mesh>
-          <torusGeometry args={[radius, 0.08, 16, 100]} />
+          <torusGeometry args={[radius, 0.15, 16, 100]} />
           <meshBasicMaterial
             color={color}
             transparent
-            opacity={0.3}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-      </group>
-
-      {/* ROTATING RING - Moves along the orbital track like planetary rotation */}
-      <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
-        {/* Subtle outer glow */}
-        <mesh>
-          <torusGeometry args={[radius, 0.35, 24, 100]} />
-          <meshBasicMaterial
-            color={color}
-            transparent
-            opacity={0.12}
+            opacity={0.15}
             side={THREE.DoubleSide}
             blending={THREE.AdditiveBlending}
           />
         </mesh>
 
-        {/* Main rotating ring - like Saturn's rings rolling on orbit */}
+        {/* Main guideline showing orbital path */}
+        <mesh>
+          <torusGeometry args={[radius, 0.08, 16, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.4}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+      </group>
+
+      {/* ROTATING RING - Enhanced 3D effect with multiple glow layers */}
+      <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
+        {/* Outer glow for atmospheric effect */}
+        <mesh>
+          <torusGeometry args={[radius, 0.45, 24, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.08}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        {/* Mid glow layer */}
+        <mesh>
+          <torusGeometry args={[radius, 0.35, 24, 100]} />
+          <meshBasicMaterial
+            color={color}
+            transparent
+            opacity={0.18}
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+
+        {/* Main rotating ring with emissive glow */}
         <mesh>
           <torusGeometry args={[radius, 0.25, 24, 100]} />
           <meshStandardMaterial
             color={color}
-            metalness={0.8}
-            roughness={0.3}
+            metalness={0.9}
+            roughness={0.2}
             emissive={color}
-            emissiveIntensity={0.7}
+            emissiveIntensity={0.9}
             transparent
-            opacity={0.85}
+            opacity={0.75}
             side={THREE.DoubleSide}
           />
         </mesh>
@@ -78,28 +102,28 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
 /**
  * Main OrbitRings component
- * ONE ring per pillar (Quran and Hadith share the same orbital path)
- * Rings start at radius 40 to create void while fitting on screen
+ * Rings for Quran nodes only (Hadiths in center)
+ * Reduced by 20% to fit all rings on screen
  */
 export default function OrbitRings() {
   return (
     <group>
-      {/* Ring 1 - SHAHADA (innermost, starting at 40 for divine void) */}
-      <OrbitRing radius={40} label="Shahada" color="#9333EA" rotationSpeed={0.15} />
+      {/* Ring 1 - SHAHADA */}
+      <OrbitRing radius={32} label="Shahada" color="#9333EA" rotationSpeed={0.15} />
 
       {/* Ring 2 - SALAH */}
-      <OrbitRing radius={60} label="Salah" color="#3B82F6" rotationSpeed={0.12} />
+      <OrbitRing radius={48} label="Salah" color="#3B82F6" rotationSpeed={0.12} />
 
       {/* Ring 3 - ZAKAT */}
-      <OrbitRing radius={80} label="Zakat" color="#10B981" rotationSpeed={0.1} />
+      <OrbitRing radius={64} label="Zakat" color="#10B981" rotationSpeed={0.1} />
 
       {/* Ring 4 - SAWM */}
-      <OrbitRing radius={100} label="Sawm" color="#F43F5E" rotationSpeed={0.08} />
+      <OrbitRing radius={80} label="Sawm" color="#F43F5E" rotationSpeed={0.08} />
 
       {/* Ring 5 - HAJJ (outermost) */}
-      <OrbitRing radius={120} label="Hajj" color="#EF4444" rotationSpeed={0.06} />
+      <OrbitRing radius={96} label="Hajj" color="#EF4444" rotationSpeed={0.06} />
 
-      {/* NO central sphere - keep the void empty (Divine Vastness) */}
+      {/* Hadiths cluster in center (no ring needed) */}
     </group>
   )
 }

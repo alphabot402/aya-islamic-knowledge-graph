@@ -61,8 +61,8 @@ function HadithNode({
 
   const color = isSelected ? selectColor : isHovered ? hoverColor : baseColor
 
-  // Fixed node size
-  const baseSize = 1.0
+  // Smaller size for Hadith nodes (reduced by ~30%)
+  const baseSize = 0.7
 
   return (
     <group position={node.position}>
@@ -122,14 +122,14 @@ function HadithNode({
         />
       </mesh>
 
-      {/* Hadith ID label */}
+      {/* Hadith ID label - Smaller and more subtle */}
       <Text
-        position={[0, baseSize + 0.6, 0]}
-        fontSize={0.45}
+        position={[0, baseSize + 0.5, 0]}
+        fontSize={0.35}
         color="#fbbf24"
         anchorX="center"
         anchorY="middle"
-        outlineWidth={0.03}
+        outlineWidth={0.02}
         outlineColor="#000000"
       >
         {node.citation}

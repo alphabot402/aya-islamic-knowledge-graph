@@ -41,22 +41,24 @@ export type GraphNode = NodeData
 // ORBITAL LAYOUT CONFIGURATION
 // ============================================================================
 
-// Each pillar has ONE ring shared by both Quran and Hadith
-// Starting at radius 40 to create empty divine center while fitting on screen
+// Quran nodes placed on outer orbital rings by pillar
+// Reduced by 20% to fit all rings on screen
 // These values match the visual rings in OrbitRings.tsx
 const PILLAR_RINGS: Record<Pillar, number> = {
-  shahada: 40,
-  salah: 60,
-  zakat: 80,
-  sawm: 100,
-  hajj: 120,
+  shahada: 32,
+  salah: 48,
+  zakat: 64,
+  sawm: 80,
+  hajj: 96,
   general: 0  // Not used
 }
 
+// Hadith nodes placed in center core area
+const HADITH_CENTER_RADIUS = 12  // Clustered in center (also reduced by 20%)
+
 /**
- * Calculate orbital position for a node on its pillar ring
- * Both Quran and Hadith share the same ring per pillar (unified system)
- * Slight Y-axis variation prevents visual overlap
+ * Calculate orbital position for a node
+ * NEW LAYOUT: Quran on outer rings, Hadith in center core
  */
 function calculateOrbitalPosition(
   pillar: Pillar,
@@ -64,19 +66,22 @@ function calculateOrbitalPosition(
   totalInRing: number,
   nodeType: 'primary' | 'secondary'
 ): [number, number, number] {
-  const radius = PILLAR_RINGS[pillar]
-
-  // Distribute nodes evenly around the ring
-  const angle = (index / totalInRing) * Math.PI * 2
-
-  const x = Math.cos(angle) * radius
-  const z = Math.sin(angle) * radius
-
-  // Slight Y-axis variation: Quran slightly above, Hadith slightly below
-  // This prevents overlap while keeping them on the same ring
-  const y = nodeType === 'primary' ? 3 : -3
-
-  return [x, y, z]
+  if (nodeType === 'secondary') {
+    // HADITH nodes - cluster in center core area
+    const angle = (index / totalInRing) * Math.PI * 2
+    const x = Math.cos(angle) * HADITH_CENTER_RADIUS
+    const z = Math.sin(angle) * HADITH_CENTER_RADIUS
+    const y = Math.sin(index * 0.5) * 5  // Vary Y height for 3D cluster effect
+    return [x, y, z]
+  } else {
+    // QURAN nodes - place on outer orbital rings by pillar
+    const radius = PILLAR_RINGS[pillar]
+    const angle = (index / totalInRing) * Math.PI * 2
+    const x = Math.cos(angle) * radius
+    const z = Math.sin(angle) * radius
+    const y = 0  // Keep on horizontal plane
+    return [x, y, z]
+  }
 }
 
 // ============================================================================
@@ -119,30 +124,54 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
       // ========================================================================
       // Create nodes with orbital positions
+      // NEW LAYOUT: Separate Quran (outer rings) from Hadith (center)
       // ========================================================================
       const graphNodes: GraphNode[] = []
 
-      // Process each pillar
+      // First, collect all Hadith nodes for center cluster
+      const allHadiths: { ref: PillarReference; pillar: PillarType }[] = []
+      Object.entries(referencesByPillar).forEach(([pillar, references]) => {
+        references.forEach(ref => {
+          if (ref.source !== 'Quran') {
+            allHadiths.push({ ref, pillar: pillar as PillarType })
+          }
+        })
+      })
+
+      // Position all Hadith nodes in center core
+      const totalHadiths = allHadiths.length
+      allHadiths.forEach(({ ref, pillar }, index) => {
+        const position = calculateOrbitalPosition(pillar, index, totalHadiths, 'secondary')
+        graphNodes.push({
+          id: ref.refId,
+          type: 'secondary',
+          position,
+          pillar,
+          label: `${ref.source} ${ref.citation}`,
+          refId: ref.refId,
+          source: ref.source,
+          citation: ref.citation,
+          function: ref.function,
+          coreText: ref.coreText,
+          tags: ref.tags,
+          apiLink: getApiLink(ref.source as any, ref.citation)
+        })
+      })
+
+      // Position Quran nodes on outer rings by pillar
       Object.entries(referencesByPillar).forEach(([pillar, references]) => {
         const pillarType = pillar as PillarType
-        const totalInRing = references.length
+        const quranRefs = references.filter(ref => ref.source === 'Quran')
+        const totalInRing = quranRefs.length
 
-        references.forEach((ref, index) => {
-          // Determine node type (Quran = primary, Hadith = secondary)
-          const nodeType = ref.source === 'Quran' ? 'primary' : 'secondary'
-
-          // Calculate position on orbital ring (primary on inner ring, secondary on outer)
-          const position = calculateOrbitalPosition(pillarType, index, totalInRing, nodeType)
-
-          // Create node
-          const node: GraphNode = {
+        quranRefs.forEach((ref, index) => {
+          const position = calculateOrbitalPosition(pillarType, index, totalInRing, 'primary')
+          graphNodes.push({
             id: ref.refId,
-            type: nodeType,
+            type: 'primary',
             position,
             pillar: pillarType,
             label: `${ref.source} ${ref.citation}`,
-
-            // Reference data
             refId: ref.refId,
             source: ref.source,
             citation: ref.citation,
@@ -150,9 +179,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
             coreText: ref.coreText,
             tags: ref.tags,
             apiLink: getApiLink(ref.source as any, ref.citation)
-          }
-
-          graphNodes.push(node)
+          })
         })
       })
 

@@ -32,7 +32,6 @@ import BottomInstructions from './ui/BottomInstructions'
 import StatsDisplay from './ui/StatsDisplay'
 import LoadingIndicator from './ui/LoadingIndicator'
 import HoverTooltip from './ui/HoverTooltip'
-import NodeDetailsPanel from './ui/NodeDetailsPanel'
 import ErrorDisplay from './ui/ErrorDisplay'
 import { PILLAR_INFO } from './nodes/SurahNode'
 
@@ -47,14 +46,18 @@ export default function QuranGraph() {
     setPillarFilter
   } = useGraphFilters(nodes)
 
-  // Handle node selection and hover
+  // Handle node hover (selection removed - now opens URLs directly)
   const {
-    selectedNode,
     hoveredNode,
-    handleNodeSelect,
-    handleNodeHover,
-    clearSelection
+    handleNodeHover
   } = useNodeSelection()
+
+  // Handle node click - open source URL directly in new tab
+  const handleNodeClick = useCallback((node: any) => {
+    if (node.apiLink) {
+      window.open(node.apiLink, '_blank', 'noopener,noreferrer')
+    }
+  }, [])
 
   // Calculate pillar counts for filter buttons
   const pillarCounts = useMemo(() => {
@@ -101,7 +104,7 @@ export default function QuranGraph() {
       <CanvasErrorBoundary>
         <Canvas
           camera={{
-            position: [180, 135, 180],  // Adjusted for orbital system (radii 40-120) to fit on screen
+            position: [144, 108, 144],  // Adjusted for reduced graph size (radii 32-96)
             fov: 55
           }}
           className="bg-transparent"
@@ -115,7 +118,7 @@ export default function QuranGraph() {
           {!isLoading && !error && (
             <Scene
               nodes={filteredNodes}
-              onNodeSelect={handleNodeSelect}
+              onNodeSelect={handleNodeClick}
               onNodeHover={handleNodeHover}
               cameraControlsRef={cameraControlsRef}
             />
@@ -155,13 +158,8 @@ export default function QuranGraph() {
       {error && <ErrorDisplay error={error} onRetry={refetch} />}
 
 
-      {/* Hover Tooltip */}
-      {hoveredNode && !selectedNode && <HoverTooltip node={hoveredNode} />}
-
-      {/* Node Details Panel */}
-      {selectedNode && (
-        <NodeDetailsPanel node={selectedNode} onClose={clearSelection} />
-      )}
+      {/* Hover Tooltip - Shows on hover, click opens source URL directly */}
+      {hoveredNode && <HoverTooltip node={hoveredNode} />}
     </div>
   )
 }
