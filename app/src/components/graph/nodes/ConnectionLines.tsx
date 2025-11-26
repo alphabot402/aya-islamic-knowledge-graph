@@ -29,7 +29,7 @@ export default function ConnectionLines({ nodes, hoveredNodeId, selectedNodeId }
 
     // Find connections FROM or TO the active node
     nodes.forEach(node => {
-      if (node.type === 'hadith') {
+      if (node.type === 'secondary') {
         const isSourceActive = node.id === activeNodeId
         const connectsToActive = node.connections.includes(activeNodeId)
 

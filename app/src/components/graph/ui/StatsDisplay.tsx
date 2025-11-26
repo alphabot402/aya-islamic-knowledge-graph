@@ -13,11 +13,11 @@ interface StatsDisplayProps {
 }
 
 export default function StatsDisplay({ nodes }: StatsDisplayProps) {
-  const surahCount = nodes.filter(n => n.type === 'surah').length
-  const hadithCount = nodes.filter(n => n.type === 'hadith').length
+  const surahCount = nodes.filter(n => n.type === 'primary').length
+  const hadithCount = nodes.filter(n => n.type === 'secondary').length
   const connectionCount = nodes
-    .filter(n => n.type === 'hadith')
-    .reduce((sum, n) => sum + (n.type === 'hadith' ? n.connections.length : 0), 0)
+    .filter(n => n.type === 'secondary')
+    .reduce((sum, n) => sum + (n.type === 'secondary' ? n.connections.length : 0), 0)
 
   return (
     <div className="absolute top-4 right-4 bg-black/90 backdrop-blur-md border border-purple-500/40 rounded-lg px-4 py-2 shadow-lg">

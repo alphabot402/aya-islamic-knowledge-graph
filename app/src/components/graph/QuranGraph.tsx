@@ -60,7 +60,7 @@ export default function QuranGraph() {
   const pillarCounts = useMemo(() => {
     return Object.keys(PILLAR_INFO).reduce((acc, pillar) => {
       acc[pillar as Pillar] = nodes.filter(
-        n => n.type === 'surah' && n.pillar === pillar
+        n => n.pillar === pillar
       ).length
       return acc
     }, {} as Record<Pillar, number>)

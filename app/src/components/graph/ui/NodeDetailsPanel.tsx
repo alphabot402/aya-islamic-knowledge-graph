@@ -20,7 +20,7 @@ export default function NodeDetailsPanel({
   onClose
 }: NodeDetailsPanelProps) {
   // Get surah name info for surah nodes
-  const surahInfo = node.type === 'surah' ? getSurahName(node.surahNumber) : null
+  const surahInfo = node.type === 'primary' ? getSurahName(node.surahNumber) : null
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function NodeDetailsPanel({
       <div className="overflow-y-auto p-4 flex-1">
       <div className="flex justify-between items-start mb-3">
         <div className="flex-1">
-          {node.type === 'surah' ? (
+          {node.type === 'primary' ? (
             <>
               <div
                 className="text-xs uppercase tracking-wide mb-2"
@@ -88,7 +88,7 @@ export default function NodeDetailsPanel({
         </button>
       </div>
 
-      {node.type === 'surah' ? (
+      {node.type === 'primary' ? (
         <>
           <div className="border-t border-purple-500/20 pt-3 space-y-2">
             <div className="flex justify-between text-sm">

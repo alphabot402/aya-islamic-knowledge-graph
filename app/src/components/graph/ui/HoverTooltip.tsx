@@ -15,12 +15,12 @@ interface HoverTooltipProps {
 }
 
 export default function HoverTooltip({ node }: HoverTooltipProps) {
-  const surahInfo = node.type === 'surah' ? getSurahName(node.surahNumber) : null
+  const surahInfo = node.type === 'primary' ? getSurahName(node.surahNumber) : null
 
   return (
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
       <div className="bg-black/95 backdrop-blur-md border border-purple-500/50 rounded-lg p-4 max-w-sm shadow-xl">
-        {node.type === 'surah' ? (
+        {node.type === 'primary' ? (
           <>
             <div className="text-xs text-gray-400 mb-1 uppercase tracking-wide">
               {PILLAR_INFO[node.pillar].name}

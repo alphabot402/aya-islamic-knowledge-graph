@@ -105,7 +105,7 @@ export default function Scene({ nodes, onNodeSelect, onNodeHover, cameraControls
       {nodes.map(node => {
         const callbacks = nodeCallbacks.get(node.id)!
 
-        return node.type === 'surah' ? (
+        return node.type === 'primary' ? (
           <SurahNode
             key={node.id}
             node={node}

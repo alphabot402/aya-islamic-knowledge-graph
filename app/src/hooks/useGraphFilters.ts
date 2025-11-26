@@ -30,11 +30,11 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
     // Apply pillar filter
     if (pillarFilter !== 'all') {
       filtered = filtered.filter(node => {
-        if (node.type === 'surah') {
+        if (node.type === 'primary') {
           return node.pillar === pillarFilter
         }
         // Always show hadiths (they connect across pillars)
-        return node.type === 'hadith'
+        return node.type === 'secondary'
       })
     }
 
@@ -43,7 +43,7 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
       const query = searchQuery.toLowerCase().trim()
 
       filtered = filtered.filter(node => {
-        if (node.type === 'surah') {
+        if (node.type === 'primary') {
           return (
             node.surahNumber.toString().includes(query) ||
             node.name.toLowerCase().includes(query) ||
@@ -51,7 +51,7 @@ export function useGraphFilters(allNodes: GraphNode[]): UseGraphFiltersResult {
           )
         }
 
-        if (node.type === 'hadith') {
+        if (node.type === 'secondary') {
           return (
             node.hadith.english.text.toLowerCase().includes(query) ||
             node.id.includes(query)
