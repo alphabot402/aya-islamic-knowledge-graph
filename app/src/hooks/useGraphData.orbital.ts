@@ -41,20 +41,22 @@ export type GraphNode = NodeData
 // ORBITAL LAYOUT CONFIGURATION
 // ============================================================================
 
-// Each pillar has two rings: inner (Quran/primary) and outer (Hadith/secondary)
+// Each pillar has ONE ring shared by both Quran and Hadith
+// Starting at radius 150 to create empty divine center
 // These values match the visual rings in OrbitRings.tsx
-const PILLAR_RINGS: Record<Pillar, { primary: number; secondary: number }> = {
-  shahada: { primary: 25, secondary: 30 },
-  salah: { primary: 35, secondary: 40 },
-  zakat: { primary: 45, secondary: 50 },
-  sawm: { primary: 55, secondary: 60 },
-  hajj: { primary: 65, secondary: 70 },
-  general: { primary: 0, secondary: 0 }  // Not used
+const PILLAR_RINGS: Record<Pillar, number> = {
+  shahada: 150,
+  salah: 220,
+  zakat: 290,
+  sawm: 360,
+  hajj: 430,
+  general: 0  // Not used
 }
 
 /**
  * Calculate orbital position for a node on its pillar ring
- * Primary nodes (Quran) go on inner ring, secondary (Hadith) on outer ring
+ * Both Quran and Hadith share the same ring per pillar (unified system)
+ * Slight Y-axis variation prevents visual overlap
  */
 function calculateOrbitalPosition(
   pillar: Pillar,
@@ -62,16 +64,17 @@ function calculateOrbitalPosition(
   totalInRing: number,
   nodeType: 'primary' | 'secondary'
 ): [number, number, number] {
-  const radius = nodeType === 'primary'
-    ? PILLAR_RINGS[pillar].primary
-    : PILLAR_RINGS[pillar].secondary
+  const radius = PILLAR_RINGS[pillar]
 
   // Distribute nodes evenly around the ring
   const angle = (index / totalInRing) * Math.PI * 2
 
   const x = Math.cos(angle) * radius
   const z = Math.sin(angle) * radius
-  const y = 0  // All nodes on same horizontal plane
+
+  // Slight Y-axis variation: Quran slightly above, Hadith slightly below
+  // This prevents overlap while keeping them on the same ring
+  const y = nodeType === 'primary' ? 3 : -3
 
   return [x, y, z]
 }
