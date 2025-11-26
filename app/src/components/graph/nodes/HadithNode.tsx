@@ -132,7 +132,7 @@ function HadithNode({
         outlineWidth={0.03}
         outlineColor="#000000"
       >
-        {node.hadith.idInBook}
+        {node.citation}
       </Text>
 
       {/* Selection ring */}
