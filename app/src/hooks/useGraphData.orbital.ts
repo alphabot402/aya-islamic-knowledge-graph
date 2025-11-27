@@ -148,12 +148,16 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       Object.entries(referencesByPillar).forEach(([pillar, references]) => {
         const pillarType = pillar as PillarType
 
-        // Separate Quran and Hadith references
+        // PART 2: Fix Node Alternating - SYSTEMATIC APPROACH
+        console.log(`\n--- Processing ${pillar} ---`)
+
+        // STEP 2A: Separate Quran and Hadith references
         const quranRefs = references.filter(ref => ref.source === 'Quran')
         const hadithRefs = references.filter(ref => ref.source !== 'Quran')
 
-        // CRITICAL FIX: Simpler, guaranteed alternating pattern
-        // Pattern: Q-Q-H-Q-Q-H... or Q-H-Q-H... depending on ratio
+        console.log(`${pillar}: ${quranRefs.length} Quran, ${hadithRefs.length} Hadith`)
+
+        // STEP 2B: Create Alternating Pattern
         const interleavedRefs: PillarReference[] = []
         const qCount = quranRefs.length
         const hCount = hadithRefs.length
@@ -162,37 +166,45 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         if (hCount === 0) {
           // No hadiths, just add all Quran
           interleavedRefs.push(...quranRefs)
+          console.log(`${pillar}: No hadiths, using ${qCount} Quran nodes`)
         } else if (qCount === 0) {
           // No Quran, just add all hadiths
           interleavedRefs.push(...hadithRefs)
+          console.log(`${pillar}: No Quran, using ${hCount} Hadith nodes`)
         } else {
-          // Simple ratio-based alternation
-          // Calculate: How many Quran nodes should appear before each Hadith?
-          const qPerH = qCount / hCount
+          // STEP 2C: Calculate ratio and create pattern
+          const ratio = Math.round(qCount / hCount)
+          console.log(`${pillar}: Creating pattern with ratio ${ratio}:1 (Quran:Hadith)`)
 
           let qIndex = 0
           let hIndex = 0
-          let qCounter = 0
 
+          // Build alternating array
           while (qIndex < qCount || hIndex < hCount) {
-            // Add Quran nodes based on ratio
-            const qToAdd = Math.ceil(qPerH)
-            for (let i = 0; i < qToAdd && qIndex < qCount; i++) {
+            // Add 'ratio' number of Quran nodes
+            for (let i = 0; i < ratio && qIndex < qCount; i++) {
               interleavedRefs.push(quranRefs[qIndex])
               qIndex++
-              qCounter++
             }
 
             // Add one Hadith node
             if (hIndex < hCount) {
               interleavedRefs.push(hadithRefs[hIndex])
               hIndex++
-              qCounter = 0  // Reset counter
             }
           }
 
-          // Debug logging
-          console.log(`${pillar} alternation:`, interleavedRefs.map(r => r.source === 'Quran' ? 'Q' : 'H').join('-'))
+          // VERIFICATION: Log the pattern
+          const pattern = interleavedRefs.map(r => r.source === 'Quran' ? 'Q' : 'H').join('-')
+          console.log(`${pillar} PATTERN:`, pattern)
+
+          // Check for clusters (3+ of same type in a row)
+          const hasClusters = /Q-Q-Q-Q|H-H-H-H/.test(pattern)
+          if (hasClusters) {
+            console.warn(`⚠️ ${pillar} WARNING: Detected clusters of 4+ same type!`)
+          } else {
+            console.log(`✓ ${pillar}: Pattern looks good (no major clusters)`)
+          }
         }
 
         // Total nodes on this ring

@@ -6,9 +6,22 @@
 
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+
+// PART 1: Fix Ring Alignment - Perfect Concentric Circles
+const RING_ROTATION = {
+  mobile: 0,      // COMPLETELY FLAT - top-down view
+  tablet: 0,      // Also flat
+  desktop: 12     // Slight tilt for desktop only (in degrees)
+}
+
+function getRingRotation(): number {
+  if (typeof window === 'undefined') return 0
+  if (window.innerWidth < 1024) return 0 // Flat for mobile/tablet
+  return (RING_ROTATION.desktop * Math.PI) / 180 // Convert to radians
+}
 
 interface OrbitRingProps {
   radius: number
@@ -19,6 +32,20 @@ interface OrbitRingProps {
 
 function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
   const rotatingRingRef = useRef<THREE.Group>(null)
+  const [ringRotation, setRingRotation] = useState<number>(0)
+
+  // Set responsive ring rotation
+  useEffect(() => {
+    const updateRotation = () => {
+      const rotation = getRingRotation()
+      setRingRotation(rotation)
+      console.log(`Ring ${label} rotation set to: ${(rotation * 180 / Math.PI).toFixed(1)}°`)
+    }
+
+    updateRotation()
+    window.addEventListener('resize', updateRotation)
+    return () => window.removeEventListener('resize', updateRotation)
+  }, [label])
 
   // Animate rotation around Y-axis (only the rotating ring moves)
   useFrame((state, delta) => {
@@ -29,8 +56,8 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
   return (
     <group>
-      {/* STATIC ORBITAL TRACK - THIN WITH 3D DEPTH */}
-      <group rotation={[Math.PI / 2, 0, 0]}>
+      {/* STATIC ORBITAL TRACK - FLAT on mobile, ALL rings same rotation */}
+      <group rotation={[Math.PI / 2 + ringRotation, 0, 0]}>
         {/* Outer glow layer - creates atmospheric depth */}
         <mesh>
           <torusGeometry args={[radius, 0.25, 32, 100]} />
@@ -74,8 +101,8 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
         </mesh>
       </group>
 
-      {/* ROTATING RING - 3D HIGHLIGHT WITH GRADIENT */}
-      <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
+      {/* ROTATING RING - 3D HIGHLIGHT WITH GRADIENT - Same rotation as static ring */}
+      <group ref={rotatingRingRef} rotation={[Math.PI / 2 + ringRotation, 0, 0]}>
         {/* Wide atmospheric glow */}
         <mesh>
           <torusGeometry args={[radius, 0.35, 32, 100]} />
@@ -137,12 +164,12 @@ interface OrbitRingsProps {
 }
 
 export default function OrbitRings({ pillarFilter }: OrbitRingsProps) {
-  // Get responsive scale factor
+  // Get responsive scale factor - MUST MATCH useGraphData.orbital.ts
   const getScale = () => {
     if (typeof window === 'undefined') return 1.0
     const width = window.innerWidth
-    if (width < 768) return 0.60  // Mobile: 40% reduction
-    if (width < 1024) return 0.80 // Tablet: 20% reduction
+    if (width < 768) return 0.80  // Mobile: 20% reduction (MATCHES node scale)
+    if (width < 1024) return 0.85 // Tablet: 15% reduction (MATCHES node scale)
     return 1.0                     // Desktop: no reduction
   }
 
