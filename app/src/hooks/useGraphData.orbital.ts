@@ -121,6 +121,12 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
   const fetchData = async () => {
     console.log('[useGraphData] fetchData called')
+
+    // DEBUG: Visible popup to confirm function is called
+    if (typeof window !== 'undefined') {
+      alert('DEBUG: fetchData() called - Click OK to continue loading')
+    }
+
     setIsLoading(true)
     setError(null)
 
