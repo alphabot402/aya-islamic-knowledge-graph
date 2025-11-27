@@ -1,12 +1,11 @@
 /**
  * PillarFilter Component
  * Filter buttons for Five Pillars of Islam
- * MOBILE OPTIMIZED: Collapsible sidebar for maximum graph space
+ * MOBILE OPTIMIZED: Ultra-compact, always visible legend
  */
 
 'use client'
 
-import { useState, useEffect } from 'react'
 import { Pillar } from '@/hooks/useGraphData.orbital'
 import { PILLAR_INFO } from '../nodes/SurahNode'
 
@@ -21,59 +20,10 @@ export default function PillarFilter({
   onChange,
   pillarCounts
 }: PillarFilterProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
-
-  // Detect mobile on mount
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
-  // Close legend when filter changes on mobile
-  useEffect(() => {
-    if (isMobile) {
-      setIsOpen(false)
-    }
-  }, [value, isMobile])
-
   return (
-    <>
-      {/* Toggle button - Mobile only */}
-      {isMobile && (
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="fixed top-14 left-2 z-40 w-9 h-9 bg-black/90 border border-white/20 rounded-md flex items-center justify-center text-white text-lg shadow-xl backdrop-blur-sm active:scale-95 transition-transform"
-          aria-label="Toggle legend"
-        >
-          <span>{isOpen ? '✕' : '☰'}</span>
-        </button>
-      )}
-
-      {/* Backdrop overlay - Mobile only, when open */}
-      {isMobile && isOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-35 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Legend Panel - Slides in on mobile, always visible on desktop */}
-      <div
-        className={`fixed bottom-2 md:bottom-4 z-40 transition-all duration-300 ${
-          isMobile
-            ? isOpen
-              ? 'left-2'
-              : '-left-[110px]'
-            : 'left-2 md:left-4'
-        }`}
-      >
-        {/* Vertical sidebar - ULTRA COMPACT on mobile, collapsible */}
-        <div className="bg-black/95 md:bg-black/70 backdrop-blur-xl border border-white/20 md:border-blue-300/30 rounded-md md:rounded-xl p-2 md:p-3 shadow-2xl w-[100px] md:w-auto">
+    <div className="fixed bottom-2 md:bottom-4 left-2 md:left-4 z-30">
+      {/* Vertical sidebar - ULTRA COMPACT on mobile, always visible */}
+      <div className="bg-black/90 md:bg-black/70 backdrop-blur-xl border border-white/20 md:border-blue-300/30 rounded-md md:rounded-xl p-2 md:p-3 shadow-2xl w-[85px] md:w-auto">
         <div className="flex flex-col gap-1 md:gap-2">
           <span className="text-[9px] md:text-[10px] text-blue-200 font-semibold uppercase tracking-wide text-center mb-1 md:mb-1">
             Legend
@@ -142,7 +92,6 @@ export default function PillarFilter({
             })}
         </div>
       </div>
-      </div>
-    </>
+    </div>
   )
 }
