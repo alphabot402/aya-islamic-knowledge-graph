@@ -151,30 +151,51 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         const quranRefs = references.filter(ref => ref.source === 'Quran')
         const hadithRefs = references.filter(ref => ref.source !== 'Quran')
 
-        // Interleave them to create alternating pattern
+        // IMPROVED: Interleave them to create perfect alternating pattern
         // Pattern: Q-Q-H-Q-Q-H... or Q-H-Q-H... depending on ratio
+        // This ensures even distribution with NO clusters
         const interleavedRefs: PillarReference[] = []
         const qCount = quranRefs.length
         const hCount = hadithRefs.length
         const total = qCount + hCount
 
-        // Calculate how many Quran nodes per Hadith for even distribution
-        const qPerH = hCount > 0 ? qCount / hCount : qCount
+        if (hCount === 0) {
+          // No hadiths, just add all Quran
+          interleavedRefs.push(...quranRefs)
+        } else if (qCount === 0) {
+          // No Quran, just add all hadiths
+          interleavedRefs.push(...hadithRefs)
+        } else {
+          // Distribute evenly around the ring
+          // Strategy: Place nodes at evenly-spaced intervals based on their group size
+          const totalSlots = total
+          let qIndex = 0
+          let hIndex = 0
 
-        let qIndex = 0
-        let hIndex = 0
-        let qAccumulator = 0
+          for (let slot = 0; slot < totalSlots; slot++) {
+            // Calculate ideal progress for each type
+            const qProgress = qIndex / qCount  // 0.0 to 1.0
+            const hProgress = hIndex / hCount  // 0.0 to 1.0
+            const overallProgress = slot / totalSlots
 
-        // Interleave based on ratio
-        for (let i = 0; i < total; i++) {
-          if (qIndex < qCount && (hIndex >= hCount || qAccumulator < qPerH)) {
-            interleavedRefs.push(quranRefs[qIndex])
-            qIndex++
-            qAccumulator++
-          } else if (hIndex < hCount) {
-            interleavedRefs.push(hadithRefs[hIndex])
-            hIndex++
-            qAccumulator = 0
+            // Add whichever type is "behind" in its distribution
+            // This ensures even spreading
+            const qTarget = overallProgress * qCount
+            const hTarget = overallProgress * hCount
+            const qBehind = qIndex < qTarget
+            const hBehind = hIndex < hTarget
+
+            if (qIndex < qCount && (hIndex >= hCount || (qBehind && !hBehind) || (qBehind && hBehind && qProgress <= hProgress))) {
+              interleavedRefs.push(quranRefs[qIndex])
+              qIndex++
+            } else if (hIndex < hCount) {
+              interleavedRefs.push(hadithRefs[hIndex])
+              hIndex++
+            } else {
+              // Safety: Add remaining Quran if hadiths are exhausted
+              interleavedRefs.push(quranRefs[qIndex])
+              qIndex++
+            }
           }
         }
 

@@ -32,7 +32,7 @@ export default function Header({ className = '' }: HeaderProps) {
 
           {/* Main Heading - Split into two lines with elegant glow */}
           <h1 className="text-[32px] md:text-[42px] lg:text-[48px] font-bold text-white mb-3 leading-tight" style={{
-            textShadow: '0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(96, 165, 250, 0.3)'
+            textShadow: '0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(96, 165, 250, 0.4), 0 0 80px rgba(96, 165, 250, 0.2)'
           }}>
             Explore the Five Pillars of Islam
             <br />
@@ -48,8 +48,8 @@ export default function Header({ className = '' }: HeaderProps) {
           <div className="flex items-center justify-center text-cyan-300 pointer-events-auto">
             <span className="text-[14px] md:text-[15px] lg:text-base font-light drop-shadow-md">
               {isTouchDevice
-                ? "↓ Tap nodes to explore • Drag to rotate • Pinch to zoom"
-                : "↓ Click nodes to view sources • Drag to rotate • Scroll to zoom"
+                ? "Tap nodes to explore • Drag to rotate • Pinch to zoom"
+                : "Click nodes to view sources • Drag to rotate • Scroll to zoom"
               }
             </span>
           </div>
