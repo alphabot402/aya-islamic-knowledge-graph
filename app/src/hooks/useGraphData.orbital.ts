@@ -189,8 +189,8 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           interleavedRefs.push(...hadithRefs)
           console.log(`${pillar}: No Quran, using ${hCount} Hadith nodes`)
         } else {
-          // STEP 2C: Calculate ratio and create pattern
-          const ratio = Math.round(qCount / hCount)
+          // STEP 2C: Calculate ratio and create pattern (minimum 1 to prevent infinite loops)
+          const ratio = Math.max(1, Math.round(qCount / hCount))
           console.log(`${pillar}: Creating pattern with ratio ${ratio}:1 (Quran:Hadith)`)
 
           let qIndex = 0
