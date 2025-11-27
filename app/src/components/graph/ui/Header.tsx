@@ -48,12 +48,14 @@ export default function Header({ className = '' }: HeaderProps) {
             <span className="block sm:inline mt-0.5 sm:mt-0">Through Quranic Verses & Sahih Hadith</span>
           </h1>
 
-          {/* Subtitle - Fluid sizing for clean fitting */}
+          {/* Subtitle - Reduced size to prevent 'sources' spillover */}
           <p
             className="text-gray-200/70 md:text-gray-200/80 font-light max-w-3xl mx-auto mb-1 md:mb-3 md:leading-relaxed"
             style={{
-              fontSize: 'clamp(11px, 3.2vw, 13px)',
-              lineHeight: '1.3'
+              fontSize: 'clamp(10px, 2.8vw, 13px)',
+              lineHeight: '1.3',
+              letterSpacing: '-0.3px',
+              wordSpacing: '-0.5px'
             }}
           >
             A curated selection of authentic connections from primary Islamic sources
