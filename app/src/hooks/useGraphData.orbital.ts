@@ -120,6 +120,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
   const [error, setError] = useState<Error | null>(null)
 
   const fetchData = async () => {
+    console.log('[useGraphData] fetchData called')
     setIsLoading(true)
     setError(null)
 
@@ -127,7 +128,9 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       // ========================================================================
       // Load all 100 authenticated references
       // ========================================================================
+      console.log('[useGraphData] Loading references...')
       const allReferences = getAllReferences()
+      console.log('[useGraphData] Loaded', allReferences.length, 'references')
 
       // Group references by pillar for positioning
       const referencesByPillar: Record<PillarType, PillarReference[]> = {
@@ -234,11 +237,14 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         })
       })
 
+      console.log('[useGraphData] Created', graphNodes.length, 'graph nodes')
       setNodes(graphNodes)
+      console.log('[useGraphData] fetchData completed successfully')
     } catch (err) {
-      console.error('Error loading graph data:', err)
+      console.error('[useGraphData] ERROR:', err)
       setError(err instanceof Error ? err : new Error('Unknown error occurred'))
     } finally {
+      console.log('[useGraphData] Setting isLoading to false')
       setIsLoading(false)
     }
   }
