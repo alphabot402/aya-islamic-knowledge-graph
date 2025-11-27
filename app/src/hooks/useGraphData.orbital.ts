@@ -152,9 +152,8 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         const quranRefs = references.filter(ref => ref.source === 'Quran')
         const hadithRefs = references.filter(ref => ref.source !== 'Quran')
 
-        // IMPROVED: Interleave them to create perfect alternating pattern
+        // CRITICAL FIX: Simpler, guaranteed alternating pattern
         // Pattern: Q-Q-H-Q-Q-H... or Q-H-Q-H... depending on ratio
-        // This ensures even distribution with NO clusters
         const interleavedRefs: PillarReference[] = []
         const qCount = quranRefs.length
         const hCount = hadithRefs.length
@@ -167,37 +166,33 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           // No Quran, just add all hadiths
           interleavedRefs.push(...hadithRefs)
         } else {
-          // Distribute evenly around the ring
-          // Strategy: Place nodes at evenly-spaced intervals based on their group size
-          const totalSlots = total
+          // Simple ratio-based alternation
+          // Calculate: How many Quran nodes should appear before each Hadith?
+          const qPerH = qCount / hCount
+
           let qIndex = 0
           let hIndex = 0
+          let qCounter = 0
 
-          for (let slot = 0; slot < totalSlots; slot++) {
-            // Calculate ideal progress for each type
-            const qProgress = qIndex / qCount  // 0.0 to 1.0
-            const hProgress = hIndex / hCount  // 0.0 to 1.0
-            const overallProgress = slot / totalSlots
-
-            // Add whichever type is "behind" in its distribution
-            // This ensures even spreading
-            const qTarget = overallProgress * qCount
-            const hTarget = overallProgress * hCount
-            const qBehind = qIndex < qTarget
-            const hBehind = hIndex < hTarget
-
-            if (qIndex < qCount && (hIndex >= hCount || (qBehind && !hBehind) || (qBehind && hBehind && qProgress <= hProgress))) {
+          while (qIndex < qCount || hIndex < hCount) {
+            // Add Quran nodes based on ratio
+            const qToAdd = Math.ceil(qPerH)
+            for (let i = 0; i < qToAdd && qIndex < qCount; i++) {
               interleavedRefs.push(quranRefs[qIndex])
               qIndex++
-            } else if (hIndex < hCount) {
+              qCounter++
+            }
+
+            // Add one Hadith node
+            if (hIndex < hCount) {
               interleavedRefs.push(hadithRefs[hIndex])
               hIndex++
-            } else {
-              // Safety: Add remaining Quran if hadiths are exhausted
-              interleavedRefs.push(quranRefs[qIndex])
-              qIndex++
+              qCounter = 0  // Reset counter
             }
           }
+
+          // Debug logging
+          console.log(`${pillar} alternation:`, interleavedRefs.map(r => r.source === 'Quran' ? 'Q' : 'H').join('-'))
         }
 
         // Total nodes on this ring

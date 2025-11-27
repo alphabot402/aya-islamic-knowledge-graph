@@ -22,8 +22,8 @@ export default function PillarFilter({
 }: PillarFilterProps) {
   return (
     <div className="fixed bottom-2 md:bottom-4 left-2 md:left-4 z-30">
-      {/* Vertical sidebar - ULTRA COMPACT on mobile, always visible */}
-      <div className="bg-black/90 md:bg-black/70 backdrop-blur-xl border border-white/20 md:border-blue-300/30 rounded-md md:rounded-xl p-2 md:p-3 shadow-2xl w-[85px] md:w-auto">
+      {/* Vertical sidebar - Slightly wider to fit "Shahada" without wrapping */}
+      <div className="bg-black/90 md:bg-black/70 backdrop-blur-xl border border-white/20 md:border-blue-300/30 rounded-md md:rounded-xl p-2 md:p-3 shadow-2xl w-[100px] md:w-auto">
         <div className="flex flex-col gap-1 md:gap-2">
           <span className="text-[9px] md:text-[10px] text-blue-200 font-semibold uppercase tracking-wide text-center mb-1 md:mb-1">
             Legend
@@ -83,8 +83,8 @@ export default function PillarFilter({
                       style={{ backgroundColor: info.hadithColor }}
                     ></span>
                   </span>
-                  {/* Pillar name - ultra compact on mobile */}
-                  <span className={`text-[10px] md:text-xs ${isSelected ? 'text-white' : ''}`}>
+                  {/* Pillar name - ultra compact on mobile, prevent wrapping */}
+                  <span className={`text-[10px] md:text-xs whitespace-nowrap ${isSelected ? 'text-white' : ''}`}>
                     {info.name}
                   </span>
                 </button>

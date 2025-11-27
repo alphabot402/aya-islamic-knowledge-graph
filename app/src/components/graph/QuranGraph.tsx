@@ -17,7 +17,7 @@
 
 'use client'
 
-import { useMemo, useRef, useCallback } from 'react'
+import { useMemo, useRef, useCallback, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGraphData, Pillar } from '@/hooks/useGraphData.orbital'
 import { useGraphFilters } from '@/hooks/useGraphFilters'
@@ -67,6 +67,26 @@ export default function QuranGraph() {
     }, {} as Record<Pillar, number>)
   }, [nodes])
 
+  // Responsive camera position - less tilt on mobile
+  const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([144, 108, 144])
+
+  useEffect(() => {
+    const updateCameraPosition = () => {
+      const isMobile = window.innerWidth < 768
+      if (isMobile) {
+        // Mobile: Much flatter view (nearly top-down)
+        setCameraPosition([144, 20, 144])  // Y reduced from 108 to 20
+      } else {
+        // Desktop: Subtle tilt
+        setCameraPosition([144, 60, 144])  // Y reduced from 108 to 60
+      }
+    }
+
+    updateCameraPosition()
+    window.addEventListener('resize', updateCameraPosition)
+    return () => window.removeEventListener('resize', updateCameraPosition)
+  }, [])
+
   // Camera control state
   const cameraControlsRef = useRef<any>(null)
 
@@ -102,7 +122,7 @@ export default function QuranGraph() {
       <CanvasErrorBoundary>
         <Canvas
           camera={{
-            position: [144, 108, 144],  // Adjusted for reduced graph size (radii 32-96)
+            position: cameraPosition,  // Responsive: flat on mobile, subtle tilt on desktop
             fov: 55
           }}
           className="bg-transparent"
