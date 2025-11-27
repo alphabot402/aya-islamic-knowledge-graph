@@ -9,7 +9,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'AYA (آية) - Project Aya',
+  title: 'Project Ayat',
   description: 'Discover Quran & Hadith by Five Pillars through beautiful 3D visualization',
   viewport: {
     width: 'device-width',
