@@ -67,25 +67,14 @@ export default function QuranGraph() {
     }, {} as Record<Pillar, number>)
   }, [nodes])
 
-  // Responsive camera position - less tilt on mobile
-  const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([144, 108, 144])
-
-  useEffect(() => {
-    const updateCameraPosition = () => {
+  // Responsive camera position - less tilt on mobile (REMOVED resize listener to prevent crashes)
+  const [cameraPosition] = useState<[number, number, number]>(() => {
+    if (typeof window !== 'undefined') {
       const isMobile = window.innerWidth < 768
-      if (isMobile) {
-        // Mobile: Much flatter view (nearly top-down)
-        setCameraPosition([144, 20, 144])  // Y reduced from 108 to 20
-      } else {
-        // Desktop: Subtle tilt
-        setCameraPosition([144, 60, 144])  // Y reduced from 108 to 60
-      }
+      return isMobile ? [144, 20, 144] : [144, 60, 144]
     }
-
-    updateCameraPosition()
-    window.addEventListener('resize', updateCameraPosition)
-    return () => window.removeEventListener('resize', updateCameraPosition)
-  }, [])
+    return [144, 60, 144] // Default for SSR
+  })
 
   // Camera control state
   const cameraControlsRef = useRef<any>(null)

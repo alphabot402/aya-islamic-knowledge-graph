@@ -251,14 +251,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
   useEffect(() => {
     fetchData()
-
-    // Re-fetch on window resize to recalculate positions
-    const handleResize = () => {
-      fetchData()
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    // REMOVED: Resize listener was causing infinite loops and crashes
   }, [useDatabase])
 
   return {

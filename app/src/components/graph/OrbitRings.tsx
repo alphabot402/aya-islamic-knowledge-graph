@@ -34,17 +34,11 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
   const rotatingRingRef = useRef<THREE.Group>(null)
   const [ringRotation, setRingRotation] = useState<number>(0)
 
-  // Set responsive ring rotation
+  // Set responsive ring rotation (REMOVED resize listener to prevent crashes)
   useEffect(() => {
-    const updateRotation = () => {
-      const rotation = getRingRotation()
-      setRingRotation(rotation)
-      console.log(`Ring ${label} rotation set to: ${(rotation * 180 / Math.PI).toFixed(1)}°`)
-    }
-
-    updateRotation()
-    window.addEventListener('resize', updateRotation)
-    return () => window.removeEventListener('resize', updateRotation)
+    const rotation = getRingRotation()
+    setRingRotation(rotation)
+    console.log(`Ring ${label} rotation set to: ${(rotation * 180 / Math.PI).toFixed(1)}°`)
   }, [label])
 
   // Animate rotation around Y-axis (only the rotating ring moves)
