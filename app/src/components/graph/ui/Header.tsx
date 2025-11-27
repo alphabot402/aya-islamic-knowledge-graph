@@ -30,13 +30,14 @@ export default function Header({ className = '' }: HeaderProps) {
       <div className={`absolute top-0 left-0 right-0 z-20 pointer-events-none ${className}`} style={{ paddingTop: 'max(0.5rem, env(safe-area-inset-top))' }}>
         <div className="text-center max-w-5xl mx-auto py-1.5 md:py-4 px-2.5 md:px-4">
 
-          {/* Main Heading - Fluid sizing to prevent word spillover on all mobile devices */}
+          {/* Main Heading - Reduced font size to prevent word spillover */}
           <h1
-            className="font-bold text-white mb-1.5 md:mb-3 md:leading-tight"
+            className="font-bold text-white mb-1.5 md:mb-3 md:leading-tight main-heading"
             style={{
-              fontSize: 'clamp(18px, 5.5vw, 24px)',
+              fontSize: 'clamp(18px, 5vw, 24px)',
               lineHeight: '1.15',
-              letterSpacing: '-0.3px',
+              letterSpacing: '-0.5px',
+              wordSpacing: '-1px',
               textShadow: window.innerWidth < 768
                 ? '0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(96, 165, 250, 0.5), 0 2px 4px rgba(0, 0, 0, 0.5)'
                 : '0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(96, 165, 250, 0.4), 0 0 80px rgba(96, 165, 250, 0.2)'
