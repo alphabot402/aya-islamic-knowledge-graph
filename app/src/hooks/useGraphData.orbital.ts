@@ -53,13 +53,14 @@ const BASE_PILLAR_RINGS: Record<Pillar, number> = {
 
 /**
  * Get responsive scale factor based on viewport width
+ * UPDATED: Increased mobile scale from 0.60 to 0.80 for larger graph
  */
 function getResponsiveScale(): number {
   if (typeof window === 'undefined') return 1.0 // SSR fallback
 
   const width = window.innerWidth
-  if (width < 768) return 0.60  // Mobile: 40% reduction
-  if (width < 1024) return 0.80 // Tablet: 20% reduction
+  if (width < 768) return 0.80  // Mobile: 20% reduction (was 40%, now optimized with compact header)
+  if (width < 1024) return 0.85 // Tablet: 15% reduction (improved from 20%)
   return 1.0                     // Desktop: no reduction
 }
 
