@@ -111,7 +111,7 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
       // ========================================================================
       // Create nodes with orbital positions
-      // NEW LAYOUT: ALL nodes (Quran + Hadith) on rings, interspersed
+      // NEW LAYOUT: ALL nodes (Quran + Hadith) on rings, ALTERNATING pattern
       // ========================================================================
       const graphNodes: GraphNode[] = []
 
@@ -119,14 +119,42 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       Object.entries(referencesByPillar).forEach(([pillar, references]) => {
         const pillarType = pillar as PillarType
 
-        // Get all references for this pillar (both Quran and Hadith)
-        const allRefsForPillar = references
+        // Separate Quran and Hadith references
+        const quranRefs = references.filter(ref => ref.source === 'Quran')
+        const hadithRefs = references.filter(ref => ref.source !== 'Quran')
+
+        // Interleave them to create alternating pattern
+        // Pattern: Q-Q-H-Q-Q-H... or Q-H-Q-H... depending on ratio
+        const interleavedRefs: PillarReference[] = []
+        const qCount = quranRefs.length
+        const hCount = hadithRefs.length
+        const total = qCount + hCount
+
+        // Calculate how many Quran nodes per Hadith for even distribution
+        const qPerH = hCount > 0 ? qCount / hCount : qCount
+
+        let qIndex = 0
+        let hIndex = 0
+        let qAccumulator = 0
+
+        // Interleave based on ratio
+        for (let i = 0; i < total; i++) {
+          if (qIndex < qCount && (hIndex >= hCount || qAccumulator < qPerH)) {
+            interleavedRefs.push(quranRefs[qIndex])
+            qIndex++
+            qAccumulator++
+          } else if (hIndex < hCount) {
+            interleavedRefs.push(hadithRefs[hIndex])
+            hIndex++
+            qAccumulator = 0
+          }
+        }
 
         // Total nodes on this ring
-        const totalInRing = allRefsForPillar.length
+        const totalInRing = interleavedRefs.length
 
         // Distribute all nodes evenly around the ring
-        allRefsForPillar.forEach((ref, index) => {
+        interleavedRefs.forEach((ref, index) => {
           const position = calculateOrbitalPosition(pillarType, index, totalInRing)
 
           // Determine node type based on source

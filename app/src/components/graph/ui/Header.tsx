@@ -21,21 +21,21 @@ export default function Header({ className = '' }: HeaderProps) {
         <div className="text-center max-w-5xl mx-auto py-3 md:py-4 px-4">
 
           {/* Main Heading - Split into two lines for better visual rhythm */}
-          <h1 className="text-xl md:text-[28px] lg:text-[32px] font-bold text-white mb-2 leading-tight drop-shadow-[0_0_20px_rgba(147,197,253,0.5)]">
-            Explore Islam's Five Pillars
+          <h1 className="text-xl md:text-[28px] lg:text-[32px] font-bold text-white mb-3 leading-tight drop-shadow-[0_0_20px_rgba(147,197,253,0.5)]">
+            Explore the Five Pillars of Islam
             <br />
             Through Quranic Verses & Sahih Hadith
           </h1>
 
           {/* Subtitle - LARGER 16-18px for readability */}
-          <p className="text-sm md:text-base lg:text-lg text-gray-200/90 font-light max-w-3xl mx-auto mb-2 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-200/80 font-light max-w-3xl mx-auto mb-3 leading-relaxed">
             A curated selection of authentic connections from primary Islamic sources
           </p>
 
-          {/* CTA - Integrated controls and instructions */}
+          {/* CTA - Polished interaction instructions */}
           <div className="flex items-center justify-center text-cyan-300 pointer-events-auto">
-            <span className="text-sm md:text-base font-medium drop-shadow-md">
-              ↓ Click nodes to explore  |  Drag to rotate  |  Scroll to zoom
+            <span className="text-sm md:text-[15px] font-medium drop-shadow-md">
+              ↓ Click nodes to view sources • Drag to rotate • Scroll to zoom
             </span>
           </div>
 

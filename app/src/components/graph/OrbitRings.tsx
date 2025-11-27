@@ -29,54 +29,94 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
 
   return (
     <group>
-      {/* STATIC ORBITAL TRACK - MINIMAL THIN OUTLINE */}
+      {/* STATIC ORBITAL TRACK - THIN WITH 3D DEPTH */}
       <group rotation={[Math.PI / 2, 0, 0]}>
-        {/* Subtle outer glow - barely visible */}
+        {/* Outer glow layer - creates atmospheric depth */}
         <mesh>
-          <torusGeometry args={[radius, 0.15, 16, 64]} />
-          <meshBasicMaterial
+          <torusGeometry args={[radius, 0.25, 32, 100]} />
+          <meshStandardMaterial
             color={color}
             transparent
-            opacity={0.08}
+            opacity={0.12}
             side={THREE.DoubleSide}
             blending={THREE.AdditiveBlending}
+            emissive={color}
+            emissiveIntensity={0.3}
           />
         </mesh>
 
-        {/* Main thin guideline - very subtle */}
+        {/* Main band with 3D gradient effect */}
         <mesh>
-          <torusGeometry args={[radius, 0.05, 16, 64]} />
-          <meshBasicMaterial
+          <torusGeometry args={[radius, 0.12, 32, 100]} />
+          <meshStandardMaterial
             color={color}
             transparent
-            opacity={0.25}
+            opacity={0.35}
             side={THREE.DoubleSide}
+            metalness={0.6}
+            roughness={0.3}
+            emissive={color}
+            emissiveIntensity={0.2}
+          />
+        </mesh>
+
+        {/* Inner highlight - creates thickness illusion */}
+        <mesh>
+          <torusGeometry args={[radius, 0.06, 32, 100]} />
+          <meshStandardMaterial
+            color={color}
+            transparent
+            opacity={0.45}
+            side={THREE.DoubleSide}
+            metalness={0.8}
+            roughness={0.2}
           />
         </mesh>
       </group>
 
-      {/* ROTATING RING - MINIMAL SUBTLE HIGHLIGHT */}
+      {/* ROTATING RING - 3D HIGHLIGHT WITH GRADIENT */}
       <group ref={rotatingRingRef} rotation={[Math.PI / 2, 0, 0]}>
-        {/* Subtle glow */}
+        {/* Wide atmospheric glow */}
         <mesh>
-          <torusGeometry args={[radius, 0.2, 16, 64]} />
-          <meshBasicMaterial
+          <torusGeometry args={[radius, 0.35, 32, 100]} />
+          <meshStandardMaterial
             color={color}
             transparent
-            opacity={0.1}
+            opacity={0.15}
             side={THREE.DoubleSide}
             blending={THREE.AdditiveBlending}
+            emissive={color}
+            emissiveIntensity={0.5}
           />
         </mesh>
 
-        {/* Thin rotating highlight */}
+        {/* Main rotating band with strong 3D effect */}
         <mesh>
-          <torusGeometry args={[radius, 0.08, 16, 64]} />
-          <meshBasicMaterial
+          <torusGeometry args={[radius, 0.18, 32, 100]} />
+          <meshStandardMaterial
             color={color}
             transparent
-            opacity={0.3}
+            opacity={0.5}
             side={THREE.DoubleSide}
+            metalness={0.9}
+            roughness={0.1}
+            emissive={color}
+            emissiveIntensity={0.8}
+          />
+        </mesh>
+
+        {/* Bright highlight on top curve */}
+        <mesh>
+          <torusGeometry args={[radius, 0.1, 32, 100]} />
+          <meshStandardMaterial
+            color={color}
+            transparent
+            opacity={0.6}
+            side={THREE.DoubleSide}
+            metalness={1.0}
+            roughness={0.05}
+            emissive={color}
+            emissiveIntensity={1.2}
           />
         </mesh>
       </group>
