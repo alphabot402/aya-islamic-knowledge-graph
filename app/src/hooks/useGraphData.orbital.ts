@@ -138,6 +138,10 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       const allReferences = getAllReferences()
       console.log('[useGraphData] Loaded', allReferences.length, 'references')
 
+      if (typeof window !== 'undefined') {
+        alert(`DEBUG: Loaded ${allReferences.length} references`)
+      }
+
       // Group references by pillar for positioning
       const referencesByPillar: Record<PillarType, PillarReference[]> = {
         shahada: getReferencesByPillar('shahada'),
@@ -145,6 +149,10 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
         zakat: getReferencesByPillar('zakat'),
         sawm: getReferencesByPillar('sawm'),
         hajj: getReferencesByPillar('hajj')
+      }
+
+      if (typeof window !== 'undefined') {
+        alert('DEBUG: Grouped references by pillar')
       }
 
       // ========================================================================
@@ -244,13 +252,27 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       })
 
       console.log('[useGraphData] Created', graphNodes.length, 'graph nodes')
+
+      if (typeof window !== 'undefined') {
+        alert(`DEBUG: Created ${graphNodes.length} nodes, about to render`)
+      }
+
       setNodes(graphNodes)
       console.log('[useGraphData] fetchData completed successfully')
     } catch (err) {
       console.error('[useGraphData] ERROR:', err)
       setError(err instanceof Error ? err : new Error('Unknown error occurred'))
+
+      if (typeof window !== 'undefined') {
+        alert(`DEBUG ERROR: ${err}`)
+      }
     } finally {
       console.log('[useGraphData] Setting isLoading to false')
+
+      if (typeof window !== 'undefined') {
+        alert('DEBUG: Finally block - setting isLoading to false')
+      }
+
       setIsLoading(false)
     }
   }
