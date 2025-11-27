@@ -41,9 +41,8 @@ export type GraphNode = NodeData
 // ORBITAL LAYOUT CONFIGURATION
 // ============================================================================
 
-// All nodes (Quran + Hadith) placed on orbital rings by pillar
-// Each ring contains both Quran (bold) and Hadith (light) nodes interspersed
-const PILLAR_RINGS: Record<Pillar, number> = {
+// Base ring radii (desktop size)
+const BASE_PILLAR_RINGS: Record<Pillar, number> = {
   shahada: 32,
   salah: 48,
   zakat: 64,
@@ -53,16 +52,45 @@ const PILLAR_RINGS: Record<Pillar, number> = {
 }
 
 /**
+ * Get responsive scale factor based on viewport width
+ */
+function getResponsiveScale(): number {
+  if (typeof window === 'undefined') return 1.0 // SSR fallback
+
+  const width = window.innerWidth
+  if (width < 768) return 0.60  // Mobile: 40% reduction
+  if (width < 1024) return 0.80 // Tablet: 20% reduction
+  return 1.0                     // Desktop: no reduction
+}
+
+/**
+ * Get scaled ring radii based on viewport
+ */
+function getScaledRings(): Record<Pillar, number> {
+  const scale = getResponsiveScale()
+  return {
+    shahada: BASE_PILLAR_RINGS.shahada * scale,
+    salah: BASE_PILLAR_RINGS.salah * scale,
+    zakat: BASE_PILLAR_RINGS.zakat * scale,
+    sawm: BASE_PILLAR_RINGS.sawm * scale,
+    hajj: BASE_PILLAR_RINGS.hajj * scale,
+    general: 0
+  }
+}
+
+/**
  * Calculate orbital position for a node on its pillar's ring
  * NEW LAYOUT: ALL nodes (Quran + Hadith) on rings, interspersed
+ * RESPONSIVE: Scales based on viewport size
  */
 function calculateOrbitalPosition(
   pillar: Pillar,
   index: number,
   totalInRing: number
 ): [number, number, number] {
-  // All nodes placed on their pillar's ring
-  const radius = PILLAR_RINGS[pillar]
+  // Get scaled rings for current viewport
+  const scaledRings = getScaledRings()
+  const radius = scaledRings[pillar]
   const angle = (index / totalInRing) * Math.PI * 2
   const x = Math.cos(angle) * radius
   const z = Math.sin(angle) * radius
@@ -188,6 +216,14 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
   useEffect(() => {
     fetchData()
+
+    // Re-fetch on window resize to recalculate positions
+    const handleResize = () => {
+      fetchData()
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [useDatabase])
 
   return {

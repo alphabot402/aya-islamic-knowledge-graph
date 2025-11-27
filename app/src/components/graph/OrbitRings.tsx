@@ -137,13 +137,24 @@ interface OrbitRingsProps {
 }
 
 export default function OrbitRings({ pillarFilter }: OrbitRingsProps) {
-  // Define all rings with their properties
+  // Get responsive scale factor
+  const getScale = () => {
+    if (typeof window === 'undefined') return 1.0
+    const width = window.innerWidth
+    if (width < 768) return 0.60  // Mobile: 40% reduction
+    if (width < 1024) return 0.80 // Tablet: 20% reduction
+    return 1.0                     // Desktop: no reduction
+  }
+
+  const scale = getScale()
+
+  // Define all rings with responsive radii
   const rings = [
-    { pillar: 'shahada' as Pillar, radius: 32, label: "Shahada", color: "#9333EA", rotationSpeed: 0.15 },
-    { pillar: 'salah' as Pillar, radius: 48, label: "Salah", color: "#2563EB", rotationSpeed: 0.12 },
-    { pillar: 'zakat' as Pillar, radius: 64, label: "Zakat", color: "#059669", rotationSpeed: 0.1 },
-    { pillar: 'sawm' as Pillar, radius: 80, label: "Sawm", color: "#EA580C", rotationSpeed: 0.08 },
-    { pillar: 'hajj' as Pillar, radius: 96, label: "Hajj", color: "#DC2626", rotationSpeed: 0.06 }
+    { pillar: 'shahada' as Pillar, radius: 32 * scale, label: "Shahada", color: "#9333EA", rotationSpeed: 0.15 },
+    { pillar: 'salah' as Pillar, radius: 48 * scale, label: "Salah", color: "#2563EB", rotationSpeed: 0.12 },
+    { pillar: 'zakat' as Pillar, radius: 64 * scale, label: "Zakat", color: "#059669", rotationSpeed: 0.1 },
+    { pillar: 'sawm' as Pillar, radius: 80 * scale, label: "Sawm", color: "#EA580C", rotationSpeed: 0.08 },
+    { pillar: 'hajj' as Pillar, radius: 96 * scale, label: "Hajj", color: "#DC2626", rotationSpeed: 0.06 }
   ]
 
   // Filter rings based on pillar filter
