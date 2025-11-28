@@ -67,15 +67,15 @@ export default function QuranGraph() {
     }, {} as Record<Pillar, number>)
   }, [nodes])
 
-  // Responsive camera position - angled view for 3D perspective
+  // Responsive camera position - optimized for node alignment visibility
   const [cameraPosition] = useState<[number, number, number]>(() => {
     if (typeof window !== 'undefined') {
       const isMobile = window.innerWidth < 768
       // Mobile: Moderate angle (0, 350, 500)
-      // Desktop: Similar angle (0, 450, 700)
-      return isMobile ? [0, 350, 500] : [0, 450, 700]
+      // Desktop: More top-down view (0, 600, 400) - reduced Z to minimize perspective distortion
+      return isMobile ? [0, 350, 500] : [0, 600, 400]
     }
-    return [0, 450, 700] // Default for SSR
+    return [0, 600, 400] // Default for SSR
   })
 
   // Camera control state

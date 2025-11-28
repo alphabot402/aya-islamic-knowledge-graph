@@ -280,6 +280,24 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       })
 
       console.log('\n✅ All nodes positioned with alternating pattern')
+
+      // RING ALIGNMENT VERIFICATION
+      console.log('\n🔍 RING ALIGNMENT CHECK (Desktop)')
+      const scaledRings = getScaledRings()
+      Object.entries(nodesByPillar).forEach(([pillar]) => {
+        const pillarNodes = graphNodes.filter(n => n.pillar === pillar)
+        const expectedRadius = scaledRings[pillar as Pillar]
+
+        // Check first 3 nodes of this pillar
+        const samples = pillarNodes.slice(0, 3)
+        samples.forEach(node => {
+          const [x, y, z] = node.position
+          const actualRadius = Math.sqrt(x*x + z*z)
+          const diff = Math.abs(actualRadius - expectedRadius)
+          console.log(`  ${pillar} node at [${x.toFixed(1)}, ${y.toFixed(1)}, ${z.toFixed(1)}] → radius ${actualRadius.toFixed(2)} (expected ${expectedRadius.toFixed(2)}, diff: ${diff.toFixed(3)})`)
+        })
+      })
+
       console.log('═══════════════════════════════════════════════════\n')
 
       setNodes(graphNodes)
