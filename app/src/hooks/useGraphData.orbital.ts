@@ -176,27 +176,44 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           interleavedRefs.push(...hadithRefs)
           console.log(`${pillar}: No Quran, using ${hCount} Hadith nodes`)
         } else {
-          // STEP 2C: Calculate ratio and create pattern (minimum 1 to prevent infinite loops)
-          const ratio = Math.max(1, Math.round(qCount / hCount))
-          console.log(`${pillar}: Creating pattern with ratio ${ratio}:1 (Quran:Hadith)`)
+          // STEP 2C: IMPROVED DISTRIBUTION - Evenly spread nodes to avoid clustering
+          console.log(`${pillar}: Distributing ${qCount} Quran and ${hCount} Hadith evenly`)
 
-          let qIndex = 0
-          let hIndex = 0
+          // Calculate how many positions each node type needs
+          const total = qCount + hCount
+          const qStep = total / qCount  // Distance between Quran nodes
+          const hStep = total / hCount  // Distance between Hadith nodes
 
-          // Build alternating array
-          while (qIndex < qCount || hIndex < hCount) {
-            // Add 'ratio' number of Quran nodes
-            for (let i = 0; i < ratio && qIndex < qCount; i++) {
-              interleavedRefs.push(quranRefs[qIndex])
-              qIndex++
-            }
+          // Create array of {type, ref, position} then sort by position
+          const distributionArray: Array<{type: 'Q' | 'H', ref: PillarReference, pos: number}> = []
 
-            // Add one Hadith node
-            if (hIndex < hCount) {
-              interleavedRefs.push(hadithRefs[hIndex])
-              hIndex++
-            }
+          // Add Quran nodes at evenly spaced positions
+          for (let i = 0; i < qCount; i++) {
+            distributionArray.push({
+              type: 'Q',
+              ref: quranRefs[i],
+              pos: i * qStep
+            })
           }
+
+          // Add Hadith nodes at evenly spaced positions (offset to interleave)
+          for (let i = 0; i < hCount; i++) {
+            distributionArray.push({
+              type: 'H',
+              ref: hadithRefs[i],
+              pos: i * hStep + (qStep / 2)  // Offset by half step to interleave
+            })
+          }
+
+          // Sort by position to get the final alternating order
+          distributionArray.sort((a, b) => a.pos - b.pos)
+
+          // Extract refs in sorted order
+          distributionArray.forEach(item => {
+            interleavedRefs.push(item.ref)
+          })
+
+          console.log(`${pillar}: Created evenly distributed pattern`)
 
           // VERIFICATION: Log the pattern
           const pattern = interleavedRefs.map(r => r.source === 'Quran' ? 'Q' : 'H').join('-')
