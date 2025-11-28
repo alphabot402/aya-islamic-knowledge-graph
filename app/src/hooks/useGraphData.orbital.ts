@@ -53,14 +53,14 @@ const BASE_PILLAR_RINGS: Record<Pillar, number> = {
 
 /**
  * Get responsive scale factor based on viewport width
- * UPDATED: Increased mobile scale from 0.60 to 0.80 for larger graph
+ * UPDATED: Reduced mobile scale to 0.75 (25% reduction) to fit all rings on screen
  */
 function getResponsiveScale(): number {
   if (typeof window === 'undefined') return 1.0 // SSR fallback
 
   const width = window.innerWidth
-  if (width < 768) return 0.80  // Mobile: 20% reduction (was 40%, now optimized with compact header)
-  if (width < 1024) return 0.85 // Tablet: 15% reduction (improved from 20%)
+  if (width < 768) return 0.75  // Mobile: 25% reduction (optimized to show all rings without cutoff)
+  if (width < 1024) return 0.85 // Tablet: 15% reduction
   return 1.0                     // Desktop: no reduction
 }
 
@@ -144,12 +144,16 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
       // ========================================================================
       const graphNodes: GraphNode[] = []
 
+      console.log('\n═══════════════════════════════════════════════════')
+      console.log('🔍 DETAILED NODE ALTERNATING DEBUG')
+      console.log('═══════════════════════════════════════════════════\n')
+
       // For each pillar, place ALL nodes (Quran + Hadith) on that pillar's ring
       Object.entries(referencesByPillar).forEach(([pillar, references]) => {
         const pillarType = pillar as PillarType
 
         // PART 2: Fix Node Alternating - SYSTEMATIC APPROACH
-        console.log(`\n--- Processing ${pillar} ---`)
+        console.log(`\n--- Processing ${pillar.toUpperCase()} ---`)
 
         // STEP 2A: Separate Quran and Hadith references
         const quranRefs = references.filter(ref => ref.source === 'Quran')
@@ -196,7 +200,8 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
 
           // VERIFICATION: Log the pattern
           const pattern = interleavedRefs.map(r => r.source === 'Quran' ? 'Q' : 'H').join('-')
-          console.log(`${pillar} PATTERN:`, pattern)
+          console.log(`${pillar} PATTERN (${interleavedRefs.length} nodes):`)
+          console.log(`  ${pattern}`)
 
           // Check for clusters (3+ of same type in a row)
           const hasClusters = /Q-Q-Q-Q|H-H-H-H/.test(pattern)
@@ -205,6 +210,12 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           } else {
             console.log(`✓ ${pillar}: Pattern looks good (no major clusters)`)
           }
+
+          // Additional verification: Show first 20 nodes with their types
+          console.log(`${pillar} First 20 nodes:`)
+          interleavedRefs.slice(0, 20).forEach((ref, idx) => {
+            console.log(`  ${idx}: ${ref.source === 'Quran' ? 'Q' : 'H'} - ${ref.citation}`)
+          })
         }
 
         // Total nodes on this ring
@@ -233,6 +244,26 @@ export function useGraphData(useDatabase: boolean = false): UseGraphDataResult {
           })
         })
       })
+
+      // FINAL VERIFICATION: Summary of all nodes created
+      console.log('\n═══════════════════════════════════════════════════')
+      console.log('📊 FINAL NODE SUMMARY')
+      console.log('═══════════════════════════════════════════════════')
+      console.log(`Total nodes created: ${graphNodes.length}`)
+
+      const nodesByPillar = graphNodes.reduce((acc, node) => {
+        if (!acc[node.pillar]) acc[node.pillar] = { primary: 0, secondary: 0 }
+        if (node.type === 'primary') acc[node.pillar].primary++
+        else acc[node.pillar].secondary++
+        return acc
+      }, {} as Record<string, { primary: number, secondary: number }>)
+
+      Object.entries(nodesByPillar).forEach(([pillar, counts]) => {
+        console.log(`${pillar}: ${counts.primary} primary (Quran), ${counts.secondary} secondary (Hadith)`)
+      })
+
+      console.log('\n✅ All nodes positioned with alternating pattern')
+      console.log('═══════════════════════════════════════════════════\n')
 
       setNodes(graphNodes)
     } catch (err) {

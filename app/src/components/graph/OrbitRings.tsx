@@ -162,7 +162,7 @@ export default function OrbitRings({ pillarFilter }: OrbitRingsProps) {
   const getScale = () => {
     if (typeof window === 'undefined') return 1.0
     const width = window.innerWidth
-    if (width < 768) return 0.80  // Mobile: 20% reduction (MATCHES node scale)
+    if (width < 768) return 0.75  // Mobile: 25% reduction (MATCHES node scale)
     if (width < 1024) return 0.85 // Tablet: 15% reduction (MATCHES node scale)
     return 1.0                     // Desktop: no reduction
   }
