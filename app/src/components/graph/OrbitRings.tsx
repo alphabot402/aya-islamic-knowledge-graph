@@ -11,16 +11,16 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 // PART 1: Fix Ring Alignment - Perfect Concentric Circles
+// ALL DEVICES: Rings must be completely flat so nodes sit perfectly on them
 const RING_ROTATION = {
   mobile: 0,      // COMPLETELY FLAT - top-down view
   tablet: 0,      // Also flat
-  desktop: 12     // Slight tilt for desktop only (in degrees)
+  desktop: 0      // CHANGED: Now flat on desktop too (was 12°) to match node positions
 }
 
 function getRingRotation(): number {
-  if (typeof window === 'undefined') return 0
-  if (window.innerWidth < 1024) return 0 // Flat for mobile/tablet
-  return (RING_ROTATION.desktop * Math.PI) / 180 // Convert to radians
+  // Always return 0 - rings are flat on all devices to match node Y=0 plane
+  return 0
 }
 
 interface OrbitRingProps {
@@ -38,7 +38,7 @@ function OrbitRing({ radius, label, color, rotationSpeed }: OrbitRingProps) {
   useEffect(() => {
     const rotation = getRingRotation()
     setRingRotation(rotation)
-    console.log(`Ring ${label} rotation set to: ${(rotation * 180 / Math.PI).toFixed(1)}°`)
+    // All rings are now flat (0°) to match node Y=0 plane
   }, [label])
 
   // Animate rotation around Y-axis (only the rotating ring moves)
