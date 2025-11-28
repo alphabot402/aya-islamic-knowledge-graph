@@ -1,7 +1,7 @@
 /**
  * PillarFilter Component
  * Filter buttons for Five Pillars of Islam
- * MOBILE OPTIMIZED: Ultra-compact, always visible legend
+ * MOBILE OPTIMIZED: Ultra-compact, always visible
  */
 
 'use client'
@@ -25,10 +25,6 @@ export default function PillarFilter({
       {/* Vertical sidebar - Slightly wider to fit "Shahada" without wrapping */}
       <div className="bg-black/90 md:bg-black/70 backdrop-blur-xl border border-white/20 md:border-blue-300/30 rounded-md md:rounded-xl p-2 md:p-3 shadow-2xl w-[100px] md:w-auto">
         <div className="flex flex-col gap-1 md:gap-2">
-          <span className="text-[9px] md:text-[10px] text-blue-200 font-semibold uppercase tracking-wide text-center mb-1 md:mb-1">
-            Legend
-          </span>
-
           {/* All button - ultra compact on mobile */}
           <button
             onClick={() => onChange('all')}
