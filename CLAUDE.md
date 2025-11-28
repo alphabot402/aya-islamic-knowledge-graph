@@ -84,21 +84,27 @@ AYA/
 
 ### Development Workflow
 
+**IMPORTANT: This project uses GitHub → Vercel deployment. DO NOT use localhost or npm run dev.**
+
 ```bash
-# Install all dependencies (run from root)
+# Install all dependencies (run from root, if needed)
 npm install
 cd app && npm install
 
-# Start Next.js development server
-cd app
-npm run dev
-# Opens on http://localhost:3000
+# Deployment workflow (ALWAYS use this):
+# 1. Make code changes
+# 2. Commit to git
+git add .
+git commit -m "Your commit message"
 
-# Build for production
-cd app
-npm run build
-npm start
+# 3. Push to GitHub
+git push
+
+# 4. Vercel automatically deploys from GitHub
+# 5. View changes at: https://projectayat.vercel.app/
 ```
+
+**Never run `npm run dev` or test on localhost. All testing happens on the live Vercel deployment.**
 
 ### Data Pipeline
 
