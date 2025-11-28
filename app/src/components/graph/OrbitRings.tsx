@@ -160,11 +160,11 @@ interface OrbitRingsProps {
 export default function OrbitRings({ pillarFilter }: OrbitRingsProps) {
   // Get responsive scale factor - MUST MATCH useGraphData.orbital.ts
   const getScale = () => {
-    if (typeof window === 'undefined') return 1.0
+    if (typeof window === 'undefined') return 0.95
     const width = window.innerWidth
     if (width < 768) return 0.75  // Mobile: 25% reduction (MATCHES node scale)
     if (width < 1024) return 0.85 // Tablet: 15% reduction (MATCHES node scale)
-    return 1.0                     // Desktop: no reduction
+    return 0.95                    // Desktop: 5% reduction (MATCHES node scale)
   }
 
   const scale = getScale()

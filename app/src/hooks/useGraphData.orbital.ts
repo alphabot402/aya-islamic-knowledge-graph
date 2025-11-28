@@ -53,15 +53,15 @@ const BASE_PILLAR_RINGS: Record<Pillar, number> = {
 
 /**
  * Get responsive scale factor based on viewport width
- * UPDATED: Reduced mobile scale to 0.75 (25% reduction) to fit all rings on screen
+ * UPDATED: Reduced all scales for better complete view
  */
 function getResponsiveScale(): number {
-  if (typeof window === 'undefined') return 1.0 // SSR fallback
+  if (typeof window === 'undefined') return 0.95 // SSR fallback
 
   const width = window.innerWidth
   if (width < 768) return 0.75  // Mobile: 25% reduction (optimized to show all rings without cutoff)
   if (width < 1024) return 0.85 // Tablet: 15% reduction
-  return 1.0                     // Desktop: no reduction
+  return 0.95                    // Desktop: 5% reduction (optimized to show all nodes in view)
 }
 
 /**
